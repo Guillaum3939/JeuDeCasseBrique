@@ -16,10 +16,11 @@ namespace JeuDeCasseBrique
         {
             #region Attributs
             int largeurFenetre = 1080;
-            int hauteurFenetre = 720;
+            int hauteurFenetre = 720; 
             string titreFenetre = "Projet casse-brique";
             #endregion //Attributs
 
+           //teste guillaume
             #region code
             GameWindow window = new GameWindow(largeurFenetre, hauteurFenetre, GraphicsMode.Default, titreFenetre);
             GestionJeu fenetrePrincipale = new GestionJeu(window);
