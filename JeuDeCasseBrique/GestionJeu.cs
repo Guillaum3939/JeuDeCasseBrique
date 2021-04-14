@@ -25,6 +25,8 @@ namespace JeuDeCasseBrique
             double dureeAffichageCHaqueImage = 1.0 / nbrIPS;
 
             window.Run(dureeAffichageCHaqueImage);
+            // test 123
+      
 
         }
     }

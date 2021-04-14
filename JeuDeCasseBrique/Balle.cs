@@ -10,6 +10,6 @@ namespace JeuDeCasseBrique
 {
     class Balle 
     {
-
+        int balle;
     }
 }
