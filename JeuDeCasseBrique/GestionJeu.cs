@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using OpenTK;
+using OpenTK.Graphics.OpenGL;
 
 namespace JeuDeCasseBrique
 {
@@ -17,15 +18,41 @@ namespace JeuDeCasseBrique
         public GestionJeu(GameWindow window)
         {
             this.window = window;
+            start();
         }
-        #endregion
+        
          private void start()
         {
+
             double nbrIPS = 60.0;
             double dureeAffichageCHaqueImage = 1.0 / nbrIPS;
+
+            window.Load += chargement;
+            window.UpdateFrame += update;
+            window.RenderFrame += rendu;
 
             window.Run(dureeAffichageCHaqueImage);
 
         }
+
+        private void chargement (object sender, EventArgs arg)
+        {
+            GL.ClearColor(1.0f, 1.0f, 1.0f, 0.0f);
+        }
+
+        private void update(object sender, FrameEventArgs arg)
+        {
+            //code 
+        }
+        #endregion //ConstructeurInitialisation
+
+        #region GestionAffichage
+        private void rendu(object sender, FrameEventArgs arg)
+        {
+            GL.Clear(ClearBufferMask.ColorBufferBit);
+            window.SwapBuffers();
+
+        }
+        #endregion
     }
 }

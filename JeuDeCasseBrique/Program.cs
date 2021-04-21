@@ -15,8 +15,8 @@ namespace JeuDeCasseBrique
         static void Main(string[] args)
         {
             #region Attributs
-            int largeurFenetre = 1080;
-            int hauteurFenetre = 720; 
+            int largeurFenetre = 500;
+            int hauteurFenetre = 700; 
             string titreFenetre = "Projet casse-brique";
             #endregion //Attributs
 
