@@ -19,7 +19,7 @@ namespace JeuDeCasseBrique
 
         #region ConstructeurInitialisation
         public Raquette(Vector2 pointE, Vector2 pointF, Vector2 pointG, Vector2 pointH)
-            : base("./images/CaisseBoisBMP.bmp", pointE, pointF, pointG, pointH)
+            : base("images/CaisseBoisBMP.bmp", pointE, pointF, pointG, pointH)
         {
 
         }

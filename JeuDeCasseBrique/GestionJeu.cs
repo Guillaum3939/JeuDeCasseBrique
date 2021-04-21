@@ -61,10 +61,10 @@ namespace JeuDeCasseBrique
             GL.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             //changement couleur
 
-            Vector2 pointE = new Vector2(5.0f, -4.0f);
-            Vector2 pointF = new Vector2(5.0f, -1.0f);
-            Vector2 pointG = new Vector2(-5.0f, -1.0f);
-            Vector2 pointH = new Vector2(-5.0f, -4.0f);
+            Vector2 pointE = new Vector2(-0.7f, -0.95f);
+            Vector2 pointF = new Vector2(-0.7f,-0.90f);
+            Vector2 pointG = new Vector2(-0.2f, -0.90f);
+            Vector2 pointH = new Vector2(-0.2f, -0.95f);
             raquette = new Raquette(pointE, pointF, pointG, pointH);
 
             
