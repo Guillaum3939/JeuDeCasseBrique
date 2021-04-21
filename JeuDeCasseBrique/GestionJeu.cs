@@ -14,9 +14,24 @@ namespace JeuDeCasseBrique
 
         #region Attriuts
         GameWindow window;
+        Vector2[] listeDroitesCarre = new Vector2[4];
         #endregion
 
         #region ConstructeurInitialisation
+
+        public void directionDictionary()
+        {
+            IDictionary<CoteObjets, Vector2[]> forme = new Dictionary<CoteObjets, Vector2[]>();
+            forme.Add(CoteObjets.EST, listeDroitesCarre);
+            forme.Add(CoteObjets.NORD, listeDroitesCarre);
+            forme.Add(CoteObjets.NORD_EST, listeDroitesCarre);
+            forme.Add(CoteObjets.NORD_OUEST, listeDroitesCarre);
+            forme.Add(CoteObjets.NULL, listeDroitesCarre);
+            forme.Add(CoteObjets.OUEST, listeDroitesCarre);
+            forme.Add(CoteObjets.SUD, listeDroitesCarre);
+
+        }
+
         public GestionJeu(GameWindow window)
         {
             this.window = window;
