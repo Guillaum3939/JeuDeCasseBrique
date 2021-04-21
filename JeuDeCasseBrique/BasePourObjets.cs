@@ -7,7 +7,6 @@ using System.Drawing;
 using System.Windows;
 using OpenTK.Graphics.OpenGL;
 using System.Drawing.Imaging;
-using System.Drawing;
 using OpenTK;
 
 namespace JeuDeCasseBrique
