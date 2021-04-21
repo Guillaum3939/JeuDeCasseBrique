@@ -32,6 +32,8 @@ namespace JeuDeCasseBrique
             window.RenderFrame += rendu;
 
             window.Run(dureeAffichageCHaqueImage);
+            // test 123
+      
 
         }
 
