@@ -10,6 +10,8 @@ namespace JeuDeCasseBrique
 {
     class GestionJeu
     {
+        enum CoteObjets { NULL, NORD, SUD, EST, OUEST, NORD_EST, NORD_OUEST };
+
         #region Attriuts
         GameWindow window;
         #endregion
