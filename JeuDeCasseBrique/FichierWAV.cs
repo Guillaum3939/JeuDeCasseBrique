@@ -2,7 +2,6 @@
 using OpenTK.Audio.OpenAL;
 using System.IO;
 
-
 namespace JeuDeCasseBrique
 {
     class FichierWAV
