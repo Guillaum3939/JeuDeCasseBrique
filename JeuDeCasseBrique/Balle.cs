@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using OpenTK;
 using OpenTK.Graphics.OpenGL;
 
@@ -50,6 +46,7 @@ namespace JeuDeCasseBrique
             base.dessiner(PrimitiveType.Quads);
             GL.PopMatrix();
         }
+      /*
         override public Dictionary<CoteObjets, Vector2[]> getDroitesCotes()
         {
             Dictionary<CoteObjets, Vector2[]> listeDroites = new Dictionary<CoteObjets, Vector2[]>();
@@ -65,7 +62,7 @@ namespace JeuDeCasseBrique
             listeDroites[CoteObjets.OUEST] = new Vector2[] { reelPointD, reelPointA };
 
             return listeDroites;
-        }
+        }*/
         public void inverserDirection()
         {
             incrementVertical *= -1.0f;
