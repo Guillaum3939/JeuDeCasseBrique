@@ -74,6 +74,26 @@ namespace JeuDeCasseBrique
 
         #endregion //Gestion Texture
 
+        #region Methode
 
+        //abstract public void update();
+        //abstract public Dictionary<CoteObjets, Vector2[]> getDroitesCotes();
+
+        public void dessiner(PrimitiveType typeDessin)
+        {
+            GL.BindTexture(TextureTarget.Texture2D, textureID);
+            GL.Begin(typeDessin);
+            for (int i = 0; i < listePoints.Length; i++)
+            {
+                GL.TexCoord2(coordonneesTextures[i]);
+                GL.Vertex2(listePoints[i].X, listePoints[i].Y);
+
+            }
+
+            GL.End();
+        }
+
+        
+        #endregion // methode
     }
 }
