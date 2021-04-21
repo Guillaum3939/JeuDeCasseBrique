@@ -74,12 +74,12 @@ namespace JeuDeCasseBrique
 
         }
         #endregion
-
+        
         #region gestionCollisions
-        private void detectionCollision()
+       /* private void detectionCollision()
         {
-            Dictionary<CoteObjets, Vector2[]> listeDroitesTriangle = doritos.getDroitesCotes();
-            Dictionary<CoteObjets, Vector2[]> listeDroitesCarre = carre.getDroitesCotes();
+            //Dictionary<CoteObjets, Vector2[]> listeDroitesTriangle = doritos.getDroitesCotes();
+           // Dictionary<CoteObjets, Vector2[]> listeDroitesCarre = carre.getDroitesCotes();
             bool siCollisionDoritosCaisse = false;
             CoteObjets coteCollision = CoteObjets.NULL;
 
@@ -98,9 +98,9 @@ namespace JeuDeCasseBrique
             {
                 Console.WriteLine("Il y a eu collision sur le coté : " + coteCollision.ToString());
                 //audio.jouerSonOuch();
-                balle.inverserDirection();
+                //balle.inverserDirection();
             }
-        }
+        }*/
         #region methodesWeb
         private bool intersection(Vector2[] droiteTriangle, Vector2[] droiteCarre)
         {
@@ -178,7 +178,7 @@ namespace JeuDeCasseBrique
 
             return siIntersection;
         }
-
+        
         // ****************************
         // Méthodes trouvées sur le web
         // Celles-ci permettent d'ajuster la précision lors des différentes comparaisons possibles.
@@ -233,5 +233,6 @@ namespace JeuDeCasseBrique
         }
         #endregion // methodesWeb
         #endregion // gestionCollisions
+        
     }
 }
