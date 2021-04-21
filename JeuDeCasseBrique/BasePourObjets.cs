@@ -11,7 +11,7 @@ using OpenTK;
 
 namespace JeuDeCasseBrique
 {
-    class BasePourObjets
+    abstract class BasePourObjets
     {
         #region Attributs
         protected Vector2[] listePoints;
