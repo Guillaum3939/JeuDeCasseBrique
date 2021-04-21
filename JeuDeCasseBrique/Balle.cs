@@ -46,6 +46,7 @@ namespace JeuDeCasseBrique
             base.dessiner(PrimitiveType.Quads);
             GL.PopMatrix();
         }
+      /*
         override public Dictionary<CoteObjets, Vector2[]> getDroitesCotes()
         {
             Dictionary<CoteObjets, Vector2[]> listeDroites = new Dictionary<CoteObjets, Vector2[]>();
@@ -61,7 +62,7 @@ namespace JeuDeCasseBrique
             listeDroites[CoteObjets.OUEST] = new Vector2[] { reelPointD, reelPointA };
 
             return listeDroites;
-        }
+        }*/
         public void inverserDirection()
         {
             incrementVertical *= -1.0f;
