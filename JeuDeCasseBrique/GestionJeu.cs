@@ -40,6 +40,7 @@ namespace JeuDeCasseBrique
         private void chargement (object sender, EventArgs arg)
         {
             GL.ClearColor(1.0f, 1.0f, 1.0f, 0.0f);
+            //changement couleur
         }
 
         private void update(object sender, FrameEventArgs arg)
