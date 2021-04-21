@@ -11,5 +11,6 @@ namespace JeuDeCasseBrique
     class Balle 
     {
         int balle;
+        int cerise;
     }
 }
