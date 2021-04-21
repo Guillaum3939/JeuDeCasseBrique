@@ -1,10 +1,13 @@
-﻿using System;
+﻿using OpenTK;
+using OpenTK.Graphics;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using OpenTK;
-using OpenTK.Graphics.ES20;
+using OpenTK.Graphics.OpenGL;
+using System.Drawing.Imaging;
+using System.Drawing;
 
 namespace JeuDeCasseBrique
 {
@@ -33,7 +36,11 @@ namespace JeuDeCasseBrique
 
         public void dessiner()
         {
+            GL.PushMatrix();
             
+            base.dessiner(PrimitiveType.Quads);
+
+            GL.PopMatrix();
         }
 
         

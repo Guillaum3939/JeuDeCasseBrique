@@ -14,7 +14,9 @@ namespace JeuDeCasseBrique
 
         #region Attriuts
         GameWindow window;
+        Raquette raquette;
         Vector2[] listeDroitesCarre = new Vector2[4];
+        
         #endregion
 
         #region ConstructeurInitialisation
@@ -40,6 +42,7 @@ namespace JeuDeCasseBrique
         
          private void start()
         {
+            
 
             double nbrIPS = 60.0;
             double dureeAffichageCHaqueImage = 1.0 / nbrIPS;
@@ -50,14 +53,22 @@ namespace JeuDeCasseBrique
 
             window.Run(dureeAffichageCHaqueImage);
             // test 123
-      
-
+           
         }
 
         private void chargement (object sender, EventArgs arg)
         {
             GL.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             //changement couleur
+
+            Vector2 pointE = new Vector2(5.0f, -4.0f);
+            Vector2 pointF = new Vector2(5.0f, -1.0f);
+            Vector2 pointG = new Vector2(-5.0f, -1.0f);
+            Vector2 pointH = new Vector2(-5.0f, -4.0f);
+            raquette = new Raquette(pointE, pointF, pointG, pointH);
+
+            
+            
         }
 
         private void update(object sender, FrameEventArgs arg)
@@ -69,7 +80,10 @@ namespace JeuDeCasseBrique
         #region GestionAffichage
         private void rendu(object sender, FrameEventArgs arg)
         {
+            
             GL.Clear(ClearBufferMask.ColorBufferBit);
+            raquette.dessiner();
+
             window.SwapBuffers();
 
         }
