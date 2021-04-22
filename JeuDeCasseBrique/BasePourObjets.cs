@@ -18,6 +18,7 @@ namespace JeuDeCasseBrique
         protected Vector2[] coordonneesTextures;
         protected int textureID;
         protected string nomTexture;
+        protected float deplacementHorizontal, deplacementVertical, incrementHorizontal, incrementVertical;
         #endregion //Attributs
 
         #region ConstructeurInitialisation

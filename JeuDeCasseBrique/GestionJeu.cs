@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenTK;
 using OpenTK.Graphics.OpenGL;
+using OpenTK.Input;
 
 namespace JeuDeCasseBrique
 {
@@ -50,7 +51,8 @@ namespace JeuDeCasseBrique
             window.Load += chargement;
             window.UpdateFrame += update;
             window.RenderFrame += rendu;
-
+            window.KeyPress += Window_KeyPress;
+            
             window.Run(dureeAffichageCHaqueImage);
             // test 123
            
@@ -73,7 +75,7 @@ namespace JeuDeCasseBrique
 
         private void update(object sender, FrameEventArgs arg)
         {
-            //code 
+            raquette.update();
         }
         #endregion //ConstructeurInitialisation
 
@@ -88,33 +90,56 @@ namespace JeuDeCasseBrique
 
         }
         #endregion
-        
-        #region gestionCollisions
-       /* private void detectionCollision()
-        {
-            //Dictionary<CoteObjets, Vector2[]> listeDroitesTriangle = doritos.getDroitesCotes();
-           // Dictionary<CoteObjets, Vector2[]> listeDroitesCarre = carre.getDroitesCotes();
-            bool siCollisionDoritosCaisse = false;
-            CoteObjets coteCollision = CoteObjets.NULL;
 
-            foreach (KeyValuePair<CoteObjets, Vector2[]> droiteTriangle in listeDroitesTriangle)
+        #region Action clavier
+
+        private void Window_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            KeyboardState keyboardState = Keyboard.GetState();
+            if (keyboardState.IsKeyDown(Key.A))
             {
-                foreach (KeyValuePair<CoteObjets, Vector2[]> droiteCarre in listeDroitesCarre)
-                {
-                    if (intersection(droiteTriangle.Value, droiteCarre.Value))
-                    {
-                        siCollisionDoritosCaisse = true;
-                        coteCollision = droiteCarre.Key;
-                    }
-                }
+                Console.WriteLine(e.KeyChar.ToString());
+                //raquetteEnMvmt = true;
+                raquette.Direction = false;
+                
             }
-            if (siCollisionDoritosCaisse)
+            else if (keyboardState.IsKeyDown(Key.D))
             {
-                Console.WriteLine("Il y a eu collision sur le coté : " + coteCollision.ToString());
-                //audio.jouerSonOuch();
-                //balle.inverserDirection();
+                //raquetteEnMvmt = true;
+                raquette.Direction = true;
+                Console.WriteLine(e.KeyChar.ToString());
             }
-        }*/
+
+        }
+
+        #endregion clavier
+
+        #region gestionCollisions
+        /* private void detectionCollision()
+         {
+             //Dictionary<CoteObjets, Vector2[]> listeDroitesTriangle = doritos.getDroitesCotes();
+            // Dictionary<CoteObjets, Vector2[]> listeDroitesCarre = carre.getDroitesCotes();
+             bool siCollisionDoritosCaisse = false;
+             CoteObjets coteCollision = CoteObjets.NULL;
+
+             foreach (KeyValuePair<CoteObjets, Vector2[]> droiteTriangle in listeDroitesTriangle)
+             {
+                 foreach (KeyValuePair<CoteObjets, Vector2[]> droiteCarre in listeDroitesCarre)
+                 {
+                     if (intersection(droiteTriangle.Value, droiteCarre.Value))
+                     {
+                         siCollisionDoritosCaisse = true;
+                         coteCollision = droiteCarre.Key;
+                     }
+                 }
+             }
+             if (siCollisionDoritosCaisse)
+             {
+                 Console.WriteLine("Il y a eu collision sur le coté : " + coteCollision.ToString());
+                 //audio.jouerSonOuch();
+                 //balle.inverserDirection();
+             }
+         }*/
         #region methodesWeb
         private bool intersection(Vector2[] droiteTriangle, Vector2[] droiteCarre)
         {
