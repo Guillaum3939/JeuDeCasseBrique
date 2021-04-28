@@ -126,18 +126,18 @@ namespace JeuDeCasseBrique
             KeyboardState keyboardState = Keyboard.GetState();
             if (keyboardState.IsKeyDown(Key.A) || keyboardState.IsKeyDown(Key.Left) )
             {
-                Console.WriteLine(e.KeyChar.ToString());
+
                 //raquetteEnMvmt = true;
                 raquette.Direction = false;
                 
             }
-            else if (keyboardState.IsKeyDown(Key.D) || keyboardState.IsKeyDown(Key.Right) )
+            if (keyboardState.IsKeyDown(Key.D) || keyboardState.IsKeyDown(Key.Right) )
             {
                 //raquetteEnMvmt = true;
                 raquette.Direction = true;
-                Console.WriteLine(e.KeyChar.ToString());
+                
             }
-
+            Console.WriteLine("Bouttom présser :" + e.KeyChar.ToString());
         }
 
         #endregion clavier
