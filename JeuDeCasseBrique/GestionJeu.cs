@@ -79,8 +79,8 @@ namespace JeuDeCasseBrique
 
             Vector2 pointE = new Vector2(-40.0f, -225.0f);
             Vector2 pointF = new Vector2(-40.0f,-215.0f);
-            Vector2 pointG = new Vector2(40.0f, -215.0f);
-            Vector2 pointH = new Vector2(40.0f, -225.0f);
+            Vector2 pointG = new Vector2(32.0f, -215.0f);
+            Vector2 pointH = new Vector2(32.0f, -225.0f);
             raquette = new Raquette(pointE, pointF, pointG, pointH);
             brique = new Brique(pointA, pointB, pointC, pointD);
             
