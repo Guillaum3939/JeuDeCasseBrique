@@ -88,7 +88,13 @@ namespace JeuDeCasseBrique
 
         private void update(object sender, FrameEventArgs arg)
         {
-            raquette.update();
+            KeyboardState keyboardState = Keyboard.GetState();
+            if (keyboardState.IsKeyDown(Key.A) || keyboardState.IsKeyDown(Key.D) || keyboardState.IsKeyDown(Key.Right) || keyboardState.IsKeyDown(Key.Left) )
+            {
+                raquette.update();
+
+            }
+            
             //brique.update();
            
         }
@@ -111,14 +117,14 @@ namespace JeuDeCasseBrique
         private void Window_KeyPress(object sender, KeyPressEventArgs e)
         {
             KeyboardState keyboardState = Keyboard.GetState();
-            if (keyboardState.IsKeyDown(Key.A))
+            if (keyboardState.IsKeyDown(Key.A) || keyboardState.IsKeyDown(Key.Right))
             {
                 Console.WriteLine(e.KeyChar.ToString());
                 //raquetteEnMvmt = true;
                 raquette.Direction = false;
                 
             }
-            else if (keyboardState.IsKeyDown(Key.D))
+            else if (keyboardState.IsKeyDown(Key.D) || keyboardState.IsKeyDown(Key.Left))
             {
                 //raquetteEnMvmt = true;
                 raquette.Direction = true;
