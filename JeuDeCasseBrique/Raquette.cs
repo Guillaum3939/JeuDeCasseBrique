@@ -33,23 +33,23 @@ namespace JeuDeCasseBrique
         {
             if (direction == false)
             {
-                if (deplacementHorizontal + incrementHorizontal <= -100.0f - listePoints[3].X)
+                if (deplacementHorizontal + incrementHorizontal <= -250.0f - listePoints[3].X)
                 {
-                    incrementHorizontal = 0.0f;
+                    incrementHorizontal = 0.0f;//stop a la bordure
                 }
                 else
-                    incrementHorizontal = -6.0f;
+                    incrementHorizontal = -2.0f;
 
             }
             else
             {
-                if (deplacementHorizontal + incrementHorizontal >= 100.0f - listePoints[0].X)
+                if (deplacementHorizontal + incrementHorizontal >= 250.0f - listePoints[0].X)
                 {
-                    incrementHorizontal = 0.0f;
-                    Console.WriteLine("teste de mouvement de la raquette");
+                    incrementHorizontal = 0.0f;//stop a la bordure
+
                 }
                 else
-                    incrementHorizontal = 6.0f;
+                    incrementHorizontal = 2.0f;
             }
 
             deplacementHorizontal += incrementHorizontal;
@@ -59,10 +59,8 @@ namespace JeuDeCasseBrique
         {
             GL.PushMatrix();
 
-            GL.Translate(0.004, 0.001f, 0.0f);
+            GL.Translate(deplacementHorizontal, 0.0f, 0.0f);
             base.dessiner(PrimitiveType.Quads);
-            
-
 
             GL.PopMatrix();
         }
