@@ -59,8 +59,9 @@ namespace JeuDeCasseBrique
         {
             GL.PushMatrix();
 
+            GL.Translate(0.004, 0.001f, 0.0f);
             base.dessiner(PrimitiveType.Quads);
-            GL.Translate(deplacementHorizontal, 0.0f, 0.0f);
+            
 
 
             GL.PopMatrix();

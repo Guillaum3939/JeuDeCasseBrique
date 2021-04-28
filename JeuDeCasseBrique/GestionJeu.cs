@@ -49,6 +49,7 @@ namespace JeuDeCasseBrique
             double dureeAffichageCHaqueImage = 1.0 / nbrIPS;
 
             window.Load += chargement;
+            window.Resize += redimensionner;
             window.UpdateFrame += update;
             window.RenderFrame += rendu;
             window.KeyPress += Window_KeyPress;
@@ -58,15 +59,25 @@ namespace JeuDeCasseBrique
            
         }
 
+        private void redimensionner(object sender, EventArgs e)
+        {
+            GL.Viewport(0, 0, window.Width, window.Height);
+            GL.MatrixMode(MatrixMode.Projection);
+            GL.LoadIdentity();
+            GL.Ortho(-350.0, 350.0, -250, 250.0, -1.0, 1.0);
+            GL.MatrixMode(MatrixMode.Modelview);
+            
+        }
+
         private void chargement (object sender, EventArgs arg)
         {
             GL.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             //changement couleur
 
-            Vector2 pointE = new Vector2(-0.7f, -0.95f);
-            Vector2 pointF = new Vector2(-0.7f,-0.90f);
-            Vector2 pointG = new Vector2(-0.2f, -0.90f);
-            Vector2 pointH = new Vector2(-0.2f, -0.95f);
+            Vector2 pointE = new Vector2(-40.0f, -225.0f);
+            Vector2 pointF = new Vector2(-40.0f,-215.0f);
+            Vector2 pointG = new Vector2(40.0f, -215.0f);
+            Vector2 pointH = new Vector2(40.0f, -225.0f);
             raquette = new Raquette(pointE, pointF, pointG, pointH);
 
             
