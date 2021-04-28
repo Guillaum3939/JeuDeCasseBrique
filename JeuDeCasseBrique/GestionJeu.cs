@@ -16,6 +16,7 @@ namespace JeuDeCasseBrique
         #region Attriuts
         GameWindow window;
         Raquette raquette;
+        Brique brique;
         Vector2[] listeDroitesCarre = new Vector2[4];
         
         #endregion
@@ -73,12 +74,17 @@ namespace JeuDeCasseBrique
         {
             GL.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             //changement couleur
+            Vector2 pointA = new Vector2(0.0f, -20.0f);
+            Vector2 pointB = new Vector2(0.0f, -20.0f);
+            Vector2 pointC = new Vector2(10.0f, -20.0f);
+            Vector2 pointD = new Vector2(10.0f, -20.0f);
 
             Vector2 pointE = new Vector2(-40.0f, -225.0f);
             Vector2 pointF = new Vector2(-40.0f,-215.0f);
             Vector2 pointG = new Vector2(40.0f, -215.0f);
             Vector2 pointH = new Vector2(40.0f, -225.0f);
             raquette = new Raquette(pointE, pointF, pointG, pointH);
+            brique = new Brique(pointA, pointB, pointC, pointD);
 
             
             
@@ -87,6 +93,8 @@ namespace JeuDeCasseBrique
         private void update(object sender, FrameEventArgs arg)
         {
             raquette.update();
+            //brique.update();
+           
         }
         #endregion //ConstructeurInitialisation
 
@@ -96,6 +104,7 @@ namespace JeuDeCasseBrique
             
             GL.Clear(ClearBufferMask.ColorBufferBit);
             raquette.dessiner();
+            brique.dessiner();
 
             window.SwapBuffers();
 

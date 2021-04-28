@@ -62,7 +62,7 @@ namespace JeuDeCasseBrique
             return bmpData;
         }
 
-       
+
         public void setCoordonneeTextureBrique()
         {
             coordonneesTextures = new Vector2[4];
