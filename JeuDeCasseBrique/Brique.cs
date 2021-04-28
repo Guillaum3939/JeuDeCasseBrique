@@ -40,11 +40,6 @@ namespace JeuDeCasseBrique
             GL.PopMatrix();
         }
 
- 
-
-   
-
-      
         #endregion
 
     }
