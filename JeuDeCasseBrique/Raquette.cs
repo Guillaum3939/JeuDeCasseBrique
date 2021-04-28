@@ -22,7 +22,7 @@ namespace JeuDeCasseBrique
 
         #region ConstructeurInitialisation
         public Raquette(Vector2 pointE, Vector2 pointF, Vector2 pointG, Vector2 pointH)
-            : base("images/CaisseBoisBMP.bmp", pointE, pointF, pointG, pointH)
+            : base("./images/CaisseBoisBMP.bmp", pointE, pointF, pointG, pointH)
         {
             deplacementHorizontal = 0;
             incrementHorizontal = 2.0f;
@@ -38,7 +38,7 @@ namespace JeuDeCasseBrique
                     incrementHorizontal = 0.0f;//stop a la bordure
                 }
                 else
-                    incrementHorizontal = -4.0f;
+                    incrementHorizontal = -2.0f;
 
             }
             else
@@ -49,7 +49,7 @@ namespace JeuDeCasseBrique
 
                 }
                 else
-                    incrementHorizontal = 4.0f;
+                    incrementHorizontal = 2.0f;
             }
 
             deplacementHorizontal += incrementHorizontal;
@@ -65,9 +65,7 @@ namespace JeuDeCasseBrique
             GL.PopMatrix();
         }
 
-        /*
-         * 
-         * public override Dictionary<CoteObjets, Vector2[]> getDroitesCotes()
+        /*public override Dictionary<CoteObjets, Vector2[]> getDroitesCotes()
         {
             Dictionary<CoteObjets, Vector2[]> listeDroites = new Dictionary<CoteObjets, Vector2[]>();
 
@@ -83,7 +81,6 @@ namespace JeuDeCasseBrique
 
             return listeDroites;
         }
-
         */
 
     }

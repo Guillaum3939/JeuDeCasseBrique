@@ -16,7 +16,7 @@ namespace JeuDeCasseBrique
         #region Attriuts
         GameWindow window;
         Raquette raquette;
-        List<Brique> brique;
+        Brique brique;
         Vector2[] listeDroitesCarre = new Vector2[4];
         #endregion
 
@@ -72,33 +72,23 @@ namespace JeuDeCasseBrique
         {
             GL.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             //changement couleur
-
-            //instansiation des briques 
             Vector2 pointA = new Vector2(0.0f, -20.0f);
             Vector2 pointB = new Vector2(0.0f, -10.0f);
-            Vector2 pointC = new Vector2(10.0f, -10.0f);
-            Vector2 pointD = new Vector2(10.0f, -20.0f);
-            brique = new List<Brique>();
-            brique.Add(new Brique("./image/caiseDebois.bmp", pointA, pointB, pointC, pointC));
+            Vector2 pointC = new Vector2(10.0f, -20.0f);
+            Vector2 pointD = new Vector2(10.0f, -10.0f);
 
-            
             Vector2 pointE = new Vector2(-40.0f, -225.0f);
             Vector2 pointF = new Vector2(-40.0f,-215.0f);
             Vector2 pointG = new Vector2(32.0f, -215.0f);
             Vector2 pointH = new Vector2(32.0f, -225.0f);
             raquette = new Raquette(pointE, pointF, pointG, pointH);
-           
+            brique = new Brique(pointA, pointB, pointC, pointD);
             
         }
 
         private void update(object sender, FrameEventArgs arg)
         {
-            KeyboardState keyboardState = Keyboard.GetState();
-            if (keyboardState.IsKeyDown(Key.A) || keyboardState.IsKeyDown(Key.D) || keyboardState.IsKeyDown(Key.Left) || keyboardState.IsKeyDown(Key.Right) )
-            {
-                raquette.update();
-            }
-            
+            raquette.update();
             //brique.update();
            
         }
@@ -110,10 +100,7 @@ namespace JeuDeCasseBrique
             
             GL.Clear(ClearBufferMask.ColorBufferBit);
             raquette.dessiner();
-            foreach (Brique brique in brique)
-            {
-                brique.dessiner();
-            }
+            brique.dessiner();
             window.SwapBuffers();
 
         }
@@ -124,20 +111,20 @@ namespace JeuDeCasseBrique
         private void Window_KeyPress(object sender, KeyPressEventArgs e)
         {
             KeyboardState keyboardState = Keyboard.GetState();
-            if (keyboardState.IsKeyDown(Key.A) || keyboardState.IsKeyDown(Key.Left) )
+            if (keyboardState.IsKeyDown(Key.A))
             {
-
+                Console.WriteLine(e.KeyChar.ToString());
                 //raquetteEnMvmt = true;
                 raquette.Direction = false;
                 
             }
-            if (keyboardState.IsKeyDown(Key.D) || keyboardState.IsKeyDown(Key.Right) )
+            else if (keyboardState.IsKeyDown(Key.D))
             {
                 //raquetteEnMvmt = true;
                 raquette.Direction = true;
-                
+                Console.WriteLine(e.KeyChar.ToString());
             }
-            Console.WriteLine("Bouttom présser :" + e.KeyChar.ToString());
+
         }
 
         #endregion clavier
