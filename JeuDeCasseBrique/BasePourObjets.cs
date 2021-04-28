@@ -29,8 +29,10 @@ namespace JeuDeCasseBrique
             this.listePoints[1] = b;
             this.listePoints[2] = c;
             this.listePoints[3] = d;
-            setCoordonneeTextureBrique();
-            init(nomTexture);
+            this.nomTexture = nomTexture;
+            chargerTexture();
+            setCoordonneeTextureRaquette();
+            
         }
 
         private void init(string nomTexture)
@@ -47,13 +49,13 @@ namespace JeuDeCasseBrique
         {
             GL.GenTextures(1, out textureID);
             GL.BindTexture(TextureTarget.Texture2D, textureID);
-            BitmapData textureData = chargerImage();
+            BitmapData textureData = chargerImage(nomTexture);
             GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgb, textureData.Width, textureData.Height, 0,
                                         OpenTK.Graphics.OpenGL.PixelFormat.Bgr, PixelType.UnsignedByte, textureData.Scan0);
             GL.GenerateMipmap(GenerateMipmapTarget.Texture2D);
         }
 
-        private BitmapData chargerImage()
+        private BitmapData chargerImage(string nomImage)
         {
             Bitmap bmpImage = new Bitmap(nomTexture);
             Rectangle rectangle = new Rectangle(0, 0, bmpImage.Width, bmpImage.Height);
@@ -63,13 +65,13 @@ namespace JeuDeCasseBrique
         }
 
 
-        public void setCoordonneeTextureBrique()
+        public void setCoordonneeTextureRaquette()
         {
             coordonneesTextures = new Vector2[4];
-            coordonneesTextures[0] = new Vector2(0.0f, 1.0f);
-            coordonneesTextures[1] = new Vector2(1.0f, 1.0f);
-            coordonneesTextures[2] = new Vector2(1.0f, 0.0f);
-            coordonneesTextures[3] = new Vector2(0.0f, 0.0f);
+            coordonneesTextures[0] = new Vector2(-40.0f, -225.0f);
+            coordonneesTextures[1] = new Vector2(-40.0f, -215.0f);
+            coordonneesTextures[2] = new Vector2(32.0f, -215.0f);
+            coordonneesTextures[3] = new Vector2(32.0f, -225.0f);
         }
 
 
