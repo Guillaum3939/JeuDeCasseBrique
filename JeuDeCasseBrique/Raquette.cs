@@ -38,7 +38,7 @@ namespace JeuDeCasseBrique
                     incrementHorizontal = 0.0f;//stop a la bordure
                 }
                 else
-                    incrementHorizontal = -2.0f;
+                    incrementHorizontal = -4.0f;
 
             }
             else
@@ -49,7 +49,7 @@ namespace JeuDeCasseBrique
 
                 }
                 else
-                    incrementHorizontal = 2.0f;
+                    incrementHorizontal = 4.0f;
             }
 
             deplacementHorizontal += incrementHorizontal;

@@ -87,7 +87,7 @@ namespace JeuDeCasseBrique
         private void update(object sender, FrameEventArgs arg)
         {
             KeyboardState etatClavier = Keyboard.GetState();
-            if (etatClavier.IsKeyDown(Key.Space))
+            if (etatClavier.IsKeyDown(Key.A) || etatClavier.IsKeyDown(Key.D))
             {
                 raquette.update();
             }
