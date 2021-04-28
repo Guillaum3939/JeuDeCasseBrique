@@ -65,7 +65,9 @@ namespace JeuDeCasseBrique
             GL.PopMatrix();
         }
 
-        /*public override Dictionary<CoteObjets, Vector2[]> getDroitesCotes()
+        /*
+         * 
+         * public override Dictionary<CoteObjets, Vector2[]> getDroitesCotes()
         {
             Dictionary<CoteObjets, Vector2[]> listeDroites = new Dictionary<CoteObjets, Vector2[]>();
 
@@ -81,6 +83,7 @@ namespace JeuDeCasseBrique
 
             return listeDroites;
         }
+
         */
 
     }

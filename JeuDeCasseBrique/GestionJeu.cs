@@ -52,9 +52,7 @@ namespace JeuDeCasseBrique
             window.UpdateFrame += update;
             window.RenderFrame += rendu;
             window.KeyPress += Window_KeyPress;
-            
             window.Run(dureeAffichageCHaqueImage);
-            // test 123
            
         }
 
@@ -74,8 +72,8 @@ namespace JeuDeCasseBrique
             //changement couleur
             Vector2 pointA = new Vector2(0.0f, -20.0f);
             Vector2 pointB = new Vector2(0.0f, -10.0f);
-            Vector2 pointC = new Vector2(10.0f, -20.0f);
-            Vector2 pointD = new Vector2(10.0f, -10.0f);
+            Vector2 pointC = new Vector2(10.0f, -10.0f);
+            Vector2 pointD = new Vector2(10.0f, -20.0f);
 
             Vector2 pointE = new Vector2(-40.0f, -225.0f);
             Vector2 pointF = new Vector2(-40.0f,-215.0f);
@@ -88,6 +86,11 @@ namespace JeuDeCasseBrique
 
         private void update(object sender, FrameEventArgs arg)
         {
+            KeyboardState etatClavier = Keyboard.GetState();
+            if (etatClavier.IsKeyDown(Key.Space))
+            {
+                raquette.update();
+            }
             raquette.update();
             //brique.update();
            
@@ -124,6 +127,7 @@ namespace JeuDeCasseBrique
                 raquette.Direction = true;
                 Console.WriteLine(e.KeyChar.ToString());
             }
+            
 
         }
 

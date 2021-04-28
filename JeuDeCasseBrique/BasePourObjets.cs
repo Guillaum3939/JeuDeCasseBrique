@@ -72,7 +72,6 @@ namespace JeuDeCasseBrique
             coordonneesTextures[3] = new Vector2(0.0f, 0.0f);
         }
 
-
         #endregion //Gestion Texture
 
         #region Methode
@@ -91,11 +90,9 @@ namespace JeuDeCasseBrique
                 GL.Vertex2(listePoints[i].X, listePoints[i].Y);
 
             }
-
             GL.End();
         }
 
-        
         #endregion // methode
     }
 }
