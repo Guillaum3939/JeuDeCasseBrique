@@ -74,10 +74,10 @@ namespace JeuDeCasseBrique
             //changement couleur
 
             //instansiation des briques 
-            Vector2 pointA = new Vector2(-40.0f, -20.0f);
-            Vector2 pointB = new Vector2(-40.0f, -10.0f);
-            Vector2 pointC = new Vector2(0.0f, -10.0f);
-            Vector2 pointD = new Vector2(0.0f, -20.0f);
+            Vector2 pointA = new Vector2(0.0f, -20.0f);
+            Vector2 pointB = new Vector2(0.0f, -10.0f);
+            Vector2 pointC = new Vector2(10.0f, -10.0f);
+            Vector2 pointD = new Vector2(10.0f, -20.0f);
             brique = new List<Brique>();
             brique.Add(new Brique("./image/caiseDebois.bmp", pointA, pointB, pointC, pointC));
 
