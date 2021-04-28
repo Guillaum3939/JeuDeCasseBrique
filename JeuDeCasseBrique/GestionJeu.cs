@@ -108,6 +108,7 @@ namespace JeuDeCasseBrique
         {
             
             GL.Clear(ClearBufferMask.ColorBufferBit);
+
             raquette.dessiner();
             foreach (Brique brique in brique)
             {
