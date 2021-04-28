@@ -87,7 +87,7 @@ namespace JeuDeCasseBrique
         private void update(object sender, FrameEventArgs arg)
         {
             KeyboardState etatClavier = Keyboard.GetState();
-            if (etatClavier.IsKeyDown(Key.A) || etatClavier.IsKeyDown(Key.D))
+            if (etatClavier.IsKeyDown(Key.A) || etatClavier.IsKeyDown(Key.D) || etatClavier.IsKeyDown(Key.Left) || etatClavier.IsKeyDown(Key.Right))
             {
                 raquette.update();
             }
@@ -114,21 +114,21 @@ namespace JeuDeCasseBrique
         private void Window_KeyPress(object sender, KeyPressEventArgs e)
         {
             KeyboardState keyboardState = Keyboard.GetState();
-            if (keyboardState.IsKeyDown(Key.A))
+            if (keyboardState.IsKeyDown(Key.A) || keyboardState.IsKeyDown(Key.Left) )
             {
-                Console.WriteLine(e.KeyChar.ToString());
+               
                 //raquetteEnMvmt = true;
                 raquette.Direction = false;
                 
             }
-            else if (keyboardState.IsKeyDown(Key.D))
+            else if (keyboardState.IsKeyDown(Key.D) || keyboardState.IsKeyDown(Key.Right))
             {
                 //raquetteEnMvmt = true;
                 raquette.Direction = true;
-                Console.WriteLine(e.KeyChar.ToString());
+                
             }
-            
 
+            Console.WriteLine("Bouton pressé : " + e.KeyChar.ToString());
         }
 
         #endregion clavier
