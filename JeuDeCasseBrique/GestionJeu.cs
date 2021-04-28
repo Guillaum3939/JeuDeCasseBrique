@@ -91,7 +91,7 @@ namespace JeuDeCasseBrique
             {
                 raquette.update();
             }
-            raquette.update();
+            
             //brique.update();
            
         }
