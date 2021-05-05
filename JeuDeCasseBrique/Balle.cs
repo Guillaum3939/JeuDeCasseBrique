@@ -18,8 +18,9 @@ namespace JeuDeCasseBrique
         {
             this.deplacementVertical = 0.0f;
             this.deplacementHorizontal = 0.0f;
-            this.incrementVertical = 0.0f;
-            this.incrementHorizontal = 0.0f;
+
+            this.incrementVertical = 2.0f;
+            this.incrementHorizontal = 2.0f;
             //Carre2D(int dommage, Vector2 a, Vector2 b, Vector2 c, Vector2 d)
         }
         #endregion // ConstructeurInitialisation
@@ -27,13 +28,13 @@ namespace JeuDeCasseBrique
         #region MethodesClasseParent
         override public void update()
         {
-            if (deplacementVertical + incrementVertical >= 120.0f - listePoints[3].Y || deplacementVertical + incrementVertical <= -150.0f - listePoints[0].Y)
+            if (deplacementVertical + incrementVertical >= 245.0f - listePoints[3].Y || deplacementVertical + incrementVertical <= -300.0f - listePoints[0].Y)
             {
                 incrementVertical *= -1.0f;
             }
             deplacementVertical += incrementVertical;
 
-            if (deplacementHorizontal + incrementHorizontal >= 300.0f - listePoints[2].X || deplacementHorizontal + incrementHorizontal <= -300.0f - listePoints[0].X)
+            if (deplacementHorizontal + incrementHorizontal >= 345.0f - listePoints[2].X || deplacementHorizontal + incrementHorizontal <= -345.0f - listePoints[0].X)
             {
                 incrementHorizontal *= -1.0f;
             }

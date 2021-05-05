@@ -17,6 +17,7 @@ namespace JeuDeCasseBrique
         GameWindow window;
         Raquette raquette;
         List<Brique> brique;
+        Balle balle;
         Vector2[] listeDroitesCarre = new Vector2[4];
         #endregion
 
@@ -84,19 +85,26 @@ namespace JeuDeCasseBrique
             Vector2 pointG = new Vector2(32.0f, -215.0f);
             Vector2 pointH = new Vector2(32.0f, -225.0f);
             raquette = new Raquette(pointE, pointF, pointG, pointH);
-          
+
+            Vector2 pointa = new Vector2(-20.0f, -210.0f);
+            Vector2 pointb = new Vector2(-20.0f, -200.0f);
+            Vector2 pointc = new Vector2(0.0f, -200.0f);
+            Vector2 pointd = new Vector2(0.0f, -210.0f);
+            balle = new Balle(pointa, pointb, pointc, pointd);
             
+
         }
 
         private void update(object sender, EventArgs arg)
         {
+            balle.update(); //update de la balle
             KeyboardState keyboardState = Keyboard.GetState();
             if (keyboardState.IsKeyDown(Key.A) || keyboardState.IsKeyDown(Key.D) || keyboardState.IsKeyDown(Key.Right) || keyboardState.IsKeyDown(Key.Left) )
             {
                 raquette.update();
 
-
             }
+            
             
             //brique.update();
            
@@ -110,6 +118,7 @@ namespace JeuDeCasseBrique
             GL.Clear(ClearBufferMask.ColorBufferBit);
 
             raquette.dessiner();
+            balle.dessiner();
             foreach (Brique brique in brique)
             {
                 brique.dessiner();
