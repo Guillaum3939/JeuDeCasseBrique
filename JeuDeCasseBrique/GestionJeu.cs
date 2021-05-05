@@ -88,7 +88,7 @@ namespace JeuDeCasseBrique
             
         }
 
-        private void update(object sender, FrameEventArgs arg)
+        private void update(object sender, EventArgs arg)
         {
             KeyboardState keyboardState = Keyboard.GetState();
             if (keyboardState.IsKeyDown(Key.A) || keyboardState.IsKeyDown(Key.D) || keyboardState.IsKeyDown(Key.Right) || keyboardState.IsKeyDown(Key.Left) )
@@ -104,7 +104,7 @@ namespace JeuDeCasseBrique
         #endregion //ConstructeurInitialisation
 
         #region GestionAffichage
-        private void rendu(object sender, FrameEventArgs arg)
+        private void rendu(object sender, EventArgs arg)
         {
             
             GL.Clear(ClearBufferMask.ColorBufferBit);

@@ -29,7 +29,7 @@ namespace JeuDeCasseBrique
             this.listePoints[1] = b;
             this.listePoints[2] = c;
             this.listePoints[3] = d;
-            setCoordonneeTextureBrique();
+            setCoordonneeTexture();
             init(nomTexture);
         }
 
@@ -63,7 +63,7 @@ namespace JeuDeCasseBrique
         }
 
 
-        public void setCoordonneeTextureBrique()
+        public void setCoordonneeTexture()
         {
             coordonneesTextures = new Vector2[4];
             coordonneesTextures[0] = new Vector2(0.0f, 1.0f);
