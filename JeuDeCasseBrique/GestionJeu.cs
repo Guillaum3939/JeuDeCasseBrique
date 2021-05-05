@@ -74,10 +74,6 @@ namespace JeuDeCasseBrique
         {
             GL.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             //changement couleur
-            Vector2 pointA = new Vector2(-300.0f, 200.0f);
-            Vector2 pointB = new Vector2(-300.0f, 150.0f);
-            Vector2 pointC = new Vector2(-250.0f, 150.0f);
-            Vector2 pointD = new Vector2(-250.0f, 200.0f);
             brique = new List<Brique>();
 
             // ranger 1
