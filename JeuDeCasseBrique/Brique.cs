@@ -17,7 +17,8 @@ namespace JeuDeCasseBrique
 
         #region ConstructeurInitialisation
 
-        public Brique(string nomTexture, Vector2 a, Vector2 b, Vector2 c, Vector2 d) : base("./images/CaisseBoisBMP.bmp", a, b, c, d)
+        public Brique(string nomTexture, Vector2 a, Vector2 b, Vector2 c, Vector2 d) 
+            : base("./images/CaisseBoisBMP.bmp", a, b, c, d)
         {
             
         }
@@ -34,7 +35,7 @@ namespace JeuDeCasseBrique
         public void dessiner()
         {
             GL.PushMatrix();
-
+            GL.Translate(deplacementHorizontal, 0.0f, 0.0f);
             base.dessiner(PrimitiveType.Quads);
 
             GL.PopMatrix();
