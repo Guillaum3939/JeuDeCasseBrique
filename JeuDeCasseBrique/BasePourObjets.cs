@@ -79,9 +79,9 @@ namespace JeuDeCasseBrique
 
         #region Methode
 
-        abstract public void update();
+        //abstract public void update();
 
-        //abstract public Dictionary<CoteObjets, Vector2[]> getDroitesCotes();
+        abstract public Dictionary<CoteObjets, Vector2[]> getDroitesCotes();
 
         public void dessiner(PrimitiveType typeDessin)
         {

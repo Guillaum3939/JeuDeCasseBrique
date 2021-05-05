@@ -9,16 +9,17 @@ using OpenTK.Input;
 
 namespace JeuDeCasseBrique
 {
+    enum CoteObjets { NULL, NORD, SUD, EST, OUEST, NORD_EST, NORD_OUEST };
+
     class GestionJeu
     {
-        enum CoteObjets { NULL, NORD, SUD, EST, OUEST, NORD_EST, NORD_OUEST };
 
         #region Attriuts
         GameWindow window;
         Raquette raquette;
         List<Brique> brique;
         Balle balle;
-        Vector2[] listeDroitesCarre = new Vector2[4];
+        Vector2[] listeDroitesBrique = new Vector2[4];
         #endregion
 
         #region ConstructeurInitialisation
@@ -26,13 +27,13 @@ namespace JeuDeCasseBrique
         public void directionDictionary()
         {
             IDictionary<CoteObjets, Vector2[]> forme = new Dictionary<CoteObjets, Vector2[]>();
-            forme.Add(CoteObjets.EST, listeDroitesCarre);
-            forme.Add(CoteObjets.NORD, listeDroitesCarre);
-            forme.Add(CoteObjets.NORD_EST, listeDroitesCarre);
-            forme.Add(CoteObjets.NORD_OUEST, listeDroitesCarre);
-            forme.Add(CoteObjets.NULL, listeDroitesCarre);
-            forme.Add(CoteObjets.OUEST, listeDroitesCarre);
-            forme.Add(CoteObjets.SUD, listeDroitesCarre);
+            forme.Add(CoteObjets.EST, listeDroitesBrique);
+            forme.Add(CoteObjets.NORD, listeDroitesBrique);
+            forme.Add(CoteObjets.NORD_EST, listeDroitesBrique);
+            forme.Add(CoteObjets.NORD_OUEST, listeDroitesBrique);
+            forme.Add(CoteObjets.NULL, listeDroitesBrique);
+            forme.Add(CoteObjets.OUEST, listeDroitesBrique);
+            forme.Add(CoteObjets.SUD, listeDroitesBrique);
 
         }
 
@@ -98,11 +99,13 @@ namespace JeuDeCasseBrique
         private void update(object sender, EventArgs arg)
         {
             balle.update(); //update de la balle
+            detectionCollision();
+
             KeyboardState keyboardState = Keyboard.GetState();
             if (keyboardState.IsKeyDown(Key.A) || keyboardState.IsKeyDown(Key.D) || keyboardState.IsKeyDown(Key.Right) || keyboardState.IsKeyDown(Key.Left) )
             {
                 raquette.update();
-
+                
             }
             
             
@@ -152,31 +155,31 @@ namespace JeuDeCasseBrique
         #endregion clavier
 
         #region gestionCollisions
-        /* private void detectionCollision()
-         {
-             //Dictionary<CoteObjets, Vector2[]> listeDroitesTriangle = doritos.getDroitesCotes();
-            // Dictionary<CoteObjets, Vector2[]> listeDroitesCarre = carre.getDroitesCotes();
-             bool siCollisionDoritosCaisse = false;
-             CoteObjets coteCollision = CoteObjets.NULL;
+        private void detectionCollision()
+        {
+            Dictionary<CoteObjets, Vector2[]> listeDroitesBalle = balle.getDroitesCotes();
+            Dictionary<CoteObjets, Vector2[]> listeDroitesRaquette = raquette.getDroitesCotes(); ;
+            Dictionary<CoteObjets, Vector2[]> listeDroitesBrique;
+            bool SiCollisionBalle = false;
+            CoteObjets coteCollision = CoteObjets.NULL;
 
-             foreach (KeyValuePair<CoteObjets, Vector2[]> droiteTriangle in listeDroitesTriangle)
-             {
-                 foreach (KeyValuePair<CoteObjets, Vector2[]> droiteCarre in listeDroitesCarre)
-                 {
-                     if (intersection(droiteTriangle.Value, droiteCarre.Value))
-                     {
-                         siCollisionDoritosCaisse = true;
-                         coteCollision = droiteCarre.Key;
-                     }
-                 }
-             }
-             if (siCollisionDoritosCaisse)
-             {
-                 Console.WriteLine("Il y a eu collision sur le coté : " + coteCollision.ToString());
-                 //audio.jouerSonOuch();
-                 //balle.inverserDirection();
-             }
-         }*/
+            foreach(KeyValuePair<CoteObjets, Vector2[]> droiteRaquette in listeDroitesRaquette){
+                foreach (KeyValuePair<CoteObjets, Vector2[]> droiteBalle in listeDroitesBalle){
+                if(intersection(droiteRaquette.Value, droiteBalle.Value))
+                    {
+                        SiCollisionBalle = true;
+                        coteCollision = droiteBalle.Key;
+                    }
+                }
+            }
+            if (SiCollisionBalle)
+            {
+                Console.WriteLine(" Il y  a eu collision sur le cote : " + coteCollision.ToString());
+                balle.inverserDirection();
+            }
+
+           
+        }
         #region methodesWeb
         private bool intersection(Vector2[] droiteTriangle, Vector2[] droiteCarre)
         {

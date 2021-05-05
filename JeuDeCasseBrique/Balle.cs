@@ -26,7 +26,7 @@ namespace JeuDeCasseBrique
         #endregion // ConstructeurInitialisation
 
         #region MethodesClasseParent
-        override public void update()
+        public void update()
         {
             if (deplacementVertical + incrementVertical >= 245.0f - listePoints[3].Y || deplacementVertical + incrementVertical <= -300.0f - listePoints[0].Y)
             {
@@ -47,28 +47,36 @@ namespace JeuDeCasseBrique
             base.dessiner(PrimitiveType.Quads);
             GL.PopMatrix();
         }
-      /*
-        override public Dictionary<CoteObjets, Vector2[]> getDroitesCotes()
-        {
-            Dictionary<CoteObjets, Vector2[]> listeDroites = new Dictionary<CoteObjets, Vector2[]>();
-
-            Vector2 reelPointA = new Vector2(listePoints[0].X + deplacementHorizontal, listePoints[0].Y + deplacementVertical);
-            Vector2 reelPointB = new Vector2(listePoints[1].X + deplacementHorizontal, listePoints[1].Y + deplacementVertical);
-            Vector2 reelPointC = new Vector2(listePoints[2].X + deplacementHorizontal, listePoints[2].Y + deplacementVertical);
-            Vector2 reelPointD = new Vector2(listePoints[3].X + deplacementHorizontal, listePoints[3].Y + deplacementVertical);
-
-            listeDroites[CoteObjets.SUD] = new Vector2[] { reelPointA, reelPointB };
-            listeDroites[CoteObjets.EST] = new Vector2[] { reelPointB, reelPointC };
-            listeDroites[CoteObjets.NORD] = new Vector2[] { reelPointC, reelPointD };
-            listeDroites[CoteObjets.OUEST] = new Vector2[] { reelPointD, reelPointA };
-
-            return listeDroites;
-        }*/
         public void inverserDirection()
         {
             incrementVertical *= -1.0f;
             incrementHorizontal *= -1.0f;
         }
         #endregion // MethodesClasseParent
+
+
+        #region Collisions 
+        override public Dictionary<CoteObjets, Vector2[]> getDroitesCotes()
+        {
+            Dictionary<CoteObjets, Vector2[]> listeDroites = new Dictionary<CoteObjets, Vector2[]>();
+
+            //Calculer les nouvelles positions des points, selon valeur de deplacement 
+            Vector2 reelPointA = new Vector2(listePoints[0].X + deplacementHorizontal, listePoints[0].Y + deplacementVertical);
+            Vector2 reelPointB = new Vector2(listePoints[1].X + deplacementHorizontal, listePoints[1].Y + deplacementVertical);
+            Vector2 reelPointC = new Vector2(listePoints[2].X + deplacementHorizontal, listePoints[2].Y + deplacementVertical);
+            Vector2 reelPointD = new Vector2(listePoints[3].X + deplacementHorizontal, listePoints[3].Y + deplacementVertical);
+
+            //Regrouper ces points par pair pour créer des droites, puis les ajouter au dictionary
+            listeDroites[CoteObjets.SUD] = new Vector2[] { reelPointA, reelPointB };
+            listeDroites[CoteObjets.EST] = new Vector2[] { reelPointB, reelPointC };
+            listeDroites[CoteObjets.NORD] = new Vector2[] { reelPointC, reelPointD };
+            listeDroites[CoteObjets.OUEST] = new Vector2[] { reelPointD, reelPointA };
+
+            return listeDroites;
+            
+        }
+
+        #endregion
+       
     }
 }
