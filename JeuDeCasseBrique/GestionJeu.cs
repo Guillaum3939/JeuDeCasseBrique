@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 using OpenTK;
 using OpenTK.Graphics.OpenGL;
 using OpenTK.Input;
@@ -19,7 +20,8 @@ namespace JeuDeCasseBrique
         Raquette raquette;
         List<Brique> brique;
         Balle balle;
-        //Vector2[] listeDroitesBrique = new Vector2[4];
+        GestionAudio audio;
+        Vector2[] listeDroitesBrique = new Vector2[4];
         #endregion
 
         #region ConstructeurInitialisation
@@ -72,8 +74,13 @@ namespace JeuDeCasseBrique
 
         private void chargement (object sender, EventArgs arg)
         {
+            //Musique de fond
+            audio = new GestionAudio();
+            audio.demarrerMusiqueDeFond();
+
+            //couleur de fond
             GL.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-            //changement couleur
+            
             brique = new List<Brique>();
 
             // ranger 1
