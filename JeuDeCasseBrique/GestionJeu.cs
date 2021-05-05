@@ -74,12 +74,49 @@ namespace JeuDeCasseBrique
         {
             GL.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             //changement couleur
-            Vector2 pointA = new Vector2(-40.0f, -20.0f);
-            Vector2 pointB = new Vector2(-40.0f, -10.0f);
-            Vector2 pointC = new Vector2(0.0f, -10.0f);
-            Vector2 pointD = new Vector2(0.0f, -20.0f);
+            Vector2 pointA = new Vector2(-300.0f, 200.0f);
+            Vector2 pointB = new Vector2(-300.0f, 150.0f);
+            Vector2 pointC = new Vector2(-250.0f, 150.0f);
+            Vector2 pointD = new Vector2(-250.0f, 200.0f);
             brique = new List<Brique>();
-            brique.Add(new Brique("./image/caiseDebois.bmp", pointA, pointB, pointC, pointC));
+
+            // ranger 1
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(-300.0f, 210.0f), new Vector2(-300.0f, 230.0f), new Vector2(-250.0f, 230.0f), new Vector2(-250.0f, 210.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(-240.0f, 210.0f), new Vector2(-240.0f, 230.0f), new Vector2(-190.0f, 230.0f), new Vector2(-190.0f, 210.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(-180.0f, 210.0f), new Vector2(-180.0f, 230.0f), new Vector2(-130.0f, 230.0f), new Vector2(-130.0f, 210.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(-120.0f, 210.0f), new Vector2(-120.0f, 230.0f), new Vector2(-70.0f, 230.0f), new Vector2(-70.0f, 210.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(-60.0f, 210.0f), new Vector2(-60.0f, 230.0f), new Vector2(-10.0f, 230.0f), new Vector2(-10.0f, 210.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(0.0f, 210.0f), new Vector2(0.0f, 230.0f), new Vector2(50.0f, 230.0f), new Vector2(50.0f, 210.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(60.0f, 210.0f), new Vector2(60.0f, 230.0f), new Vector2(110.0f, 230.0f), new Vector2(110.0f, 210.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(120.0f, 210.0f), new Vector2(120.0f, 230.0f), new Vector2(170.0f, 230.0f), new Vector2(170.0f, 210.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(180.0f, 210.0f), new Vector2(180.0f, 230.0f), new Vector2(230.0f, 230.0f), new Vector2(230.0f, 210.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(240.0f, 210.0f), new Vector2(240.0f, 230.0f), new Vector2(290.0f, 230.0f), new Vector2(290.0f, 210.0f)));
+
+            //ranger 2
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(-300.0f, 180.0f), new Vector2(-300.0f, 200.0f), new Vector2(-250.0f, 200.0f), new Vector2(-250.0f, 180.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(-240.0f, 180.0f), new Vector2(-240.0f, 200.0f), new Vector2(-190.0f, 200.0f), new Vector2(-190.0f, 180.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(-180.0f, 180.0f), new Vector2(-180.0f, 200.0f), new Vector2(-130.0f, 200.0f), new Vector2(-130.0f, 180.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(-120.0f, 180.0f), new Vector2(-120.0f, 200.0f), new Vector2(-70.0f, 200.0f), new Vector2(-70.0f, 180.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(-60.0f, 180.0f), new Vector2(-60.0f, 200.0f), new Vector2(-10.0f, 200.0f), new Vector2(-10.0f, 180.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(0.0f, 180.0f), new Vector2(0.0f, 200.0f), new Vector2(50.0f, 200.0f), new Vector2(50.0f, 180.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(60.0f, 180.0f), new Vector2(60.0f, 200.0f), new Vector2(110.0f, 200.0f), new Vector2(110.0f, 180.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(120.0f, 180.0f), new Vector2(120.0f, 200.0f), new Vector2(170.0f, 200.0f), new Vector2(170.0f, 180.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(180.0f, 180.0f), new Vector2(180.0f, 200.0f), new Vector2(230.0f, 200.0f), new Vector2(230.0f, 180.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(240.0f, 180.0f), new Vector2(240.0f, 200.0f), new Vector2(290.0f, 200.0f), new Vector2(290.0f, 180.0f)));
+
+            //ranger 3
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(-300.0f, 150.0f), new Vector2(-300.0f, 170.0f), new Vector2(-250.0f, 170.0f), new Vector2(-250.0f, 150.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(-240.0f, 150.0f), new Vector2(-240.0f, 170.0f), new Vector2(-190.0f, 170.0f), new Vector2(-190.0f, 150.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(-180.0f, 150.0f), new Vector2(-180.0f, 170.0f), new Vector2(-130.0f, 170.0f), new Vector2(-130.0f, 150.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(-120.0f, 150.0f), new Vector2(-120.0f, 170.0f), new Vector2(-70.0f, 170.0f), new Vector2(-70.0f, 150.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(-60.0f, 150.0f), new Vector2(-60.0f, 170.0f), new Vector2(-10.0f, 170.0f), new Vector2(-10.0f, 150.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(0.0f, 150.0f), new Vector2(0.0f, 170.0f), new Vector2(50.0f, 170.0f), new Vector2(50.0f, 150.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(60.0f, 150.0f), new Vector2(60.0f, 170.0f), new Vector2(110.0f, 170.0f), new Vector2(110.0f, 150.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(120.0f, 150.0f), new Vector2(120.0f, 170.0f), new Vector2(170.0f, 170.0f), new Vector2(170.0f, 150.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(180.0f, 150.0f), new Vector2(180.0f, 170.0f), new Vector2(230.0f, 170.0f), new Vector2(230.0f, 150.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(240.0f, 150.0f), new Vector2(240.0f, 170.0f), new Vector2(290.0f, 170.0f), new Vector2(290.0f, 150.0f)));
+
+
 
             Vector2 pointE = new Vector2(-40.0f, -225.0f);
             Vector2 pointF = new Vector2(-40.0f,-215.0f);
