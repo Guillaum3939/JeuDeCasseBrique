@@ -219,12 +219,12 @@ namespace JeuDeCasseBrique
                 if (SiCollisionBalle)
                 {
                     Console.WriteLine(" Il y  a eu collision sur le cote : " + coteCollision.ToString());
-                    balle.inverserDirection();
+                    balle.changerDirectionRaquette();
                 }
 
 
             }
-            if (brique != null)
+            /*if (brique != null)
             {
                 List<Brique> listeBriques = new List<Brique>(brique);
                 Dictionary<CoteObjets, Vector2[]> listeDroitesBriques;
@@ -238,7 +238,8 @@ namespace JeuDeCasseBrique
                     }
                 }
 
-            }
+            }*/
+
             
 
            

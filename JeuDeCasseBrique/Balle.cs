@@ -11,6 +11,10 @@ namespace JeuDeCasseBrique
         float deplacementHorizontal;
         float incrementVertical;
         float incrementHorizontal;
+
+        bool direction;
+        public bool Direction { get => direction; set => direction = value; }
+        
         #endregion // Attributs;
 
         #region ConstructeurInitialisation
@@ -52,6 +56,28 @@ namespace JeuDeCasseBrique
             incrementVertical *= -1.0f;
             incrementHorizontal *= -1.0f;
         }
+
+        public void changerDirectionRaquette()
+        {
+            incrementVertical *= -1.0f;
+            if (direction && incrementHorizontal > 0)
+            {
+                incrementHorizontal += 1.0f;
+            }
+            else if (!direction && incrementHorizontal < 0)
+            {
+                incrementHorizontal -= 1.0f;
+            }
+            else if (direction && incrementHorizontal < 0)
+            {
+                incrementHorizontal -= 1.0f;
+            }
+            else if (!direction && incrementHorizontal > 0)
+            {
+                incrementHorizontal += 1.0f;
+            }
+        }
+
         #endregion // MethodesClasseParent
 
 
