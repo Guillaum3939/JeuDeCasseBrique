@@ -19,12 +19,12 @@ namespace JeuDeCasseBrique
         Raquette raquette;
         List<Brique> brique;
         Balle balle;
-        Vector2[] listeDroitesBrique = new Vector2[4];
+        //Vector2[] listeDroitesBrique = new Vector2[4];
         #endregion
 
         #region ConstructeurInitialisation
 
-        public void directionDictionary()
+       /* public void directionDictionary()
         {
             IDictionary<CoteObjets, Vector2[]> forme = new Dictionary<CoteObjets, Vector2[]>();
             forme.Add(CoteObjets.EST, listeDroitesBrique);
@@ -35,7 +35,7 @@ namespace JeuDeCasseBrique
             forme.Add(CoteObjets.OUEST, listeDroitesBrique);
             forme.Add(CoteObjets.SUD, listeDroitesBrique);
 
-        }
+        }*/
 
         public GestionJeu(GameWindow window)
         {
@@ -140,8 +140,7 @@ namespace JeuDeCasseBrique
                 raquette.update();
                 
             }
-            
-            
+
             //brique.update();
            
         }
@@ -192,24 +191,48 @@ namespace JeuDeCasseBrique
         {
             Dictionary<CoteObjets, Vector2[]> listeDroitesBalle = balle.getDroitesCotes();
             Dictionary<CoteObjets, Vector2[]> listeDroitesRaquette = raquette.getDroitesCotes(); ;
-            Dictionary<CoteObjets, Vector2[]> listeDroitesBrique;
-            bool SiCollisionBalle = false;
-            CoteObjets coteCollision = CoteObjets.NULL;
+            
 
-            foreach(KeyValuePair<CoteObjets, Vector2[]> droiteRaquette in listeDroitesRaquette){
-                foreach (KeyValuePair<CoteObjets, Vector2[]> droiteBalle in listeDroitesBalle){
-                if(intersection(droiteRaquette.Value, droiteBalle.Value))
+            if(balle != null)
+            {
+                bool SiCollisionBalle = false;
+                CoteObjets coteCollision = CoteObjets.NULL;
+
+                foreach (KeyValuePair<CoteObjets, Vector2[]> droiteRaquette in listeDroitesRaquette)
+                {
+                    foreach (KeyValuePair<CoteObjets, Vector2[]> droiteBalle in listeDroitesBalle)
                     {
-                        SiCollisionBalle = true;
-                        coteCollision = droiteBalle.Key;
+                        if (intersection(droiteRaquette.Value, droiteBalle.Value))
+                        {
+                            SiCollisionBalle = true;
+                            coteCollision = droiteBalle.Key;
+                        }
                     }
                 }
+                if (SiCollisionBalle)
+                {
+                    Console.WriteLine(" Il y  a eu collision sur le cote : " + coteCollision.ToString());
+                    balle.inverserDirection();
+                }
+
+
             }
-            if (SiCollisionBalle)
+            if (brique != null)
             {
-                Console.WriteLine(" Il y  a eu collision sur le cote : " + coteCollision.ToString());
-                balle.inverserDirection();
+                List<Brique> listeBriques = new List<Brique>(brique);
+                Dictionary<CoteObjets, Vector2[]> listeDroitesBriques;
+                CoteObjets coteCollosion = CoteObjets.NULL;
+                listeDroitesBriques = brique.getDroitesCotes();
+                foreach(Brique brique in listeBriques)
+                {
+                    foreach(KeyValuePair<CoteObjets, Vector2[]> droiteBalle in listeDroitesBalle)
+                    {
+                        
+                    }
+                }
+
             }
+            
 
            
         }

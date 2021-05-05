@@ -32,7 +32,6 @@ namespace JeuDeCasseBrique
             this.nomTexture = nomTexture;
             chargerTexture();
             setCoordonneeTextureRaquette();
-            
         }
 
         private void init(string nomTexture)
@@ -40,8 +39,6 @@ namespace JeuDeCasseBrique
             this.nomTexture = nomTexture;
             chargerTexture();
         }
-
-
         #endregion //Constructeur & Initialisation
 
         #region Gestion Texture

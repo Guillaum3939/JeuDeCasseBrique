@@ -43,7 +43,7 @@ namespace JeuDeCasseBrique
 
         #endregion
         #region Collisions 
-        override public Dictionary<CoteObjets, Vector2[]> getDroitesCotes()
+        public override Dictionary<CoteObjets, Vector2[]> getDroitesCotes()
         {
             Dictionary<CoteObjets, Vector2[]> listeDroites = new Dictionary<CoteObjets, Vector2[]>();
             //Calculer les nouvelles positions des points, selon valeur de deplacement 
