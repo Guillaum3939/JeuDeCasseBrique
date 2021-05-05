@@ -6,6 +6,7 @@ namespace JeuDeCasseBrique
 {
     class FichierWAV
     {
+        #region Convertisseur audio
         // Attributs
         string nomFichier;
         int nbrCanaux;
@@ -44,7 +45,6 @@ namespace JeuDeCasseBrique
             // car "ReadInt32()" lit précisément 4 octets
             // Lire le format (toujours 4 octets)
             donneesFichier = new string(reader.ReadChars(nbrOctets));
-
             if (donneesFichier != "WAVE")
             {
                 throw new NotSupportedException("Le fichier audio n'est pas au format WAVE");
@@ -82,7 +82,7 @@ namespace JeuDeCasseBrique
             donneesSonores = reader.ReadBytes(qteDonneesSonores);
         }
         // Méthodes publiques
-        public ALFormat getFormatSonAL()
+        public ALFormat GetFormatSonAL()
         {
             ALFormat format;
             switch (nbrCanaux)
@@ -105,5 +105,6 @@ namespace JeuDeCasseBrique
         {
             return frequence;
         }
+        #endregion //Convertisseur Audio
     }
 }
