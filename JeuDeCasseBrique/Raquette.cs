@@ -31,17 +31,19 @@ namespace JeuDeCasseBrique
         #endregion //ConstructeurInitialisation
         public void update()
         {
-            if (direction == false)
+            if (direction == false) //gauche
             {
                 if (deplacementHorizontal + incrementHorizontal <= -250.0f - listePoints[3].X)
                 {
-                    incrementHorizontal = 0.0f;//stop a la bordure
+                    incrementHorizontal = 0.0f; //stop a la bordure
                 }
                 else
-                    incrementHorizontal = -2.0f;
+                    incrementHorizontal = -10.0f;  // J'ai augmenter la rapidité de la raquette 
+                                                   //(il a un bug lorsque la balle touche le rebord la balle devient super rapide)
 
             }
-            else
+
+            if (direction == true) //droite
             {
                 if (deplacementHorizontal + incrementHorizontal >= 250.0f - listePoints[0].X)
                 {
@@ -49,7 +51,7 @@ namespace JeuDeCasseBrique
 
                 }
                 else
-                    incrementHorizontal = 2.0f;
+                    incrementHorizontal = 10.0f;
             }
 
             deplacementHorizontal += incrementHorizontal;

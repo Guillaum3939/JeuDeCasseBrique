@@ -26,18 +26,18 @@ namespace JeuDeCasseBrique
 
         #region ConstructeurInitialisation
 
-       /* public void directionDictionary()
+        public void directionDictionary()
         {
-            IDictionary<CoteObjets, Vector2[]> forme = new Dictionary<CoteObjets, Vector2[]>();
-            forme.Add(CoteObjets.EST, listeDroitesBrique);
-            forme.Add(CoteObjets.NORD, listeDroitesBrique);
-            forme.Add(CoteObjets.NORD_EST, listeDroitesBrique);
-            forme.Add(CoteObjets.NORD_OUEST, listeDroitesBrique);
-            forme.Add(CoteObjets.NULL, listeDroitesBrique);
-            forme.Add(CoteObjets.OUEST, listeDroitesBrique);
-            forme.Add(CoteObjets.SUD, listeDroitesBrique);
+            //IDictionary<CoteObjets, Vector2[]> forme = new Dictionary<CoteObjets, Vector2[]>();
+            //forme.Add(CoteObjets.EST, listeDroitesBrique);
+            //forme.Add(CoteObjets.NORD, listeDroitesBrique);
+            //forme.Add(CoteObjets.NORD_EST, listeDroitesBrique);
+            //forme.Add(CoteObjets.NORD_OUEST, listeDroitesBrique);
+            //forme.Add(CoteObjets.NULL, listeDroitesBrique);
+            //forme.Add(CoteObjets.OUEST, listeDroitesBrique);
+            //forme.Add(CoteObjets.SUD, listeDroitesBrique);
 
-        }*/
+        }
 
         public GestionJeu(GameWindow window)
         {
@@ -55,7 +55,7 @@ namespace JeuDeCasseBrique
             window.Resize += redimensionner;
             window.UpdateFrame += update;
             window.RenderFrame += rendu;
-            window.KeyPress += Window_KeyPress;
+            window.KeyDown += Window_KeyPress;   //Remplacer KeyPress par keyDown et le bug est disparu :)
             
             window.Run(dureeAffichageCHaqueImage);
             // test 123
@@ -80,7 +80,9 @@ namespace JeuDeCasseBrique
 
             //couleur de fond
             GL.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-            
+            GL.Enable(EnableCap.Texture2D);         //Cette saloperie de ligne !!!!!!! **********
+
+            // instanciation des briques
             brique = new List<Brique>();
 
             // ranger 1
@@ -119,14 +121,38 @@ namespace JeuDeCasseBrique
             brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(180.0f, 150.0f), new Vector2(180.0f, 170.0f), new Vector2(230.0f, 170.0f), new Vector2(230.0f, 150.0f)));
             brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(240.0f, 150.0f), new Vector2(240.0f, 170.0f), new Vector2(290.0f, 170.0f), new Vector2(290.0f, 150.0f)));
 
+            //ranger 4
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(-300.0f, 120.0f), new Vector2(-300.0f, 140.0f), new Vector2(-250.0f, 140.0f), new Vector2(-250.0f, 120.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(-240.0f, 120.0f), new Vector2(-240.0f, 140.0f), new Vector2(-190.0f, 140.0f), new Vector2(-190.0f, 120.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(-180.0f, 120.0f), new Vector2(-180.0f, 140.0f), new Vector2(-130.0f, 140.0f), new Vector2(-130.0f, 120.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(-120.0f, 120.0f), new Vector2(-120.0f, 140.0f), new Vector2(-70.0f, 140.0f), new Vector2(-70.0f, 120.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(-60.0f, 120.0f), new Vector2(-60.0f, 140.0f), new Vector2(-10.0f, 140.0f), new Vector2(-10.0f, 120.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(0.0f, 120.0f), new Vector2(0.0f, 140.0f), new Vector2(50.0f, 140.0f), new Vector2(50.0f, 120.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(60.0f, 120.0f), new Vector2(60.0f, 140.0f), new Vector2(110.0f, 140.0f), new Vector2(110.0f, 120.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(120.0f, 120.0f), new Vector2(120.0f, 140.0f), new Vector2(170.0f, 140.0f), new Vector2(170.0f, 120.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(180.0f, 120.0f), new Vector2(180.0f, 140.0f), new Vector2(230.0f, 140.0f), new Vector2(230.0f, 120.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(240.0f, 120.0f), new Vector2(240.0f, 140.0f), new Vector2(290.0f, 140.0f), new Vector2(290.0f, 120.0f)));
 
+            //ranger 5
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(-300.0f, 90.0f), new Vector2(-300.0f, 110.0f), new Vector2(-250.0f, 110.0f), new Vector2(-250.0f, 90.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(-240.0f, 90.0f), new Vector2(-240.0f, 110.0f), new Vector2(-190.0f, 110.0f), new Vector2(-190.0f, 90.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(-180.0f, 90.0f), new Vector2(-180.0f, 110.0f), new Vector2(-130.0f, 110.0f), new Vector2(-130.0f, 90.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(-120.0f, 90.0f), new Vector2(-120.0f, 110.0f), new Vector2(-70.0f, 110.0f), new Vector2(-70.0f, 90.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(-60.0f, 90.0f), new Vector2(-60.0f, 110.0f), new Vector2(-10.0f, 110.0f), new Vector2(-10.0f, 90.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(0.0f, 90.0f), new Vector2(0.0f, 110.0f), new Vector2(50.0f, 110.0f), new Vector2(50.0f, 90.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(60.0f, 90.0f), new Vector2(60.0f, 110.0f), new Vector2(110.0f, 110.0f), new Vector2(110.0f, 90.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(120.0f, 90.0f), new Vector2(120.0f, 110.0f), new Vector2(170.0f, 110.0f), new Vector2(170.0f, 90.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(180.0f, 90.0f), new Vector2(180.0f, 110.0f), new Vector2(230.0f, 110.0f), new Vector2(230.0f, 90.0f)));
+            brique.Add(new Brique("./image/caiseDebois.bmp", new Vector2(240.0f, 90.0f), new Vector2(240.0f, 110.0f), new Vector2(290.0f, 110.0f), new Vector2(290.0f, 90.0f)));
 
+            //instanciation de la raquette
             Vector2 pointE = new Vector2(-40.0f, -225.0f);
             Vector2 pointF = new Vector2(-40.0f,-215.0f);
             Vector2 pointG = new Vector2(32.0f, -215.0f);
             Vector2 pointH = new Vector2(32.0f, -225.0f);
             raquette = new Raquette(pointE, pointF, pointG, pointH);
 
+            //instanciation de la balle
             Vector2 pointa = new Vector2(-20.0f, -210.0f);
             Vector2 pointb = new Vector2(-20.0f, -200.0f);
             Vector2 pointc = new Vector2(0.0f, -200.0f);
@@ -172,21 +198,25 @@ namespace JeuDeCasseBrique
 
         #region Action clavier
 
-        private void Window_KeyPress(object sender, KeyPressEventArgs e)
+        private void Window_KeyPress(object sender, KeyboardKeyEventArgs e)
         {
             KeyboardState keyboardState = Keyboard.GetState();
-            if (keyboardState.IsKeyDown(Key.A) || keyboardState.IsKeyDown(Key.Right))
+            
+            if ((keyboardState.IsKeyDown(Key.A)) || (keyboardState.IsKeyDown(Key.Left)))  //? A est à gauche mais tu as écrit right
             {
-                Console.WriteLine(e.KeyChar.ToString());
-                //raquetteEnMvmt = true;
                 raquette.Direction = false;
+                Console.WriteLine(e.Key.ToString());
+                //raquetteEnMvmt = true;
                 
             }
-            else if (keyboardState.IsKeyDown(Key.D) || keyboardState.IsKeyDown(Key.Left))
+
+            if ((keyboardState.IsKeyDown(Key.D)) || (keyboardState.IsKeyDown(Key.Right)))  //? D est à droit mais tu as écrit left
             {
+                
                 //raquetteEnMvmt = true;
                 raquette.Direction = true;
-                Console.WriteLine(e.KeyChar.ToString());
+                Console.WriteLine(e.Key.ToString());
+
             }
 
         }
@@ -224,28 +254,27 @@ namespace JeuDeCasseBrique
 
 
             }
-            /*if (brique != null)
+            if (brique != null)
             {
                 List<Brique> listeBriques = new List<Brique>(brique);
                 Dictionary<CoteObjets, Vector2[]> listeDroitesBriques;
                 CoteObjets coteCollosion = CoteObjets.NULL;
-                listeDroitesBriques = brique.getDroitesCotes();
-                foreach(Brique brique in listeBriques)
+                foreach (Brique brique in listeBriques)
                 {
-                    foreach(KeyValuePair<CoteObjets, Vector2[]> droiteBalle in listeDroitesBalle)
+                    foreach (KeyValuePair<CoteObjets, Vector2[]> droiteBalle in listeDroitesBalle)
                     {
-                        
+                        listeDroitesBriques = brique.getDroitesCotes();
                     }
                 }
 
-            }*/
+            }
 
-            
 
-           
+
+
         }
         #region methodesWeb
-        private bool intersection(Vector2[] droiteTriangle, Vector2[] droiteCarre)
+        private bool intersection(Vector2[] droiteBalle, Vector2[] droiteRaquette)
         {
             // **************************************************
             // Méthodes trouvées sur le web
@@ -262,12 +291,12 @@ namespace JeuDeCasseBrique
             bool siIntersection = false;
 
             // Calculer les valeur "a" pour chacune de deux droites
-            float a_Triangle = (droiteTriangle[1].Y - droiteTriangle[0].Y) / (droiteTriangle[1].X - droiteTriangle[0].X);
-            float a_Carre = (droiteCarre[1].Y - droiteCarre[0].Y) / (droiteCarre[1].X - droiteCarre[0].X);
+            float a_Triangle = (droiteBalle[1].Y - droiteBalle[0].Y) / (droiteBalle[1].X - droiteBalle[0].X);
+            float a_Carre = (droiteRaquette[1].Y - droiteRaquette[0].Y) / (droiteRaquette[1].X - droiteRaquette[0].X);
 
             // Calculer les valeur "b" pour chacune de deux droites
-            float b_Triangle = droiteTriangle[1].Y - a_Triangle * droiteTriangle[1].X;
-            float b_Carre = droiteCarre[1].Y - a_Carre * droiteCarre[1].X;
+            float b_Triangle = droiteBalle[1].Y - a_Triangle * droiteBalle[1].X;
+            float b_Carre = droiteRaquette[1].Y - a_Carre * droiteRaquette[1].X;
 
             // Calculer les valeurs "x" et "y" pour le point d'intersection des deux lignes
             float x = (b_Carre - b_Triangle) / (a_Triangle - a_Carre);
@@ -279,33 +308,33 @@ namespace JeuDeCasseBrique
             {
                 // Si les deux valeurs "a" sont l'INFINI, alors on a deux droites verticales.
                 // Si les deux droites partagent le même "x", alors on vérifie alors la valeur "y".
-                siIntersection = (droiteTriangle[0].X == droiteCarre[0].X) && (
-                                    (droiteCarre[0].Y <= droiteTriangle[0].Y && droiteTriangle[0].Y <= droiteCarre[1].Y)
-                                    || (droiteCarre[0].Y <= droiteTriangle[1].Y && droiteTriangle[1].Y <= droiteCarre[1].Y)
+                siIntersection = (droiteBalle[0].X == droiteRaquette[0].X) && (
+                                    (droiteRaquette[0].Y <= droiteBalle[0].Y && droiteBalle[0].Y <= droiteRaquette[1].Y)
+                                    || (droiteRaquette[0].Y <= droiteBalle[1].Y && droiteBalle[1].Y <= droiteRaquette[1].Y)
                                     );
             }
             else if (float.IsInfinity(a_Triangle) && !float.IsInfinity(a_Carre))
             {
-                // La droite du triangle EST vertical et celle de la caisse NE L'EST PAS
-                x = droiteTriangle[0].X;
+                // La droite de la balle EST vertical et celle de la raquette NE L'EST PAS
+                x = droiteBalle[0].X;
                 y = b_Carre * x + b_Carre;
 
                 siIntersection = (
-                    ((droiteTriangle[0].Y <= droiteTriangle[1].Y && LTE(droiteTriangle[0].Y, y) && GTE(droiteTriangle[1].Y, y)) || (droiteTriangle[0].Y >= droiteTriangle[1].Y && GTE(droiteTriangle[0].Y, y) && LTE(droiteTriangle[1].Y, y))) &&
-                    ((droiteCarre[0].X <= droiteCarre[1].X && LTE(droiteCarre[0].X, x) && GTE(droiteCarre[1].X, x)) || (droiteCarre[0].X >= droiteCarre[1].X && GTE(droiteCarre[0].X, x) && LTE(droiteCarre[1].X, x))) &&
-                    ((droiteCarre[0].Y <= droiteCarre[1].Y && LTE(droiteCarre[0].Y, y) && GTE(droiteCarre[1].Y, y)) || (droiteCarre[0].Y >= droiteCarre[1].Y && GTE(droiteCarre[0].Y, y) && LTE(droiteCarre[1].Y, y)))
+                    ((droiteBalle[0].Y <= droiteBalle[1].Y && LTE(droiteBalle[0].Y, y) && GTE(droiteBalle[1].Y, y)) || (droiteBalle[0].Y >= droiteBalle[1].Y && GTE(droiteBalle[0].Y, y) && LTE(droiteBalle[1].Y, y))) &&
+                    ((droiteRaquette[0].X <= droiteRaquette[1].X && LTE(droiteRaquette[0].X, x) && GTE(droiteRaquette[1].X, x)) || (droiteRaquette[0].X >= droiteRaquette[1].X && GTE(droiteRaquette[0].X, x) && LTE(droiteRaquette[1].X, x))) &&
+                    ((droiteRaquette[0].Y <= droiteRaquette[1].Y && LTE(droiteRaquette[0].Y, y) && GTE(droiteRaquette[1].Y, y)) || (droiteRaquette[0].Y >= droiteRaquette[1].Y && GTE(droiteRaquette[0].Y, y) && LTE(droiteRaquette[1].Y, y)))
                     );
             }
             else if (!float.IsInfinity(a_Triangle) && float.IsInfinity(a_Carre))
             {
-                // La droite du triangle N'EST PAS vertical et celle de la caisse L'EST
-                x = droiteCarre[0].X;
+                // La droite de la balle N'EST PAS vertical et celle de la raquette L'EST
+                x = droiteRaquette[0].X;
                 y = a_Triangle * x + b_Triangle;
 
                 siIntersection = (
-                    ((droiteTriangle[0].X <= droiteTriangle[1].X && LTE(droiteTriangle[0].X, x) && GTE(droiteTriangle[1].X, x)) || (droiteTriangle[0].X >= droiteTriangle[1].X && GTE(droiteTriangle[0].X, x) && LTE(droiteTriangle[1].X, x))) &&
-                    ((droiteTriangle[0].Y <= droiteTriangle[1].Y && LTE(droiteTriangle[0].Y, y) && GTE(droiteTriangle[1].Y, y)) || (droiteTriangle[0].Y >= droiteTriangle[1].Y && GTE(droiteTriangle[0].Y, y) && LTE(droiteTriangle[1].Y, y))) &&
-                    ((droiteCarre[0].Y <= droiteCarre[1].Y && LTE(droiteCarre[0].Y, y) && GTE(droiteCarre[1].Y, y)) || (droiteCarre[0].Y >= droiteCarre[1].Y && GTE(droiteCarre[0].Y, y) && LTE(droiteCarre[1].Y, y)))
+                    ((droiteBalle[0].X <= droiteBalle[1].X && LTE(droiteBalle[0].X, x) && GTE(droiteBalle[1].X, x)) || (droiteBalle[0].X >= droiteBalle[1].X && GTE(droiteBalle[0].X, x) && LTE(droiteBalle[1].X, x))) &&
+                    ((droiteBalle[0].Y <= droiteBalle[1].Y && LTE(droiteBalle[0].Y, y) && GTE(droiteBalle[1].Y, y)) || (droiteBalle[0].Y >= droiteBalle[1].Y && GTE(droiteBalle[0].Y, y) && LTE(droiteBalle[1].Y, y))) &&
+                    ((droiteRaquette[0].Y <= droiteRaquette[1].Y && LTE(droiteRaquette[0].Y, y) && GTE(droiteRaquette[1].Y, y)) || (droiteRaquette[0].Y >= droiteRaquette[1].Y && GTE(droiteRaquette[0].Y, y) && LTE(droiteRaquette[1].Y, y)))
                     );
             }
 
@@ -313,10 +342,10 @@ namespace JeuDeCasseBrique
             if (!siIntersection)
             {
                 siIntersection = (
-                    ((droiteTriangle[0].X <= droiteTriangle[1].X && LTE(droiteTriangle[0].X, x) && GTE(droiteTriangle[1].X, x)) || (droiteTriangle[0].X >= droiteTriangle[1].X && GTE(droiteTriangle[0].X, x) && LTE(droiteTriangle[1].X, x))) &&
-                    ((droiteTriangle[0].Y <= droiteTriangle[1].Y && LTE(droiteTriangle[0].Y, y) && GTE(droiteTriangle[1].Y, y)) || (droiteTriangle[0].Y >= droiteTriangle[1].Y && GTE(droiteTriangle[0].Y, y) && LTE(droiteTriangle[1].Y, y))) &&
-                    ((droiteCarre[0].X <= droiteCarre[1].X && LTE(droiteCarre[0].X, x) && GTE(droiteCarre[1].X, x)) || (droiteCarre[0].X >= droiteCarre[1].X && GTE(droiteCarre[0].X, x) && LTE(droiteCarre[1].X, x))) &&
-                    ((droiteCarre[0].Y <= droiteCarre[1].Y && LTE(droiteCarre[0].Y, y) && GTE(droiteCarre[1].Y, y)) || (droiteCarre[0].Y >= droiteCarre[1].Y && GTE(droiteCarre[0].Y, y) && LTE(droiteCarre[1].Y, y))));
+                    ((droiteBalle[0].X <= droiteBalle[1].X && LTE(droiteBalle[0].X, x) && GTE(droiteBalle[1].X, x)) || (droiteBalle[0].X >= droiteBalle[1].X && GTE(droiteBalle[0].X, x) && LTE(droiteBalle[1].X, x))) &&
+                    ((droiteBalle[0].Y <= droiteBalle[1].Y && LTE(droiteBalle[0].Y, y) && GTE(droiteBalle[1].Y, y)) || (droiteBalle[0].Y >= droiteBalle[1].Y && GTE(droiteBalle[0].Y, y) && LTE(droiteBalle[1].Y, y))) &&
+                    ((droiteRaquette[0].X <= droiteRaquette[1].X && LTE(droiteRaquette[0].X, x) && GTE(droiteRaquette[1].X, x)) || (droiteRaquette[0].X >= droiteRaquette[1].X && GTE(droiteRaquette[0].X, x) && LTE(droiteRaquette[1].X, x))) &&
+                    ((droiteRaquette[0].Y <= droiteRaquette[1].Y && LTE(droiteRaquette[0].Y, y) && GTE(droiteRaquette[1].Y, y)) || (droiteRaquette[0].Y >= droiteRaquette[1].Y && GTE(droiteRaquette[0].Y, y) && LTE(droiteRaquette[1].Y, y))));
             }
 
             return siIntersection;
