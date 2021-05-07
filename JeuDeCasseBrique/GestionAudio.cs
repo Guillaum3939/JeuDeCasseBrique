@@ -77,7 +77,7 @@ namespace JeuDeCasseBrique
         public GestionAudio()
         {
             audioContext = new AudioContext();
-            fichierMusiquePricipale = new FichierWAV("./audio/DarkAtmosphere.wav");
+            fichierMusiquePricipale = new FichierWAV("./audio/musicAmbiance.wav");
             fichierOuch = new FichierWAV("./audio/Ouch.wav");
             fichierPewPew = new FichierWAV("./audio/PewPew.wav");
             fichierSalsa = new FichierWAV("./audio/Salsa.wav");
