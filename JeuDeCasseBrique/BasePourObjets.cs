@@ -33,6 +33,8 @@ namespace JeuDeCasseBrique
             init(nomTexture);
         }
 
+     
+
         private void init(string nomTexture)
         {
             this.nomTexture = nomTexture;

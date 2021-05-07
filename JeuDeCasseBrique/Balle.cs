@@ -18,8 +18,8 @@ namespace JeuDeCasseBrique
         #endregion // Attributs;
 
         #region ConstructeurInitialisation
-        public Balle(Vector2 pointA, Vector2 pointB, Vector2 pointC, Vector2 pointD) 
-            : base("./images/CaisseBoisBMP.bmp", pointA, pointB, pointC, pointD)
+        public Balle(string nomTexture, Vector2 pointA, Vector2 pointB, Vector2 pointC, Vector2 pointD) 
+            : base(nomTexture, pointA, pointB, pointC, pointD)
         {
             this.deplacementVertical = 0.0f;
             this.deplacementHorizontal = 0.0f;

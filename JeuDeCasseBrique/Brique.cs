@@ -18,7 +18,7 @@ namespace JeuDeCasseBrique
         #region ConstructeurInitialisation
 
         public Brique(string nomTexture, Vector2 a, Vector2 b, Vector2 c, Vector2 d) 
-            : base("./images/CaisseBoisBMP.bmp", a, b, c, d)
+            : base(nomTexture, a, b, c, d)
         {
             
         }
