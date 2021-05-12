@@ -192,7 +192,6 @@ namespace JeuDeCasseBrique
             Vector2 pointH = new Vector2(32.0f, -225.0f);
             raquette = new Raquette(pointE, pointF, pointG, pointH);
 
-            
             //instanciation de la balle
             Vector2 pointa = new Vector2(-20.0f, -210.0f);
             Vector2 pointb = new Vector2(-20.0f, -200.0f);
@@ -215,23 +214,22 @@ namespace JeuDeCasseBrique
             cptrBalle.setCouleurTexte(couleurTexte);
 
             // instanciation du  texte qte doritos, qte salsa
-            int largeurZoneTexte3 = 215;
+            int largeurZoneTexte3 = 178;
             int hauteurZoneTexte3 = 25;
-            Vector2 coinInferieurGauche3 = new Vector2(-118.0f, 120.0f);
+            Vector2 coinInferieurGauche3 = new Vector2(-80.0f, 210.0f);
             cptrPoints = new Texte(coinInferieurGauche3, largeurZoneTexte3, hauteurZoneTexte3);
             cptrPoints.setTexte(getTxtCompletPoints(textePoints, nbPoints));
             cptrPoints.setCouleurFond(couleurFond);
             cptrPoints.setCouleurTexte(couleurTexte);
 
             // instanciation du  texte  qte salsa
-            int largeurZoneTexte4 = 195;
+            int largeurZoneTexte4 = 150;
             int hauteurZoneTexte4 = 25;
-            Vector2 coinInferieurGauche4 = new Vector2(97.0f, 120.0f);
+            Vector2 coinInferieurGauche4 = new Vector2(120.0f, 210.0f);
             cptrTableau = new Texte(coinInferieurGauche4, largeurZoneTexte4, hauteurZoneTexte4);
             cptrTableau.setTexte(getTxtCompletTableau(texteTableau, nbTableau));
             cptrTableau.setCouleurFond(couleurFond);
             cptrTableau.setCouleurTexte(couleurTexte);
-
 
         }
 
@@ -387,7 +385,7 @@ namespace JeuDeCasseBrique
                     //audio.jouerDestruct();
                     TableauDebrique.Remove(brique);
                     
-                    balle.changerDirectionRaquette();
+                    balle.inverserDirection();
 
                     break;
 
