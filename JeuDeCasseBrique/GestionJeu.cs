@@ -251,7 +251,8 @@ namespace JeuDeCasseBrique
                 if (SiCollisionBalle)
                 {
                     Console.WriteLine(" Il y  a eu collision sur le cote : " + coteCollision.ToString());
-                    balle.inverserDirection();
+                    balle.inverserDirection(coteCollision);
+                    
                 }
 
 
@@ -281,9 +282,11 @@ namespace JeuDeCasseBrique
                 if (siCollisionBalleBrique)
                 {
 
-
+                    //audio.jouerDestruct();
                     TableauDebrique.Remove(brique);
+                    
                     balle.changerDirectionRaquette();
+
                     break;
 
 

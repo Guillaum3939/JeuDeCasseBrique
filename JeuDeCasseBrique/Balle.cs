@@ -52,10 +52,11 @@ namespace JeuDeCasseBrique
             base.dessiner(PrimitiveType.Quads);
             GL.PopMatrix();
         }
-        public void inverserDirection()
+        public void inverserDirection(CoteObjets coteCollision)
         {
            incrementVertical *= -1.0f;
-           incrementHorizontal *= -1.0f;
+           
+
         }
 
         public void changerDirectionRaquette()
