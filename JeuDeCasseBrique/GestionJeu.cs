@@ -19,9 +19,7 @@ namespace JeuDeCasseBrique
         GameWindow window;
         Raquette raquette;
         List<Brique> TableauDebrique;
-
         Brique brique;
-
         Balle balle;
         GestionAudio audio;
         Vector2[] listeDroitesBrique = new Vector2[4];
@@ -386,13 +384,8 @@ namespace JeuDeCasseBrique
 
                     //audio.jouerDestruct();
                     TableauDebrique.Remove(brique);
-
                     
-                    balle.inverserDirection();
-
-                    audio.jouerDestruct();
                     balle.changerDirectionRaquette();
-
 
                     break;
 
