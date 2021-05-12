@@ -19,6 +19,7 @@ namespace JeuDeCasseBrique
         GameWindow window;
         Raquette raquette;
         List<Brique> brique;
+        //Brique brique;
         Balle balle;
         GestionAudio audio;
         Vector2[] listeDroitesBrique = new Vector2[4];
@@ -202,7 +203,7 @@ namespace JeuDeCasseBrique
         {
             KeyboardState keyboardState = Keyboard.GetState();
             
-            if ((keyboardState.IsKeyDown(Key.A)) || (keyboardState.IsKeyDown(Key.Left)))  //? A est à gauche mais tu as écrit right
+            if ((keyboardState.IsKeyDown(Key.A)) || (keyboardState.IsKeyDown(Key.Left)))  //? A est à gauche mais tu as écrit right // mon erreur 
             {
                 raquette.Direction = false;
                 Console.WriteLine(e.Key.ToString());
@@ -254,20 +255,46 @@ namespace JeuDeCasseBrique
 
 
             }
-            if (brique != null)
+
+            //List<Brique> listeBriques = new List<Brique>(brique);
+            //Dictionary<CoteObjets, Vector2[]> listeDroitesBriques;
+
+            CoteObjets coteCollosion = CoteObjets.NULL;
+            foreach (Brique brique in brique)
             {
-                List<Brique> listeBriques = new List<Brique>(brique);
-                Dictionary<CoteObjets, Vector2[]> listeDroitesBriques;
-                CoteObjets coteCollosion = CoteObjets.NULL;
-                foreach (Brique brique in listeBriques)
+                Dictionary<CoteObjets, Vector2[]> listeDroitesBriques = brique.getDroitesCotes();
+                bool siCollisionBalleBrique = false;
+
+                foreach (KeyValuePair<CoteObjets, Vector2[]> droiteBalle in listeDroitesBalle)
                 {
-                    foreach (KeyValuePair<CoteObjets, Vector2[]> droiteBalle in listeDroitesBalle)
+                 
+                    foreach (KeyValuePair<CoteObjets, Vector2[]> droiteBriques in listeDroitesBriques)
                     {
-                        listeDroitesBriques = brique.getDroitesCotes();
+                        if (intersection(droiteBalle.Value, droiteBriques.Value))
+                        {
+                            siCollisionBalleBrique = true;
+                            break;
+                        }
+
+                           
                     }
+                    if (siCollisionBalleBrique)
+                    {
+                        break;
+                    }
+
+
+                }
+                if (siCollisionBalleBrique)
+                {
+                    balle.changerDirectionRaquette();
                 }
 
+
             }
+
+
+
 
 
 
