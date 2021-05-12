@@ -20,7 +20,6 @@ namespace JeuDeCasseBrique
         Raquette raquette;
         List<Brique> TableauDebrique;
         Brique brique;
-            
         Balle balle;
         GestionAudio audio;
         Vector2[] listeDroitesBrique = new Vector2[4];
@@ -94,11 +93,34 @@ namespace JeuDeCasseBrique
             window.UpdateFrame += update;
             window.RenderFrame += rendu;
             window.KeyDown += Window_KeyPress;   //Remplacer KeyPress par keyDown et le bug est disparu :)
-            
+            window.KeyDown += Window_KeyDown; // ultiliser pour la barre espace (lancement de la balle)
             window.Run(dureeAffichageCHaqueImage);
             // test 123
            
         }
+
+
+        private string getTxtCompletBalle(string texteBalle, int nbBalle)
+        {
+            string conca;
+            conca = texteBalle + nbBalle;
+            return conca;
+        }
+
+        private string getTxtCompletPoints(string textePoints, int nbPoints)
+        {
+            string conca;
+            conca = textePoints + nbPoints;
+            return conca;
+        }
+
+        private string getTxtCompletTableau(string texteTableau, int nbTableau)
+        {
+            string conca;
+            conca = texteTableau + nbTableau;
+            return conca;
+        }
+
 
         private void redimensionner(object sender, EventArgs e)
         {
@@ -125,7 +147,7 @@ namespace JeuDeCasseBrique
 
      
 
-            //ranger 1
+            //ranger 2
             TableauDebrique.Add(new Brique("./images/green.bmp", new Vector2(-300.0f, 180.0f), new Vector2(-300.0f, 200.0f), new Vector2(-250.0f, 200.0f), new Vector2(-250.0f, 180.0f)));
             TableauDebrique.Add(new Brique("./images/green.bmp", new Vector2(-240.0f, 180.0f), new Vector2(-240.0f, 200.0f), new Vector2(-190.0f, 200.0f), new Vector2(-190.0f, 180.0f)));
             TableauDebrique.Add(new Brique("./images/green.bmp", new Vector2(-180.0f, 180.0f), new Vector2(-180.0f, 200.0f), new Vector2(-130.0f, 200.0f), new Vector2(-130.0f, 180.0f)));
@@ -137,7 +159,7 @@ namespace JeuDeCasseBrique
             TableauDebrique.Add(new Brique("./images/green.bmp", new Vector2(180.0f, 180.0f), new Vector2(180.0f, 200.0f), new Vector2(230.0f, 200.0f), new Vector2(230.0f, 180.0f)));
             TableauDebrique.Add(new Brique("./images/green.bmp", new Vector2(240.0f, 180.0f), new Vector2(240.0f, 200.0f), new Vector2(290.0f, 200.0f), new Vector2(290.0f, 180.0f)));
 
-            //ranger 2
+            //ranger 3
             TableauDebrique.Add(new Brique("./images/orange.bmp", new Vector2(-300.0f, 150.0f), new Vector2(-300.0f, 170.0f), new Vector2(-250.0f, 170.0f), new Vector2(-250.0f, 150.0f)));
             TableauDebrique.Add(new Brique("./images/orange.bmp", new Vector2(-240.0f, 150.0f), new Vector2(-240.0f, 170.0f), new Vector2(-190.0f, 170.0f), new Vector2(-190.0f, 150.0f)));
             TableauDebrique.Add(new Brique("./images/orange.bmp", new Vector2(-180.0f, 150.0f), new Vector2(-180.0f, 170.0f), new Vector2(-130.0f, 170.0f), new Vector2(-130.0f, 150.0f)));
@@ -149,7 +171,7 @@ namespace JeuDeCasseBrique
             TableauDebrique.Add(new Brique("./images/orange.bmp", new Vector2(180.0f, 150.0f), new Vector2(180.0f, 170.0f), new Vector2(230.0f, 170.0f), new Vector2(230.0f, 150.0f)));
             TableauDebrique.Add(new Brique("./images/orange.bmp", new Vector2(240.0f, 150.0f), new Vector2(240.0f, 170.0f), new Vector2(290.0f, 170.0f), new Vector2(290.0f, 150.0f)));
 
-            //ranger 3
+            //ranger 4
             TableauDebrique.Add(new Brique("./images/red.bmp", new Vector2(-300.0f, 120.0f), new Vector2(-300.0f, 140.0f), new Vector2(-250.0f, 140.0f), new Vector2(-250.0f, 120.0f)));
             TableauDebrique.Add(new Brique("./images/red.bmp", new Vector2(-240.0f, 120.0f), new Vector2(-240.0f, 140.0f), new Vector2(-190.0f, 140.0f), new Vector2(-190.0f, 120.0f)));
             TableauDebrique.Add(new Brique("./images/red.bmp", new Vector2(-180.0f, 120.0f), new Vector2(-180.0f, 140.0f), new Vector2(-130.0f, 140.0f), new Vector2(-130.0f, 120.0f)));
@@ -161,7 +183,7 @@ namespace JeuDeCasseBrique
             TableauDebrique.Add(new Brique("./images/red.bmp", new Vector2(180.0f, 120.0f), new Vector2(180.0f, 140.0f), new Vector2(230.0f, 140.0f), new Vector2(230.0f, 120.0f)));
             TableauDebrique.Add(new Brique("./images/red.bmp", new Vector2(240.0f, 120.0f), new Vector2(240.0f, 140.0f), new Vector2(290.0f, 140.0f), new Vector2(290.0f, 120.0f)));
 
-            //ranger 4
+            //ranger 5
             TableauDebrique.Add(new Brique("./images/yellow.bmp", new Vector2(-300.0f, 90.0f), new Vector2(-300.0f, 110.0f), new Vector2(-250.0f, 110.0f), new Vector2(-250.0f, 90.0f)));
             TableauDebrique.Add(new Brique("./images/yellow.bmp", new Vector2(-240.0f, 90.0f), new Vector2(-240.0f, 110.0f), new Vector2(-190.0f, 110.0f), new Vector2(-190.0f, 90.0f)));
             TableauDebrique.Add(new Brique("./images/yellow.bmp", new Vector2(-180.0f, 90.0f), new Vector2(-180.0f, 110.0f), new Vector2(-130.0f, 110.0f), new Vector2(-130.0f, 90.0f)));
@@ -198,19 +220,7 @@ namespace JeuDeCasseBrique
             Vector2 pointc = new Vector2(0.0f, -200.0f);
             Vector2 pointd = new Vector2(0.0f, -210.0f);
             balle = new Balle("./images/balle.bmp",pointa, pointb, pointc, pointd);
-
-            // instanciation du  texte points de vie
-            int largeurZoneTexte2 = 180;
-            int hauteurZoneTexte2 = 25;
-            Color couleurFond;
-            couleurFond = Color.Black;
-            Color couleurTexte;
-            couleurTexte = Color.Cyan;
-            Vector2 coinInferieurGauche2 = new Vector2(-260.0f, 210.0f);
-            cptrBalle = new Texte(coinInferieurGauche2, largeurZoneTexte2, hauteurZoneTexte2);
-            cptrBalle.setTexte(getTxtCompletBalle(texteBalle, nbBalle));
-            cptrBalle.setCouleurFond(couleurFond);
-            cptrBalle.setCouleurTexte(couleurTexte);
+            
 
             // instanciation du  texte qte doritos, qte salsa
             int largeurZoneTexte3 = 178;
@@ -234,7 +244,7 @@ namespace JeuDeCasseBrique
 
         private void update(object sender, EventArgs arg)
         {
-            balle.update(); //update de la balle
+            balle.update(); 
             detectionCollision();
 
             KeyboardState keyboardState = Keyboard.GetState();
@@ -244,10 +254,28 @@ namespace JeuDeCasseBrique
                 
             }
 
+
+
+            if (balle.Fail)
+            {
+                balleHorsEcran();
+            }
+
             //brique.update();
            
         }
+
+        private void balleHorsEcran()
+        {
+            
+            
+
+           
+        }
+
         #endregion //ConstructeurInitialisation
+
+       
 
         #region GestionAffichage
         private void rendu(object sender, EventArgs arg)
@@ -266,6 +294,10 @@ namespace JeuDeCasseBrique
             cptrTableau.dessiner();
 
             window.SwapBuffers();
+
+            cptrBalle.dessiner();
+            cptrPoints.dessiner();
+            cptrTableau.dessiner();
 
         }
         #endregion
@@ -293,6 +325,16 @@ namespace JeuDeCasseBrique
 
             }
 
+        }
+        private void Window_KeyDown(object sender, KeyboardKeyEventArgs e)
+        {
+            KeyboardState keyboardState = Keyboard.GetState();
+            if (keyboardState.IsKeyDown(Key.Space))
+            {
+                balle.BalleLancee = true;
+                Console.WriteLine("TEste lance balle");
+                //jeuLance = true;
+            }
         }
 
         #endregion clavier
@@ -356,7 +398,7 @@ namespace JeuDeCasseBrique
 
                     //audio.jouerDestruct();
                     TableauDebrique.Remove(brique);
-                    audio.jouerDestruct();
+                    
                     balle.inverserDirection();
 
                     break;
@@ -384,7 +426,7 @@ namespace JeuDeCasseBrique
              * NOTE : Une division par zéro a pour résultat l'INFINI.
              * Si une droite est verticale, l'équation pour trouver "a" retournera l'INFINI
              * */
-            bool siIntersection = false;
+        bool siIntersection = false;
 
             // Calculer les valeur "a" pour chacune de deux droites
             float a_Triangle = (droiteBalle[1].Y - droiteBalle[0].Y) / (droiteBalle[1].X - droiteBalle[0].X);
