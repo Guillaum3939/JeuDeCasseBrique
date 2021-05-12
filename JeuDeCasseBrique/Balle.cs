@@ -54,8 +54,8 @@ namespace JeuDeCasseBrique
         }
         public void inverserDirection()
         {
-            incrementVertical *= -1.0f;
-            incrementHorizontal *= -1.0f;
+           incrementVertical *= -1.0f;
+           incrementHorizontal *= -1.0f;
         }
 
         public void changerDirectionRaquette()

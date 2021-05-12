@@ -251,7 +251,7 @@ namespace JeuDeCasseBrique
                 if (SiCollisionBalle)
                 {
                     Console.WriteLine(" Il y  a eu collision sur le cote : " + coteCollision.ToString());
-                    balle.changerDirectionRaquette();
+                    balle.inverserDirection();
                 }
 
 
