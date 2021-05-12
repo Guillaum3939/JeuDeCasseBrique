@@ -21,6 +21,7 @@ namespace JeuDeCasseBrique
         List<Brique> TableauDebrique;
         Brique brique;
         Balle balle;
+        List<Balle> ListeBalle;
         GestionAudio audio;
         Vector2[] listeDroitesBrique = new Vector2[4];
         Texte cptrBalle;
@@ -191,12 +192,14 @@ namespace JeuDeCasseBrique
             Vector2 pointH = new Vector2(32.0f, -225.0f);
             raquette = new Raquette(pointE, pointF, pointG, pointH);
 
+            
             //instanciation de la balle
             Vector2 pointa = new Vector2(-20.0f, -210.0f);
             Vector2 pointb = new Vector2(-20.0f, -200.0f);
             Vector2 pointc = new Vector2(0.0f, -200.0f);
             Vector2 pointd = new Vector2(0.0f, -210.0f);
             balle = new Balle("./images/balle.bmp",pointa, pointb, pointc, pointd);
+            //ListeBalle.Add(new Balle("./images/balle.bmp", new Vector2(-20.0f, -210.0f), new Vector2(-20.0f, -200.0f) , new Vector2(0.0f, -200.0f),new Vector2(0.0f, -210.0f)));
 
             // instanciation du  texte points de vie
             int largeurZoneTexte2 = 175;
@@ -234,6 +237,7 @@ namespace JeuDeCasseBrique
 
         private void update(object sender, EventArgs arg)
         {
+            
             balle.update(); 
             detectionCollision();
 
@@ -358,8 +362,6 @@ namespace JeuDeCasseBrique
 
             }
 
-            //List<Brique> listeBriques = new List<Brique>(brique);
-            //Dictionary<CoteObjets, Vector2[]> listeDroitesBriques;
 
             
             foreach (Brique brique in TableauDebrique)
