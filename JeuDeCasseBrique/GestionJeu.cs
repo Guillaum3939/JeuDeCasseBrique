@@ -20,7 +20,6 @@ namespace JeuDeCasseBrique
         Raquette raquette;
         List<Brique> TableauDebrique;
         Brique brique;
-            
         Balle balle;
         GestionAudio audio;
         Vector2[] listeDroitesBrique = new Vector2[4];
@@ -58,7 +57,7 @@ namespace JeuDeCasseBrique
             window.UpdateFrame += update;
             window.RenderFrame += rendu;
             window.KeyDown += Window_KeyPress;   //Remplacer KeyPress par keyDown et le bug est disparu :)
-            
+            window.KeyDown += Window_KeyDown; // ultiliser pour la barre espace (lancement de la balle)
             window.Run(dureeAffichageCHaqueImage);
             // test 123
            
@@ -166,7 +165,7 @@ namespace JeuDeCasseBrique
 
         private void update(object sender, EventArgs arg)
         {
-            balle.update(); //update de la balle
+            balle.update(); 
             detectionCollision();
 
             KeyboardState keyboardState = Keyboard.GetState();
@@ -176,9 +175,25 @@ namespace JeuDeCasseBrique
                 
             }
 
+
+
+            if (balle.Fail)
+            {
+                balleHorsEcran();
+            }
+
             //brique.update();
            
         }
+
+        private void balleHorsEcran()
+        {
+            
+            
+
+           
+        }
+
         #endregion //ConstructeurInitialisation
 
         #region GestionAffichage
@@ -221,6 +236,16 @@ namespace JeuDeCasseBrique
 
             }
 
+        }
+        private void Window_KeyDown(object sender, KeyboardKeyEventArgs e)
+        {
+            KeyboardState keyboardState = Keyboard.GetState();
+            if (keyboardState.IsKeyDown(Key.Space))
+            {
+                balle.BalleLancee = true;
+                Console.WriteLine("TEste lance balle");
+                //jeuLance = true;
+            }
         }
 
         #endregion clavier
