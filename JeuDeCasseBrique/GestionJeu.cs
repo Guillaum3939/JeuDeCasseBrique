@@ -56,7 +56,7 @@ namespace JeuDeCasseBrique
             texteBalle = "Nombre de balle : ";
             textePoints = "Nombre de points : ";
             nbPoints = 0;
-            texteTableau = "Tableau #";
+            texteTableau = "Tableau :  #";
             nbTableau = 1;
             start();
         }
@@ -100,21 +100,21 @@ namespace JeuDeCasseBrique
         }
 
 
-        private string getTxtCompletBalle(string texteBalle, int nbBalle)
+        private string GetTxtCompletBalle(string texteBalle, int nbBalle)
         {
             string conca;
             conca = texteBalle + nbBalle;
             return conca;
         }
 
-        private string getTxtCompletPoints(string textePoints, int nbPoints)
+        private string GetTxtCompletPoints(string textePoints, int nbPoints)
         {
             string conca;
             conca = textePoints + nbPoints;
             return conca;
         }
 
-        private string getTxtCompletTableau(string texteTableau, int nbTableau)
+        private string GetTxtCompletTableau(string texteTableau, int nbTableau)
         {
             string conca;
             conca = texteTableau + nbTableau;
@@ -145,67 +145,126 @@ namespace JeuDeCasseBrique
             // instanciation des briques
             TableauDebrique = new List<Brique>();
 
-     
+            float x = 60.0f;
+            float y = 30f;
 
-            //ranger 2
-            TableauDebrique.Add(new Brique("./images/green.bmp", new Vector2(-300.0f, 180.0f), new Vector2(-300.0f, 200.0f), new Vector2(-250.0f, 200.0f), new Vector2(-250.0f, 180.0f)));
-            TableauDebrique.Add(new Brique("./images/green.bmp", new Vector2(-240.0f, 180.0f), new Vector2(-240.0f, 200.0f), new Vector2(-190.0f, 200.0f), new Vector2(-190.0f, 180.0f)));
-            TableauDebrique.Add(new Brique("./images/green.bmp", new Vector2(-180.0f, 180.0f), new Vector2(-180.0f, 200.0f), new Vector2(-130.0f, 200.0f), new Vector2(-130.0f, 180.0f)));
-            TableauDebrique.Add(new Brique("./images/green.bmp", new Vector2(-120.0f, 180.0f), new Vector2(-120.0f, 200.0f), new Vector2(-70.0f, 200.0f), new Vector2(-70.0f, 180.0f)));
-            TableauDebrique.Add(new Brique("./images/green.bmp", new Vector2(-60.0f, 180.0f), new Vector2(-60.0f, 200.0f), new Vector2(-10.0f, 200.0f), new Vector2(-10.0f, 180.0f)));
-            TableauDebrique.Add(new Brique("./images/green.bmp", new Vector2(0.0f, 180.0f), new Vector2(0.0f, 200.0f), new Vector2(50.0f, 200.0f), new Vector2(50.0f, 180.0f)));
-            TableauDebrique.Add(new Brique("./images/green.bmp", new Vector2(60.0f, 180.0f), new Vector2(60.0f, 200.0f), new Vector2(110.0f, 200.0f), new Vector2(110.0f, 180.0f)));
-            TableauDebrique.Add(new Brique("./images/green.bmp", new Vector2(120.0f, 180.0f), new Vector2(120.0f, 200.0f), new Vector2(170.0f, 200.0f), new Vector2(170.0f, 180.0f)));
-            TableauDebrique.Add(new Brique("./images/green.bmp", new Vector2(180.0f, 180.0f), new Vector2(180.0f, 200.0f), new Vector2(230.0f, 200.0f), new Vector2(230.0f, 180.0f)));
-            TableauDebrique.Add(new Brique("./images/green.bmp", new Vector2(240.0f, 180.0f), new Vector2(240.0f, 200.0f), new Vector2(290.0f, 200.0f), new Vector2(290.0f, 180.0f)));
+            float x1 = -300f;
+            float x2 = -250f;
 
-            //ranger 3
-            TableauDebrique.Add(new Brique("./images/orange.bmp", new Vector2(-300.0f, 150.0f), new Vector2(-300.0f, 170.0f), new Vector2(-250.0f, 170.0f), new Vector2(-250.0f, 150.0f)));
-            TableauDebrique.Add(new Brique("./images/orange.bmp", new Vector2(-240.0f, 150.0f), new Vector2(-240.0f, 170.0f), new Vector2(-190.0f, 170.0f), new Vector2(-190.0f, 150.0f)));
-            TableauDebrique.Add(new Brique("./images/orange.bmp", new Vector2(-180.0f, 150.0f), new Vector2(-180.0f, 170.0f), new Vector2(-130.0f, 170.0f), new Vector2(-130.0f, 150.0f)));
-            TableauDebrique.Add(new Brique("./images/orange.bmp", new Vector2(-120.0f, 150.0f), new Vector2(-120.0f, 170.0f), new Vector2(-70.0f, 170.0f), new Vector2(-70.0f, 150.0f)));
-            TableauDebrique.Add(new Brique("./images/orange.bmp", new Vector2(-60.0f, 150.0f), new Vector2(-60.0f, 170.0f), new Vector2(-10.0f, 170.0f), new Vector2(-10.0f, 150.0f)));
-            TableauDebrique.Add(new Brique("./images/orange.bmp", new Vector2(0.0f, 150.0f), new Vector2(0.0f, 170.0f), new Vector2(50.0f, 170.0f), new Vector2(50.0f, 150.0f)));
-            TableauDebrique.Add(new Brique("./images/orange.bmp", new Vector2(60.0f, 150.0f), new Vector2(60.0f, 170.0f), new Vector2(110.0f, 170.0f), new Vector2(110.0f, 150.0f)));
-            TableauDebrique.Add(new Brique("./images/orange.bmp", new Vector2(120.0f, 150.0f), new Vector2(120.0f, 170.0f), new Vector2(170.0f, 170.0f), new Vector2(170.0f, 150.0f)));
-            TableauDebrique.Add(new Brique("./images/orange.bmp", new Vector2(180.0f, 150.0f), new Vector2(180.0f, 170.0f), new Vector2(230.0f, 170.0f), new Vector2(230.0f, 150.0f)));
-            TableauDebrique.Add(new Brique("./images/orange.bmp", new Vector2(240.0f, 150.0f), new Vector2(240.0f, 170.0f), new Vector2(290.0f, 170.0f), new Vector2(290.0f, 150.0f)));
+            float y1 = 180f;
+            float y2 = 200f;
 
-            //ranger 4
-            TableauDebrique.Add(new Brique("./images/red.bmp", new Vector2(-300.0f, 120.0f), new Vector2(-300.0f, 140.0f), new Vector2(-250.0f, 140.0f), new Vector2(-250.0f, 120.0f)));
-            TableauDebrique.Add(new Brique("./images/red.bmp", new Vector2(-240.0f, 120.0f), new Vector2(-240.0f, 140.0f), new Vector2(-190.0f, 140.0f), new Vector2(-190.0f, 120.0f)));
-            TableauDebrique.Add(new Brique("./images/red.bmp", new Vector2(-180.0f, 120.0f), new Vector2(-180.0f, 140.0f), new Vector2(-130.0f, 140.0f), new Vector2(-130.0f, 120.0f)));
-            TableauDebrique.Add(new Brique("./images/red.bmp", new Vector2(-120.0f, 120.0f), new Vector2(-120.0f, 140.0f), new Vector2(-70.0f, 140.0f), new Vector2(-70.0f, 120.0f)));
-            TableauDebrique.Add(new Brique("./images/red.bmp", new Vector2(-60.0f, 120.0f), new Vector2(-60.0f, 140.0f), new Vector2(-10.0f, 140.0f), new Vector2(-10.0f, 120.0f)));
-            TableauDebrique.Add(new Brique("./images/red.bmp", new Vector2(0.0f, 120.0f), new Vector2(0.0f, 140.0f), new Vector2(50.0f, 140.0f), new Vector2(50.0f, 120.0f)));
-            TableauDebrique.Add(new Brique("./images/red.bmp", new Vector2(60.0f, 120.0f), new Vector2(60.0f, 140.0f), new Vector2(110.0f, 140.0f), new Vector2(110.0f, 120.0f)));
-            TableauDebrique.Add(new Brique("./images/red.bmp", new Vector2(120.0f, 120.0f), new Vector2(120.0f, 140.0f), new Vector2(170.0f, 140.0f), new Vector2(170.0f, 120.0f)));
-            TableauDebrique.Add(new Brique("./images/red.bmp", new Vector2(180.0f, 120.0f), new Vector2(180.0f, 140.0f), new Vector2(230.0f, 140.0f), new Vector2(230.0f, 120.0f)));
-            TableauDebrique.Add(new Brique("./images/red.bmp", new Vector2(240.0f, 120.0f), new Vector2(240.0f, 140.0f), new Vector2(290.0f, 140.0f), new Vector2(290.0f, 120.0f)));
+            string green = "./images/green.bmp";
+            string blue = "./images/blue.bmp";
+            string red = "./images/red.bmp";
+            string yellow = "./images/yellow.bmp";
+            string pink= "./images/pink.bmp";
+            string orange = "./images/orange.bmp";
 
-            //ranger 5
-            TableauDebrique.Add(new Brique("./images/yellow.bmp", new Vector2(-300.0f, 90.0f), new Vector2(-300.0f, 110.0f), new Vector2(-250.0f, 110.0f), new Vector2(-250.0f, 90.0f)));
-            TableauDebrique.Add(new Brique("./images/yellow.bmp", new Vector2(-240.0f, 90.0f), new Vector2(-240.0f, 110.0f), new Vector2(-190.0f, 110.0f), new Vector2(-190.0f, 90.0f)));
-            TableauDebrique.Add(new Brique("./images/yellow.bmp", new Vector2(-180.0f, 90.0f), new Vector2(-180.0f, 110.0f), new Vector2(-130.0f, 110.0f), new Vector2(-130.0f, 90.0f)));
-            TableauDebrique.Add(new Brique("./images/yellow.bmp", new Vector2(-120.0f, 90.0f), new Vector2(-120.0f, 110.0f), new Vector2(-70.0f, 110.0f), new Vector2(-70.0f, 90.0f)));
-            TableauDebrique.Add(new Brique("./images/yellow.bmp", new Vector2(-60.0f, 90.0f), new Vector2(-60.0f, 110.0f), new Vector2(-10.0f, 110.0f), new Vector2(-10.0f, 90.0f)));
-            TableauDebrique.Add(new Brique("./images/yellow.bmp", new Vector2(0.0f, 90.0f), new Vector2(0.0f, 110.0f), new Vector2(50.0f, 110.0f), new Vector2(50.0f, 90.0f)));
-            TableauDebrique.Add(new Brique("./images/yellow.bmp", new Vector2(60.0f, 90.0f), new Vector2(60.0f, 110.0f), new Vector2(110.0f, 110.0f), new Vector2(110.0f, 90.0f)));
-            TableauDebrique.Add(new Brique("./images/yellow.bmp", new Vector2(120.0f, 90.0f), new Vector2(120.0f, 110.0f), new Vector2(170.0f, 110.0f), new Vector2(170.0f, 90.0f)));
-            TableauDebrique.Add(new Brique("./images/yellow.bmp", new Vector2(180.0f, 90.0f), new Vector2(180.0f, 110.0f), new Vector2(230.0f, 110.0f), new Vector2(230.0f, 90.0f)));
-            TableauDebrique.Add(new Brique("./images/yellow.bmp", new Vector2(240.0f, 90.0f), new Vector2(240.0f, 110.0f), new Vector2(290.0f, 110.0f), new Vector2(290.0f, 90.0f)));
+            string color = green;
 
-            //ranger 4
-            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-300.0f, 60.0f), new Vector2(-300.0f, 80.0f), new Vector2(-250.0f, 80.0f), new Vector2(-250.0f, 60.0f)));
-            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-240.0f, 60.0f), new Vector2(-240.0f, 80.0f), new Vector2(-190.0f, 80.0f), new Vector2(-190.0f, 60.0f)));
-            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-180.0f, 60.0f), new Vector2(-180.0f, 80.0f), new Vector2(-130.0f, 80.0f), new Vector2(-130.0f, 60.0f)));
-            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-120.0f, 60.0f), new Vector2(-120.0f, 80.0f), new Vector2(-70.0f, 80.0f), new Vector2(-70.0f, 60.0f)));
-            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-60.0f, 60.0f), new Vector2(-60.0f, 80.0f), new Vector2(-10.0f, 80.0f), new Vector2(-10.0f, 60.0f)));
-            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(0.0f, 60.0f), new Vector2(0.0f, 80.0f), new Vector2(50.0f, 80.0f), new Vector2(50.0f, 60.0f)));
-            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(60.0f, 60.0f), new Vector2(60.0f, 80.0f), new Vector2(110.0f, 80.0f), new Vector2(110.0f, 60.0f)));
-            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(120.0f, 60.0f), new Vector2(120.0f, 80.0f), new Vector2(170.0f, 80.0f), new Vector2(170.0f, 60.0f)));
-            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(180.0f, 60.0f), new Vector2(180.0f, 80.0f), new Vector2(230.0f, 80.0f), new Vector2(230.0f, 60.0f)));
-            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(240.0f, 60.0f), new Vector2(240.0f, 80.0f), new Vector2(290.0f, 80.0f), new Vector2(290.0f, 60.0f)));
+
+            TableauDebrique.Add(new Brique(color, new Vector2(-300.0f, 180.0f), new Vector2(-300.0f, 200.0f), new Vector2(-250.0f, 200.0f), new Vector2(-250.0f, 180.0f)));
+            for(int j = 0; j<6; j++)
+            {
+               
+                for (int i = 0; i<10; i++)
+                { 
+               
+                    TableauDebrique.Add(new Brique(color, new Vector2(x1, y1), new Vector2(x1, y2), new Vector2(x2, y2), new Vector2(x2,y1)));
+                    x1 += x;
+                    x2 += x;
+                    
+
+                }
+                x1 = -300f;
+                x2 = -250f;
+
+                y1 -= y;
+                y2 -= y;
+
+                switch (j+1)
+                {
+                    case 1: color = blue;
+                        break;
+                    case 2:
+                        color = pink;
+                        break;
+                    case 3:
+                        color = red;
+                        break;
+                    case 4:
+                        color = orange;
+                        break;
+                    case 5:
+                        color = yellow;
+                        break;
+                }
+            }
+
+
+            #region ancienne brique
+
+            ////ranger 1
+            //TableauDebrique.Add(new Brique("./images/green.bmp", new Vector2(-300.0f, 180.0f), new Vector2(-300.0f, 200.0f), new Vector2(-250.0f, 200.0f), new Vector2(-250.0f, 180.0f)));
+            //TableauDebrique.Add(new Brique("./images/green.bmp", new Vector2(-240.0f, 180.0f), new Vector2(-240.0f, 200.0f), new Vector2(-190.0f, 200.0f), new Vector2(-190.0f, 180.0f)));
+            //TableauDebrique.Add(new Brique("./images/green.bmp", new Vector2(-180.0f, 180.0f), new Vector2(-180.0f, 200.0f), new Vector2(-130.0f, 200.0f), new Vector2(-130.0f, 180.0f)));
+            //TableauDebrique.Add(new Brique("./images/green.bmp", new Vector2(-120.0f, 180.0f), new Vector2(-120.0f, 200.0f), new Vector2(-70.0f, 200.0f), new Vector2(-70.0f, 180.0f)));
+            //TableauDebrique.Add(new Brique("./images/green.bmp", new Vector2(-60.0f, 180.0f), new Vector2(-60.0f, 200.0f), new Vector2(-10.0f, 200.0f), new Vector2(-10.0f, 180.0f)));
+            //TableauDebrique.Add(new Brique("./images/green.bmp", new Vector2(0.0f, 180.0f), new Vector2(0.0f, 200.0f), new Vector2(50.0f, 200.0f), new Vector2(50.0f, 180.0f)));
+            //TableauDebrique.Add(new Brique("./images/green.bmp", new Vector2(60.0f, 180.0f), new Vector2(60.0f, 200.0f), new Vector2(110.0f, 200.0f), new Vector2(110.0f, 180.0f)));
+            //TableauDebrique.Add(new Brique("./images/green.bmp", new Vector2(120.0f, 180.0f), new Vector2(120.0f, 200.0f), new Vector2(170.0f, 200.0f), new Vector2(170.0f, 180.0f)));
+            //TableauDebrique.Add(new Brique("./images/green.bmp", new Vector2(180.0f, 180.0f), new Vector2(180.0f, 200.0f), new Vector2(230.0f, 200.0f), new Vector2(230.0f, 180.0f)));
+            //TableauDebrique.Add(new Brique("./images/green.bmp", new Vector2(240.0f, 180.0f), new Vector2(240.0f, 200.0f), new Vector2(290.0f, 200.0f), new Vector2(290.0f, 180.0f)));
+
+            ////ranger 2
+            //TableauDebrique.Add(new Brique("./images/orange.bmp", new Vector2(-300.0f, 150.0f), new Vector2(-300.0f, 170.0f), new Vector2(-250.0f, 170.0f), new Vector2(-250.0f, 150.0f)));
+            //TableauDebrique.Add(new Brique("./images/orange.bmp", new Vector2(-240.0f, 150.0f), new Vector2(-240.0f, 170.0f), new Vector2(-190.0f, 170.0f), new Vector2(-190.0f, 150.0f)));
+            //TableauDebrique.Add(new Brique("./images/orange.bmp", new Vector2(-180.0f, 150.0f), new Vector2(-180.0f, 170.0f), new Vector2(-130.0f, 170.0f), new Vector2(-130.0f, 150.0f)));
+            //TableauDebrique.Add(new Brique("./images/orange.bmp", new Vector2(-120.0f, 150.0f), new Vector2(-120.0f, 170.0f), new Vector2(-70.0f, 170.0f), new Vector2(-70.0f, 150.0f)));
+            //TableauDebrique.Add(new Brique("./images/orange.bmp", new Vector2(-60.0f, 150.0f), new Vector2(-60.0f, 170.0f), new Vector2(-10.0f, 170.0f), new Vector2(-10.0f, 150.0f)));
+            //TableauDebrique.Add(new Brique("./images/orange.bmp", new Vector2(0.0f, 150.0f), new Vector2(0.0f, 170.0f), new Vector2(50.0f, 170.0f), new Vector2(50.0f, 150.0f)));
+            //TableauDebrique.Add(new Brique("./images/orange.bmp", new Vector2(60.0f, 150.0f), new Vector2(60.0f, 170.0f), new Vector2(110.0f, 170.0f), new Vector2(110.0f, 150.0f)));
+            //TableauDebrique.Add(new Brique("./images/orange.bmp", new Vector2(120.0f, 150.0f), new Vector2(120.0f, 170.0f), new Vector2(170.0f, 170.0f), new Vector2(170.0f, 150.0f)));
+            //TableauDebrique.Add(new Brique("./images/orange.bmp", new Vector2(180.0f, 150.0f), new Vector2(180.0f, 170.0f), new Vector2(230.0f, 170.0f), new Vector2(230.0f, 150.0f)));
+            //TableauDebrique.Add(new Brique("./images/orange.bmp", new Vector2(240.0f, 150.0f), new Vector2(240.0f, 170.0f), new Vector2(290.0f, 170.0f), new Vector2(290.0f, 150.0f)));
+
+            ////ranger 3
+            //TableauDebrique.Add(new Brique("./images/red.bmp", new Vector2(-300.0f, 120.0f), new Vector2(-300.0f, 140.0f), new Vector2(-250.0f, 140.0f), new Vector2(-250.0f, 120.0f)));
+            //TableauDebrique.Add(new Brique("./images/red.bmp", new Vector2(-240.0f, 120.0f), new Vector2(-240.0f, 140.0f), new Vector2(-190.0f, 140.0f), new Vector2(-190.0f, 120.0f)));
+            //TableauDebrique.Add(new Brique("./images/red.bmp", new Vector2(-180.0f, 120.0f), new Vector2(-180.0f, 140.0f), new Vector2(-130.0f, 140.0f), new Vector2(-130.0f, 120.0f)));
+            //TableauDebrique.Add(new Brique("./images/red.bmp", new Vector2(-120.0f, 120.0f), new Vector2(-120.0f, 140.0f), new Vector2(-70.0f, 140.0f), new Vector2(-70.0f, 120.0f)));
+            //TableauDebrique.Add(new Brique("./images/red.bmp", new Vector2(-60.0f, 120.0f), new Vector2(-60.0f, 140.0f), new Vector2(-10.0f, 140.0f), new Vector2(-10.0f, 120.0f)));
+            //TableauDebrique.Add(new Brique("./images/red.bmp", new Vector2(0.0f, 120.0f), new Vector2(0.0f, 140.0f), new Vector2(50.0f, 140.0f), new Vector2(50.0f, 120.0f)));
+            //TableauDebrique.Add(new Brique("./images/red.bmp", new Vector2(60.0f, 120.0f), new Vector2(60.0f, 140.0f), new Vector2(110.0f, 140.0f), new Vector2(110.0f, 120.0f)));
+            //TableauDebrique.Add(new Brique("./images/red.bmp", new Vector2(120.0f, 120.0f), new Vector2(120.0f, 140.0f), new Vector2(170.0f, 140.0f), new Vector2(170.0f, 120.0f)));
+            //TableauDebrique.Add(new Brique("./images/red.bmp", new Vector2(180.0f, 120.0f), new Vector2(180.0f, 140.0f), new Vector2(230.0f, 140.0f), new Vector2(230.0f, 120.0f)));
+            //TableauDebrique.Add(new Brique("./images/red.bmp", new Vector2(240.0f, 120.0f), new Vector2(240.0f, 140.0f), new Vector2(290.0f, 140.0f), new Vector2(290.0f, 120.0f)));
+
+            ////ranger 4
+            //TableauDebrique.Add(new Brique("./images/yellow.bmp", new Vector2(-300.0f, 90.0f), new Vector2(-300.0f, 110.0f), new Vector2(-250.0f, 110.0f), new Vector2(-250.0f, 90.0f)));
+            //TableauDebrique.Add(new Brique("./images/yellow.bmp", new Vector2(-240.0f, 90.0f), new Vector2(-240.0f, 110.0f), new Vector2(-190.0f, 110.0f), new Vector2(-190.0f, 90.0f)));
+            //TableauDebrique.Add(new Brique("./images/yellow.bmp", new Vector2(-180.0f, 90.0f), new Vector2(-180.0f, 110.0f), new Vector2(-130.0f, 110.0f), new Vector2(-130.0f, 90.0f)));
+            //TableauDebrique.Add(new Brique("./images/yellow.bmp", new Vector2(-120.0f, 90.0f), new Vector2(-120.0f, 110.0f), new Vector2(-70.0f, 110.0f), new Vector2(-70.0f, 90.0f)));
+            //TableauDebrique.Add(new Brique("./images/yellow.bmp", new Vector2(-60.0f, 90.0f), new Vector2(-60.0f, 110.0f), new Vector2(-10.0f, 110.0f), new Vector2(-10.0f, 90.0f)));
+            //TableauDebrique.Add(new Brique("./images/yellow.bmp", new Vector2(0.0f, 90.0f), new Vector2(0.0f, 110.0f), new Vector2(50.0f, 110.0f), new Vector2(50.0f, 90.0f)));
+            //TableauDebrique.Add(new Brique("./images/yellow.bmp", new Vector2(60.0f, 90.0f), new Vector2(60.0f, 110.0f), new Vector2(110.0f, 110.0f), new Vector2(110.0f, 90.0f)));
+            //TableauDebrique.Add(new Brique("./images/yellow.bmp", new Vector2(120.0f, 90.0f), new Vector2(120.0f, 110.0f), new Vector2(170.0f, 110.0f), new Vector2(170.0f, 90.0f)));
+            //TableauDebrique.Add(new Brique("./images/yellow.bmp", new Vector2(180.0f, 90.0f), new Vector2(180.0f, 110.0f), new Vector2(230.0f, 110.0f), new Vector2(230.0f, 90.0f)));
+            //TableauDebrique.Add(new Brique("./images/yellow.bmp", new Vector2(240.0f, 90.0f), new Vector2(240.0f, 110.0f), new Vector2(290.0f, 110.0f), new Vector2(290.0f, 90.0f)));
+
+            ////ranger 5
+            //TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-300.0f, 60.0f), new Vector2(-300.0f, 80.0f), new Vector2(-250.0f, 80.0f), new Vector2(-250.0f, 60.0f)));
+            //TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-240.0f, 60.0f), new Vector2(-240.0f, 80.0f), new Vector2(-190.0f, 80.0f), new Vector2(-190.0f, 60.0f)));
+            //TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-180.0f, 60.0f), new Vector2(-180.0f, 80.0f), new Vector2(-130.0f, 80.0f), new Vector2(-130.0f, 60.0f)));
+            //TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-120.0f, 60.0f), new Vector2(-120.0f, 80.0f), new Vector2(-70.0f, 80.0f), new Vector2(-70.0f, 60.0f)));
+            //TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-60.0f, 60.0f), new Vector2(-60.0f, 80.0f), new Vector2(-10.0f, 80.0f), new Vector2(-10.0f, 60.0f)));
+            //TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(0.0f, 60.0f), new Vector2(0.0f, 80.0f), new Vector2(50.0f, 80.0f), new Vector2(50.0f, 60.0f)));
+            //TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(60.0f, 60.0f), new Vector2(60.0f, 80.0f), new Vector2(110.0f, 80.0f), new Vector2(110.0f, 60.0f)));
+            //TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(120.0f, 60.0f), new Vector2(120.0f, 80.0f), new Vector2(170.0f, 80.0f), new Vector2(170.0f, 60.0f)));
+            //TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(180.0f, 60.0f), new Vector2(180.0f, 80.0f), new Vector2(230.0f, 80.0f), new Vector2(230.0f, 60.0f)));
+            //TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(240.0f, 60.0f), new Vector2(240.0f, 80.0f), new Vector2(290.0f, 80.0f), new Vector2(290.0f, 60.0f)));
+            #endregion ancienne brique
 
             //instanciation de la raquette
             Vector2 pointE = new Vector2(-40.0f, -225.0f);
@@ -220,21 +279,34 @@ namespace JeuDeCasseBrique
             Vector2 pointc = new Vector2(0.0f, -200.0f);
             Vector2 pointd = new Vector2(0.0f, -210.0f);
             balle = new Balle("./images/balle.bmp",pointa, pointb, pointc, pointd);
-            
+
+
+            // instanciation du  texte points de vie
+            int largeurZoneTexte2 = 200;
+            int hauteurZoneTexte2 = 25;
+            Color couleurFond;
+            couleurFond = Color.Black;
+            Color couleurTexte;
+            couleurTexte = Color.Cyan;
+            Vector2 coinInferieurGauche2 = new Vector2(-260.0f, 210.0f);
+            cptrBalle = new Texte(coinInferieurGauche2, largeurZoneTexte2, hauteurZoneTexte2);
+            cptrBalle.setTexte(getTxtCompletBalle(texteBalle, nbBalle));
+            cptrBalle.setCouleurFond(couleurFond);
+            cptrBalle.setCouleurTexte(couleurTexte);
 
             // instanciation du  texte qte doritos, qte salsa
-            int largeurZoneTexte3 = 178;
+            int largeurZoneTexte3 = 180;
             int hauteurZoneTexte3 = 25;
-            Vector2 coinInferieurGauche3 = new Vector2(-80.0f, 210.0f);
+            Vector2 coinInferieurGauche3 = new Vector2(-60.0f, 210.0f);
             cptrPoints = new Texte(coinInferieurGauche3, largeurZoneTexte3, hauteurZoneTexte3);
             cptrPoints.setTexte(getTxtCompletPoints(textePoints, nbPoints));
             cptrPoints.setCouleurFond(couleurFond);
             cptrPoints.setCouleurTexte(couleurTexte);
 
             // instanciation du  texte  qte salsa
-            int largeurZoneTexte4 = 150;
+            int largeurZoneTexte4 = 160;
             int hauteurZoneTexte4 = 25;
-            Vector2 coinInferieurGauche4 = new Vector2(120.0f, 210.0f);
+            Vector2 coinInferieurGauche4 = new Vector2(130.0f, 210.0f);
             cptrTableau = new Texte(coinInferieurGauche4, largeurZoneTexte4, hauteurZoneTexte4);
             cptrTableau.setTexte(getTxtCompletTableau(texteTableau, nbTableau));
             cptrTableau.setCouleurFond(couleurFond);
@@ -398,7 +470,7 @@ namespace JeuDeCasseBrique
 
                     //audio.jouerDestruct();
                     TableauDebrique.Remove(brique);
-                    
+                    audio.jouerDestruct();
                     balle.inverserDirection();
 
                     break;
@@ -578,7 +650,7 @@ namespace JeuDeCasseBrique
             couleurDeFond = Color.LightGray;
             pinceau = new SolidBrush(Color.Blue);
             position = new PointF(0.0f, 2.0f);
-            policeSansSerif = new Font(FontFamily.GenericSerif, 11);
+            policeSansSerif = new Font(FontFamily.GenericSansSerif, 11);
             policeSansSerifGras = new Font(this.policeSansSerif, FontStyle.Bold);
             policeAffichage = policeSansSerif;
             textureID = GL.GenTexture();
@@ -671,4 +743,5 @@ namespace JeuDeCasseBrique
 
         #endregion //Methode
     }
+
 }
