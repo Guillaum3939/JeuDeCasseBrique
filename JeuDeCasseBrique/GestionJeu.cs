@@ -23,6 +23,15 @@ namespace JeuDeCasseBrique
         Balle balle;
         GestionAudio audio;
         Vector2[] listeDroitesBrique = new Vector2[4];
+        Texte cptrBalle;
+        int nbBalle;
+        string texteBalle;
+        Texte cptrPoints;
+        int nbPoints;
+        string textePoints;
+        Texte cptrTableau;
+        int nbTableau;
+        string texteTableau;
         #endregion
 
         #region ConstructeurInitialisation
@@ -43,6 +52,12 @@ namespace JeuDeCasseBrique
         public GestionJeu(GameWindow window)
         {
             this.window = window;
+            nbBalle = 10;
+            texteBalle = "Nombre de balle : ";
+            textePoints = "Nombre de points : ";
+            nbPoints = 0;
+            texteTableau = "Tableau #";
+            nbTableau = 1;
             start();
         }
         
@@ -62,6 +77,29 @@ namespace JeuDeCasseBrique
             // test 123
            
         }
+
+
+        private string getTxtCompletBalle(string texteBalle, int nbBalle)
+        {
+            string conca;
+            conca = texteBalle + nbBalle;
+            return conca;
+        }
+
+        private string getTxtCompletPoints(string textePoints, int nbPoints)
+        {
+            string conca;
+            conca = textePoints + nbPoints;
+            return conca;
+        }
+
+        private string getTxtCompletTableau(string texteTableau, int nbTableau)
+        {
+            string conca;
+            conca = texteTableau + nbTableau;
+            return conca;
+        }
+
 
         private void redimensionner(object sender, EventArgs e)
         {
@@ -159,7 +197,38 @@ namespace JeuDeCasseBrique
             Vector2 pointc = new Vector2(0.0f, -200.0f);
             Vector2 pointd = new Vector2(0.0f, -210.0f);
             balle = new Balle("./images/balle.bmp",pointa, pointb, pointc, pointd);
-            
+
+            // instanciation du  texte points de vie
+            int largeurZoneTexte2 = 175;
+            int hauteurZoneTexte2 = 25;
+            Color couleurFond;
+            couleurFond = Color.Chocolate;
+            Color couleurTexte;
+            couleurTexte = Color.Honeydew;
+            Vector2 coinInferieurGauche2 = new Vector2(-40.0f, -215.0f);
+            cptrBalle = new Texte(coinInferieurGauche2, largeurZoneTexte2, hauteurZoneTexte2);
+            cptrBalle.setTexte(getTxtCompletBalle(texteBalle, nbBalle));
+            cptrBalle.setCouleurFond(couleurFond);
+            cptrBalle.setCouleurTexte(couleurTexte);
+
+            // instanciation du  texte qte doritos, qte salsa
+            int largeurZoneTexte3 = 215;
+            int hauteurZoneTexte3 = 25;
+            Vector2 coinInferieurGauche3 = new Vector2(-118.0f, 120.0f);
+            cptrPoints = new Texte(coinInferieurGauche3, largeurZoneTexte3, hauteurZoneTexte3);
+            cptrPoints.setTexte(getTxtCompletPoints(textePoints, nbPoints));
+            cptrPoints.setCouleurFond(couleurFond);
+            cptrPoints.setCouleurTexte(couleurTexte);
+
+            // instanciation du  texte  qte salsa
+            int largeurZoneTexte4 = 195;
+            int hauteurZoneTexte4 = 25;
+            Vector2 coinInferieurGauche4 = new Vector2(97.0f, 120.0f);
+            cptrTableau = new Texte(coinInferieurGauche4, largeurZoneTexte4, hauteurZoneTexte4);
+            cptrTableau.setTexte(getTxtCompletTableau(texteTableau, nbTableau));
+            cptrTableau.setCouleurFond(couleurFond);
+            cptrTableau.setCouleurTexte(couleurTexte);
+
 
         }
 
@@ -196,6 +265,8 @@ namespace JeuDeCasseBrique
 
         #endregion //ConstructeurInitialisation
 
+       
+
         #region GestionAffichage
         private void rendu(object sender, EventArgs arg)
         {
@@ -209,6 +280,10 @@ namespace JeuDeCasseBrique
                 brique.dessiner();
             }
             window.SwapBuffers();
+
+            cptrBalle.dessiner();
+            cptrPoints.dessiner();
+            cptrTableau.dessiner();
 
         }
         #endregion
@@ -310,7 +385,7 @@ namespace JeuDeCasseBrique
                     //audio.jouerDestruct();
                     TableauDebrique.Remove(brique);
                     
-                    balle.inverserDirection();
+                    balle.changerDirectionRaquette();
 
                     break;
 
@@ -337,7 +412,7 @@ namespace JeuDeCasseBrique
              * NOTE : Une division par zéro a pour résultat l'INFINI.
              * Si une droite est verticale, l'équation pour trouver "a" retournera l'INFINI
              * */
-            bool siIntersection = false;
+        bool siIntersection = false;
 
             // Calculer les valeur "a" pour chacune de deux droites
             float a_Triangle = (droiteBalle[1].Y - droiteBalle[0].Y) / (droiteBalle[1].X - droiteBalle[0].X);
