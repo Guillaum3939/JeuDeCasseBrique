@@ -18,8 +18,9 @@ namespace JeuDeCasseBrique
         #region Attriuts
         GameWindow window;
         Raquette raquette;
-        List<Brique> brique;
-        //Brique brique;
+        List<Brique> TableauDebrique;
+        Brique brique;
+            
         Balle balle;
         GestionAudio audio;
         Vector2[] listeDroitesBrique = new Vector2[4];
@@ -84,67 +85,67 @@ namespace JeuDeCasseBrique
             GL.Enable(EnableCap.Texture2D);         //Cette saloperie de ligne !!!!!!! **********
 
             // instanciation des briques
-            brique = new List<Brique>();
+            TableauDebrique = new List<Brique>();
 
             // ranger 1
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(-300.0f, 210.0f), new Vector2(-300.0f, 230.0f), new Vector2(-250.0f, 230.0f), new Vector2(-250.0f, 210.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(-240.0f, 210.0f), new Vector2(-240.0f, 230.0f), new Vector2(-190.0f, 230.0f), new Vector2(-190.0f, 210.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(-180.0f, 210.0f), new Vector2(-180.0f, 230.0f), new Vector2(-130.0f, 230.0f), new Vector2(-130.0f, 210.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(-120.0f, 210.0f), new Vector2(-120.0f, 230.0f), new Vector2(-70.0f, 230.0f), new Vector2(-70.0f, 210.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(-60.0f, 210.0f), new Vector2(-60.0f, 230.0f), new Vector2(-10.0f, 230.0f), new Vector2(-10.0f, 210.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(0.0f, 210.0f), new Vector2(0.0f, 230.0f), new Vector2(50.0f, 230.0f), new Vector2(50.0f, 210.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(60.0f, 210.0f), new Vector2(60.0f, 230.0f), new Vector2(110.0f, 230.0f), new Vector2(110.0f, 210.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(120.0f, 210.0f), new Vector2(120.0f, 230.0f), new Vector2(170.0f, 230.0f), new Vector2(170.0f, 210.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(180.0f, 210.0f), new Vector2(180.0f, 230.0f), new Vector2(230.0f, 230.0f), new Vector2(230.0f, 210.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(240.0f, 210.0f), new Vector2(240.0f, 230.0f), new Vector2(290.0f, 230.0f), new Vector2(290.0f, 210.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-300.0f, 210.0f), new Vector2(-300.0f, 230.0f), new Vector2(-250.0f, 230.0f), new Vector2(-250.0f, 210.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-240.0f, 210.0f), new Vector2(-240.0f, 230.0f), new Vector2(-190.0f, 230.0f), new Vector2(-190.0f, 210.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-180.0f, 210.0f), new Vector2(-180.0f, 230.0f), new Vector2(-130.0f, 230.0f), new Vector2(-130.0f, 210.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-120.0f, 210.0f), new Vector2(-120.0f, 230.0f), new Vector2(-70.0f, 230.0f), new Vector2(-70.0f, 210.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-60.0f, 210.0f), new Vector2(-60.0f, 230.0f), new Vector2(-10.0f, 230.0f), new Vector2(-10.0f, 210.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(0.0f, 210.0f), new Vector2(0.0f, 230.0f), new Vector2(50.0f, 230.0f), new Vector2(50.0f, 210.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(60.0f, 210.0f), new Vector2(60.0f, 230.0f), new Vector2(110.0f, 230.0f), new Vector2(110.0f, 210.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(120.0f, 210.0f), new Vector2(120.0f, 230.0f), new Vector2(170.0f, 230.0f), new Vector2(170.0f, 210.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(180.0f, 210.0f), new Vector2(180.0f, 230.0f), new Vector2(230.0f, 230.0f), new Vector2(230.0f, 210.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(240.0f, 210.0f), new Vector2(240.0f, 230.0f), new Vector2(290.0f, 230.0f), new Vector2(290.0f, 210.0f)));
 
             //ranger 2
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(-300.0f, 180.0f), new Vector2(-300.0f, 200.0f), new Vector2(-250.0f, 200.0f), new Vector2(-250.0f, 180.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(-240.0f, 180.0f), new Vector2(-240.0f, 200.0f), new Vector2(-190.0f, 200.0f), new Vector2(-190.0f, 180.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(-180.0f, 180.0f), new Vector2(-180.0f, 200.0f), new Vector2(-130.0f, 200.0f), new Vector2(-130.0f, 180.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(-120.0f, 180.0f), new Vector2(-120.0f, 200.0f), new Vector2(-70.0f, 200.0f), new Vector2(-70.0f, 180.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(-60.0f, 180.0f), new Vector2(-60.0f, 200.0f), new Vector2(-10.0f, 200.0f), new Vector2(-10.0f, 180.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(0.0f, 180.0f), new Vector2(0.0f, 200.0f), new Vector2(50.0f, 200.0f), new Vector2(50.0f, 180.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(60.0f, 180.0f), new Vector2(60.0f, 200.0f), new Vector2(110.0f, 200.0f), new Vector2(110.0f, 180.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(120.0f, 180.0f), new Vector2(120.0f, 200.0f), new Vector2(170.0f, 200.0f), new Vector2(170.0f, 180.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(180.0f, 180.0f), new Vector2(180.0f, 200.0f), new Vector2(230.0f, 200.0f), new Vector2(230.0f, 180.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(240.0f, 180.0f), new Vector2(240.0f, 200.0f), new Vector2(290.0f, 200.0f), new Vector2(290.0f, 180.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-300.0f, 180.0f), new Vector2(-300.0f, 200.0f), new Vector2(-250.0f, 200.0f), new Vector2(-250.0f, 180.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-240.0f, 180.0f), new Vector2(-240.0f, 200.0f), new Vector2(-190.0f, 200.0f), new Vector2(-190.0f, 180.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-180.0f, 180.0f), new Vector2(-180.0f, 200.0f), new Vector2(-130.0f, 200.0f), new Vector2(-130.0f, 180.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-120.0f, 180.0f), new Vector2(-120.0f, 200.0f), new Vector2(-70.0f, 200.0f), new Vector2(-70.0f, 180.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-60.0f, 180.0f), new Vector2(-60.0f, 200.0f), new Vector2(-10.0f, 200.0f), new Vector2(-10.0f, 180.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(0.0f, 180.0f), new Vector2(0.0f, 200.0f), new Vector2(50.0f, 200.0f), new Vector2(50.0f, 180.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(60.0f, 180.0f), new Vector2(60.0f, 200.0f), new Vector2(110.0f, 200.0f), new Vector2(110.0f, 180.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(120.0f, 180.0f), new Vector2(120.0f, 200.0f), new Vector2(170.0f, 200.0f), new Vector2(170.0f, 180.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(180.0f, 180.0f), new Vector2(180.0f, 200.0f), new Vector2(230.0f, 200.0f), new Vector2(230.0f, 180.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(240.0f, 180.0f), new Vector2(240.0f, 200.0f), new Vector2(290.0f, 200.0f), new Vector2(290.0f, 180.0f)));
 
             //ranger 3
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(-300.0f, 150.0f), new Vector2(-300.0f, 170.0f), new Vector2(-250.0f, 170.0f), new Vector2(-250.0f, 150.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(-240.0f, 150.0f), new Vector2(-240.0f, 170.0f), new Vector2(-190.0f, 170.0f), new Vector2(-190.0f, 150.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(-180.0f, 150.0f), new Vector2(-180.0f, 170.0f), new Vector2(-130.0f, 170.0f), new Vector2(-130.0f, 150.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(-120.0f, 150.0f), new Vector2(-120.0f, 170.0f), new Vector2(-70.0f, 170.0f), new Vector2(-70.0f, 150.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(-60.0f, 150.0f), new Vector2(-60.0f, 170.0f), new Vector2(-10.0f, 170.0f), new Vector2(-10.0f, 150.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(0.0f, 150.0f), new Vector2(0.0f, 170.0f), new Vector2(50.0f, 170.0f), new Vector2(50.0f, 150.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(60.0f, 150.0f), new Vector2(60.0f, 170.0f), new Vector2(110.0f, 170.0f), new Vector2(110.0f, 150.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(120.0f, 150.0f), new Vector2(120.0f, 170.0f), new Vector2(170.0f, 170.0f), new Vector2(170.0f, 150.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(180.0f, 150.0f), new Vector2(180.0f, 170.0f), new Vector2(230.0f, 170.0f), new Vector2(230.0f, 150.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(240.0f, 150.0f), new Vector2(240.0f, 170.0f), new Vector2(290.0f, 170.0f), new Vector2(290.0f, 150.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-300.0f, 150.0f), new Vector2(-300.0f, 170.0f), new Vector2(-250.0f, 170.0f), new Vector2(-250.0f, 150.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-240.0f, 150.0f), new Vector2(-240.0f, 170.0f), new Vector2(-190.0f, 170.0f), new Vector2(-190.0f, 150.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-180.0f, 150.0f), new Vector2(-180.0f, 170.0f), new Vector2(-130.0f, 170.0f), new Vector2(-130.0f, 150.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-120.0f, 150.0f), new Vector2(-120.0f, 170.0f), new Vector2(-70.0f, 170.0f), new Vector2(-70.0f, 150.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-60.0f, 150.0f), new Vector2(-60.0f, 170.0f), new Vector2(-10.0f, 170.0f), new Vector2(-10.0f, 150.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(0.0f, 150.0f), new Vector2(0.0f, 170.0f), new Vector2(50.0f, 170.0f), new Vector2(50.0f, 150.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(60.0f, 150.0f), new Vector2(60.0f, 170.0f), new Vector2(110.0f, 170.0f), new Vector2(110.0f, 150.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(120.0f, 150.0f), new Vector2(120.0f, 170.0f), new Vector2(170.0f, 170.0f), new Vector2(170.0f, 150.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(180.0f, 150.0f), new Vector2(180.0f, 170.0f), new Vector2(230.0f, 170.0f), new Vector2(230.0f, 150.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(240.0f, 150.0f), new Vector2(240.0f, 170.0f), new Vector2(290.0f, 170.0f), new Vector2(290.0f, 150.0f)));
 
             //ranger 4
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(-300.0f, 120.0f), new Vector2(-300.0f, 140.0f), new Vector2(-250.0f, 140.0f), new Vector2(-250.0f, 120.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(-240.0f, 120.0f), new Vector2(-240.0f, 140.0f), new Vector2(-190.0f, 140.0f), new Vector2(-190.0f, 120.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(-180.0f, 120.0f), new Vector2(-180.0f, 140.0f), new Vector2(-130.0f, 140.0f), new Vector2(-130.0f, 120.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(-120.0f, 120.0f), new Vector2(-120.0f, 140.0f), new Vector2(-70.0f, 140.0f), new Vector2(-70.0f, 120.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(-60.0f, 120.0f), new Vector2(-60.0f, 140.0f), new Vector2(-10.0f, 140.0f), new Vector2(-10.0f, 120.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(0.0f, 120.0f), new Vector2(0.0f, 140.0f), new Vector2(50.0f, 140.0f), new Vector2(50.0f, 120.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(60.0f, 120.0f), new Vector2(60.0f, 140.0f), new Vector2(110.0f, 140.0f), new Vector2(110.0f, 120.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(120.0f, 120.0f), new Vector2(120.0f, 140.0f), new Vector2(170.0f, 140.0f), new Vector2(170.0f, 120.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(180.0f, 120.0f), new Vector2(180.0f, 140.0f), new Vector2(230.0f, 140.0f), new Vector2(230.0f, 120.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(240.0f, 120.0f), new Vector2(240.0f, 140.0f), new Vector2(290.0f, 140.0f), new Vector2(290.0f, 120.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-300.0f, 120.0f), new Vector2(-300.0f, 140.0f), new Vector2(-250.0f, 140.0f), new Vector2(-250.0f, 120.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-240.0f, 120.0f), new Vector2(-240.0f, 140.0f), new Vector2(-190.0f, 140.0f), new Vector2(-190.0f, 120.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-180.0f, 120.0f), new Vector2(-180.0f, 140.0f), new Vector2(-130.0f, 140.0f), new Vector2(-130.0f, 120.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-120.0f, 120.0f), new Vector2(-120.0f, 140.0f), new Vector2(-70.0f, 140.0f), new Vector2(-70.0f, 120.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-60.0f, 120.0f), new Vector2(-60.0f, 140.0f), new Vector2(-10.0f, 140.0f), new Vector2(-10.0f, 120.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(0.0f, 120.0f), new Vector2(0.0f, 140.0f), new Vector2(50.0f, 140.0f), new Vector2(50.0f, 120.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(60.0f, 120.0f), new Vector2(60.0f, 140.0f), new Vector2(110.0f, 140.0f), new Vector2(110.0f, 120.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(120.0f, 120.0f), new Vector2(120.0f, 140.0f), new Vector2(170.0f, 140.0f), new Vector2(170.0f, 120.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(180.0f, 120.0f), new Vector2(180.0f, 140.0f), new Vector2(230.0f, 140.0f), new Vector2(230.0f, 120.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(240.0f, 120.0f), new Vector2(240.0f, 140.0f), new Vector2(290.0f, 140.0f), new Vector2(290.0f, 120.0f)));
 
             //ranger 5
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(-300.0f, 90.0f), new Vector2(-300.0f, 110.0f), new Vector2(-250.0f, 110.0f), new Vector2(-250.0f, 90.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(-240.0f, 90.0f), new Vector2(-240.0f, 110.0f), new Vector2(-190.0f, 110.0f), new Vector2(-190.0f, 90.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(-180.0f, 90.0f), new Vector2(-180.0f, 110.0f), new Vector2(-130.0f, 110.0f), new Vector2(-130.0f, 90.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(-120.0f, 90.0f), new Vector2(-120.0f, 110.0f), new Vector2(-70.0f, 110.0f), new Vector2(-70.0f, 90.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(-60.0f, 90.0f), new Vector2(-60.0f, 110.0f), new Vector2(-10.0f, 110.0f), new Vector2(-10.0f, 90.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(0.0f, 90.0f), new Vector2(0.0f, 110.0f), new Vector2(50.0f, 110.0f), new Vector2(50.0f, 90.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(60.0f, 90.0f), new Vector2(60.0f, 110.0f), new Vector2(110.0f, 110.0f), new Vector2(110.0f, 90.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(120.0f, 90.0f), new Vector2(120.0f, 110.0f), new Vector2(170.0f, 110.0f), new Vector2(170.0f, 90.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(180.0f, 90.0f), new Vector2(180.0f, 110.0f), new Vector2(230.0f, 110.0f), new Vector2(230.0f, 90.0f)));
-            brique.Add(new Brique("./images/blue.bmp", new Vector2(240.0f, 90.0f), new Vector2(240.0f, 110.0f), new Vector2(290.0f, 110.0f), new Vector2(290.0f, 90.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-300.0f, 90.0f), new Vector2(-300.0f, 110.0f), new Vector2(-250.0f, 110.0f), new Vector2(-250.0f, 90.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-240.0f, 90.0f), new Vector2(-240.0f, 110.0f), new Vector2(-190.0f, 110.0f), new Vector2(-190.0f, 90.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-180.0f, 90.0f), new Vector2(-180.0f, 110.0f), new Vector2(-130.0f, 110.0f), new Vector2(-130.0f, 90.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-120.0f, 90.0f), new Vector2(-120.0f, 110.0f), new Vector2(-70.0f, 110.0f), new Vector2(-70.0f, 90.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-60.0f, 90.0f), new Vector2(-60.0f, 110.0f), new Vector2(-10.0f, 110.0f), new Vector2(-10.0f, 90.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(0.0f, 90.0f), new Vector2(0.0f, 110.0f), new Vector2(50.0f, 110.0f), new Vector2(50.0f, 90.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(60.0f, 90.0f), new Vector2(60.0f, 110.0f), new Vector2(110.0f, 110.0f), new Vector2(110.0f, 90.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(120.0f, 90.0f), new Vector2(120.0f, 110.0f), new Vector2(170.0f, 110.0f), new Vector2(170.0f, 90.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(180.0f, 90.0f), new Vector2(180.0f, 110.0f), new Vector2(230.0f, 110.0f), new Vector2(230.0f, 90.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(240.0f, 90.0f), new Vector2(240.0f, 110.0f), new Vector2(290.0f, 110.0f), new Vector2(290.0f, 90.0f)));
 
             //instanciation de la raquette
             Vector2 pointE = new Vector2(-40.0f, -225.0f);
@@ -188,7 +189,7 @@ namespace JeuDeCasseBrique
 
             raquette.dessiner();
             balle.dessiner();
-            foreach (Brique brique in brique)
+            foreach (Brique brique in TableauDebrique)
             {
                 brique.dessiner();
             }
@@ -259,8 +260,8 @@ namespace JeuDeCasseBrique
             //List<Brique> listeBriques = new List<Brique>(brique);
             //Dictionary<CoteObjets, Vector2[]> listeDroitesBriques;
 
-            CoteObjets coteCollosion = CoteObjets.NULL;
-            foreach (Brique brique in brique)
+            
+            foreach (Brique brique in TableauDebrique)
             {
                 Dictionary<CoteObjets, Vector2[]> listeDroitesBriques = brique.getDroitesCotes();
                 bool siCollisionBalleBrique = false;
@@ -274,32 +275,25 @@ namespace JeuDeCasseBrique
                         {
                             siCollisionBalleBrique = true;
                             break;
-                        }
-
-                           
-                    }
-                    if (siCollisionBalleBrique)
-                    {
-                        break;
-                    }
-
-
+                        }    
+                    }    
                 }
                 if (siCollisionBalleBrique)
                 {
+
+
+                    TableauDebrique.Remove(brique);
                     balle.changerDirectionRaquette();
+                    break;
+
+
                 }
 
 
             }
 
-
-
-
-
-
-
         }
+
         #region methodesWeb
         private bool intersection(Vector2[] droiteBalle, Vector2[] droiteRaquette)
         {
