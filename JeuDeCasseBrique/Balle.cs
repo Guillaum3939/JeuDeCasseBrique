@@ -13,8 +13,11 @@ namespace JeuDeCasseBrique
         float incrementHorizontal;
 
         bool direction;
+        private bool balleLancee, fail;
+
         public bool Direction { get => direction; set => direction = value; }
-        
+        public bool BalleLancee { get => balleLancee; set => balleLancee = value; }
+        public bool Fail { get => fail; set => fail = value; }
         #endregion // Attributs;
 
         #region ConstructeurInitialisation
@@ -33,17 +36,28 @@ namespace JeuDeCasseBrique
         #region MethodesClasseParent
         public void update()
         {
-            if (deplacementVertical + incrementVertical >= 245.0f - listePoints[3].Y || deplacementVertical + incrementVertical <= -300.0f - listePoints[0].Y)
+            if (balleLancee)
             {
-                incrementVertical *= -1.0f;
-            }
-            deplacementVertical += incrementVertical;
+                if (deplacementVertical + incrementVertical >= 245.0f - listePoints[3].Y)
+                {
+                    incrementVertical *= -1.0f;
+                }
+                deplacementVertical += incrementVertical;
 
-            if (deplacementHorizontal + incrementHorizontal >= 345.0f - listePoints[2].X || deplacementHorizontal + incrementHorizontal <= -345.0f - listePoints[0].X)
-            {
-                incrementHorizontal *= -1.0f;
+                if (deplacementHorizontal + incrementHorizontal >= 345.0f - listePoints[2].X || deplacementHorizontal + incrementHorizontal <= -345.0f - listePoints[0].X)
+                {
+                    incrementHorizontal *= -1.0f;
+                }
+
+                deplacementHorizontal += incrementHorizontal;
+                //deplacementVertical += incrementHorizontal;
+
+                if (deplacementVertical + incrementVertical <= -300.0f - listePoints[0].Y)
+                {
+                    balleLancee = false;
+                    fail = true;
+                }
             }
-            deplacementHorizontal += incrementHorizontal;
         }
         public void dessiner()
         {
@@ -55,15 +69,14 @@ namespace JeuDeCasseBrique
         public void inverserDirection()
         {
 
-            incrementHorizontal *= 1.0f;
+            //incrementHorizontal *= 1.0f;
             incrementVertical *= -1.0f;
-
-           
 
         }
 
         public void changerDirectionRaquette()
         {
+
             incrementVertical *= -1.0f;
             if (direction && incrementHorizontal > 0)
             {
@@ -81,6 +94,7 @@ namespace JeuDeCasseBrique
             {
                 incrementHorizontal += 1.0f;
             }
+
         }
 
         #endregion // MethodesClasseParent
@@ -103,10 +117,8 @@ namespace JeuDeCasseBrique
             listeDroites[CoteObjets.NORD] = new Vector2[] { reelPointC, reelPointD };
             listeDroites[CoteObjets.OUEST] = new Vector2[] { reelPointD, reelPointA };
 
-            return listeDroites;
-            
+            return listeDroites;        
         }
-
         #endregion
        
     }
