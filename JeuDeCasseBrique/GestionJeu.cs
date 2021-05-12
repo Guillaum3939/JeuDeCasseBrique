@@ -24,6 +24,15 @@ namespace JeuDeCasseBrique
         Balle balle;
         GestionAudio audio;
         Vector2[] listeDroitesBrique = new Vector2[4];
+        Texte cptrBalle;
+        int nbBalle;
+        string texteBalle;
+        Texte cptrPoints;
+        int nbPoints;
+        string textePoints;
+        Texte cptrTableau;
+        int nbTableau;
+        string texteTableau;
         #endregion
 
         #region ConstructeurInitialisation
@@ -44,10 +53,37 @@ namespace JeuDeCasseBrique
         public GestionJeu(GameWindow window)
         {
             this.window = window;
+            nbBalle = 10;
+            texteBalle = "Nombre de balle : ";
+            textePoints = "Nombre de points : ";
+            nbPoints = 0;
+            texteTableau = "Tableau #";
+            nbTableau = 1;
             start();
         }
-        
-         private void start()
+
+        private string getTxtCompletBalle(string texteBalle, int nbBalle)
+        {
+            string conca;
+            conca = texteBalle + nbBalle;
+            return conca;
+        }
+
+        private string getTxtCompletPoints(string textePoints, int nbPoints)
+        {
+            string conca;
+            conca = textePoints + nbPoints;
+            return conca;
+        }
+
+        private string getTxtCompletTableau(string texteTableau, int nbTableau)
+        {
+            string conca;
+            conca = texteTableau + nbTableau;
+            return conca;
+        }
+
+        private void start()
         {
 
             double nbrIPS = 60.0;
@@ -87,19 +123,9 @@ namespace JeuDeCasseBrique
             // instanciation des briques
             TableauDebrique = new List<Brique>();
 
-            // ranger 1
-            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-300.0f, 210.0f), new Vector2(-300.0f, 230.0f), new Vector2(-250.0f, 230.0f), new Vector2(-250.0f, 210.0f)));
-            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-240.0f, 210.0f), new Vector2(-240.0f, 230.0f), new Vector2(-190.0f, 230.0f), new Vector2(-190.0f, 210.0f)));
-            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-180.0f, 210.0f), new Vector2(-180.0f, 230.0f), new Vector2(-130.0f, 230.0f), new Vector2(-130.0f, 210.0f)));
-            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-120.0f, 210.0f), new Vector2(-120.0f, 230.0f), new Vector2(-70.0f, 230.0f), new Vector2(-70.0f, 210.0f)));
-            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-60.0f, 210.0f), new Vector2(-60.0f, 230.0f), new Vector2(-10.0f, 230.0f), new Vector2(-10.0f, 210.0f)));
-            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(0.0f, 210.0f), new Vector2(0.0f, 230.0f), new Vector2(50.0f, 230.0f), new Vector2(50.0f, 210.0f)));
-            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(60.0f, 210.0f), new Vector2(60.0f, 230.0f), new Vector2(110.0f, 230.0f), new Vector2(110.0f, 210.0f)));
-            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(120.0f, 210.0f), new Vector2(120.0f, 230.0f), new Vector2(170.0f, 230.0f), new Vector2(170.0f, 210.0f)));
-            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(180.0f, 210.0f), new Vector2(180.0f, 230.0f), new Vector2(230.0f, 230.0f), new Vector2(230.0f, 210.0f)));
-            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(240.0f, 210.0f), new Vector2(240.0f, 230.0f), new Vector2(290.0f, 230.0f), new Vector2(290.0f, 210.0f)));
+     
 
-            //ranger 2
+            //ranger 1
             TableauDebrique.Add(new Brique("./images/green.bmp", new Vector2(-300.0f, 180.0f), new Vector2(-300.0f, 200.0f), new Vector2(-250.0f, 200.0f), new Vector2(-250.0f, 180.0f)));
             TableauDebrique.Add(new Brique("./images/green.bmp", new Vector2(-240.0f, 180.0f), new Vector2(-240.0f, 200.0f), new Vector2(-190.0f, 200.0f), new Vector2(-190.0f, 180.0f)));
             TableauDebrique.Add(new Brique("./images/green.bmp", new Vector2(-180.0f, 180.0f), new Vector2(-180.0f, 200.0f), new Vector2(-130.0f, 200.0f), new Vector2(-130.0f, 180.0f)));
@@ -111,7 +137,7 @@ namespace JeuDeCasseBrique
             TableauDebrique.Add(new Brique("./images/green.bmp", new Vector2(180.0f, 180.0f), new Vector2(180.0f, 200.0f), new Vector2(230.0f, 200.0f), new Vector2(230.0f, 180.0f)));
             TableauDebrique.Add(new Brique("./images/green.bmp", new Vector2(240.0f, 180.0f), new Vector2(240.0f, 200.0f), new Vector2(290.0f, 200.0f), new Vector2(290.0f, 180.0f)));
 
-            //ranger 3
+            //ranger 2
             TableauDebrique.Add(new Brique("./images/orange.bmp", new Vector2(-300.0f, 150.0f), new Vector2(-300.0f, 170.0f), new Vector2(-250.0f, 170.0f), new Vector2(-250.0f, 150.0f)));
             TableauDebrique.Add(new Brique("./images/orange.bmp", new Vector2(-240.0f, 150.0f), new Vector2(-240.0f, 170.0f), new Vector2(-190.0f, 170.0f), new Vector2(-190.0f, 150.0f)));
             TableauDebrique.Add(new Brique("./images/orange.bmp", new Vector2(-180.0f, 150.0f), new Vector2(-180.0f, 170.0f), new Vector2(-130.0f, 170.0f), new Vector2(-130.0f, 150.0f)));
@@ -123,7 +149,7 @@ namespace JeuDeCasseBrique
             TableauDebrique.Add(new Brique("./images/orange.bmp", new Vector2(180.0f, 150.0f), new Vector2(180.0f, 170.0f), new Vector2(230.0f, 170.0f), new Vector2(230.0f, 150.0f)));
             TableauDebrique.Add(new Brique("./images/orange.bmp", new Vector2(240.0f, 150.0f), new Vector2(240.0f, 170.0f), new Vector2(290.0f, 170.0f), new Vector2(290.0f, 150.0f)));
 
-            //ranger 4
+            //ranger 3
             TableauDebrique.Add(new Brique("./images/red.bmp", new Vector2(-300.0f, 120.0f), new Vector2(-300.0f, 140.0f), new Vector2(-250.0f, 140.0f), new Vector2(-250.0f, 120.0f)));
             TableauDebrique.Add(new Brique("./images/red.bmp", new Vector2(-240.0f, 120.0f), new Vector2(-240.0f, 140.0f), new Vector2(-190.0f, 140.0f), new Vector2(-190.0f, 120.0f)));
             TableauDebrique.Add(new Brique("./images/red.bmp", new Vector2(-180.0f, 120.0f), new Vector2(-180.0f, 140.0f), new Vector2(-130.0f, 140.0f), new Vector2(-130.0f, 120.0f)));
@@ -135,7 +161,7 @@ namespace JeuDeCasseBrique
             TableauDebrique.Add(new Brique("./images/red.bmp", new Vector2(180.0f, 120.0f), new Vector2(180.0f, 140.0f), new Vector2(230.0f, 140.0f), new Vector2(230.0f, 120.0f)));
             TableauDebrique.Add(new Brique("./images/red.bmp", new Vector2(240.0f, 120.0f), new Vector2(240.0f, 140.0f), new Vector2(290.0f, 140.0f), new Vector2(290.0f, 120.0f)));
 
-            //ranger 5
+            //ranger 4
             TableauDebrique.Add(new Brique("./images/yellow.bmp", new Vector2(-300.0f, 90.0f), new Vector2(-300.0f, 110.0f), new Vector2(-250.0f, 110.0f), new Vector2(-250.0f, 90.0f)));
             TableauDebrique.Add(new Brique("./images/yellow.bmp", new Vector2(-240.0f, 90.0f), new Vector2(-240.0f, 110.0f), new Vector2(-190.0f, 110.0f), new Vector2(-190.0f, 90.0f)));
             TableauDebrique.Add(new Brique("./images/yellow.bmp", new Vector2(-180.0f, 90.0f), new Vector2(-180.0f, 110.0f), new Vector2(-130.0f, 110.0f), new Vector2(-130.0f, 90.0f)));
@@ -146,6 +172,18 @@ namespace JeuDeCasseBrique
             TableauDebrique.Add(new Brique("./images/yellow.bmp", new Vector2(120.0f, 90.0f), new Vector2(120.0f, 110.0f), new Vector2(170.0f, 110.0f), new Vector2(170.0f, 90.0f)));
             TableauDebrique.Add(new Brique("./images/yellow.bmp", new Vector2(180.0f, 90.0f), new Vector2(180.0f, 110.0f), new Vector2(230.0f, 110.0f), new Vector2(230.0f, 90.0f)));
             TableauDebrique.Add(new Brique("./images/yellow.bmp", new Vector2(240.0f, 90.0f), new Vector2(240.0f, 110.0f), new Vector2(290.0f, 110.0f), new Vector2(290.0f, 90.0f)));
+
+            //ranger 4
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-300.0f, 60.0f), new Vector2(-300.0f, 80.0f), new Vector2(-250.0f, 80.0f), new Vector2(-250.0f, 60.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-240.0f, 60.0f), new Vector2(-240.0f, 80.0f), new Vector2(-190.0f, 80.0f), new Vector2(-190.0f, 60.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-180.0f, 60.0f), new Vector2(-180.0f, 80.0f), new Vector2(-130.0f, 80.0f), new Vector2(-130.0f, 60.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-120.0f, 60.0f), new Vector2(-120.0f, 80.0f), new Vector2(-70.0f, 80.0f), new Vector2(-70.0f, 60.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(-60.0f, 60.0f), new Vector2(-60.0f, 80.0f), new Vector2(-10.0f, 80.0f), new Vector2(-10.0f, 60.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(0.0f, 60.0f), new Vector2(0.0f, 80.0f), new Vector2(50.0f, 80.0f), new Vector2(50.0f, 60.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(60.0f, 60.0f), new Vector2(60.0f, 80.0f), new Vector2(110.0f, 80.0f), new Vector2(110.0f, 60.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(120.0f, 60.0f), new Vector2(120.0f, 80.0f), new Vector2(170.0f, 80.0f), new Vector2(170.0f, 60.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(180.0f, 60.0f), new Vector2(180.0f, 80.0f), new Vector2(230.0f, 80.0f), new Vector2(230.0f, 60.0f)));
+            TableauDebrique.Add(new Brique("./images/blue.bmp", new Vector2(240.0f, 60.0f), new Vector2(240.0f, 80.0f), new Vector2(290.0f, 80.0f), new Vector2(290.0f, 60.0f)));
 
             //instanciation de la raquette
             Vector2 pointE = new Vector2(-40.0f, -225.0f);
@@ -160,7 +198,37 @@ namespace JeuDeCasseBrique
             Vector2 pointc = new Vector2(0.0f, -200.0f);
             Vector2 pointd = new Vector2(0.0f, -210.0f);
             balle = new Balle("./images/balle.bmp",pointa, pointb, pointc, pointd);
-            
+
+            // instanciation du  texte points de vie
+            int largeurZoneTexte2 = 180;
+            int hauteurZoneTexte2 = 25;
+            Color couleurFond;
+            couleurFond = Color.Black;
+            Color couleurTexte;
+            couleurTexte = Color.Cyan;
+            Vector2 coinInferieurGauche2 = new Vector2(-260.0f, 210.0f);
+            cptrBalle = new Texte(coinInferieurGauche2, largeurZoneTexte2, hauteurZoneTexte2);
+            cptrBalle.setTexte(getTxtCompletBalle(texteBalle, nbBalle));
+            cptrBalle.setCouleurFond(couleurFond);
+            cptrBalle.setCouleurTexte(couleurTexte);
+
+            // instanciation du  texte qte doritos, qte salsa
+            int largeurZoneTexte3 = 178;
+            int hauteurZoneTexte3 = 25;
+            Vector2 coinInferieurGauche3 = new Vector2(-80.0f, 210.0f);
+            cptrPoints = new Texte(coinInferieurGauche3, largeurZoneTexte3, hauteurZoneTexte3);
+            cptrPoints.setTexte(getTxtCompletPoints(textePoints, nbPoints));
+            cptrPoints.setCouleurFond(couleurFond);
+            cptrPoints.setCouleurTexte(couleurTexte);
+
+            // instanciation du  texte  qte salsa
+            int largeurZoneTexte4 = 150;
+            int hauteurZoneTexte4 = 25;
+            Vector2 coinInferieurGauche4 = new Vector2(120.0f, 210.0f);
+            cptrTableau = new Texte(coinInferieurGauche4, largeurZoneTexte4, hauteurZoneTexte4);
+            cptrTableau.setTexte(getTxtCompletTableau(texteTableau, nbTableau));
+            cptrTableau.setCouleurFond(couleurFond);
+            cptrTableau.setCouleurTexte(couleurTexte);
 
         }
 
@@ -193,6 +261,10 @@ namespace JeuDeCasseBrique
             {
                 brique.dessiner();
             }
+            cptrBalle.dessiner();
+            cptrPoints.dessiner();
+            cptrTableau.dessiner();
+
             window.SwapBuffers();
 
         }
@@ -284,7 +356,7 @@ namespace JeuDeCasseBrique
 
                     //audio.jouerDestruct();
                     TableauDebrique.Remove(brique);
-                    
+                    audio.jouerDestruct();
                     balle.inverserDirection();
 
                     break;
@@ -430,5 +502,131 @@ namespace JeuDeCasseBrique
         #endregion // methodesWeb
         #endregion // gestionCollisions
         
+    }
+
+    internal class Texte
+    {
+        #region Attribut
+        Vector2 pointA;
+        Vector2 pointB;
+        Vector2 pointC;
+        Vector2 pointD;
+        int largeurZoneTexte;
+        int hauteurZoneTexte;
+        string texte;
+        Color couleurDeFond;
+        SolidBrush pinceau;
+        PointF position;
+        Font policeSansSerif;
+        Font policeSansSerifGras;
+        Font policeAffichage;
+        int textureID;
+        #endregion //Attribut
+
+        #region  Constructeur      
+        public Texte(Vector2 coinInfGauche, int largeur, int hauteur)
+        {
+            pointA = coinInfGauche;
+            pointB = new Vector2(coinInfGauche.X + largeur, coinInfGauche.Y);
+            pointC = new Vector2(coinInfGauche.X + largeur, coinInfGauche.Y + hauteur);
+            pointD = new Vector2(coinInfGauche.X, coinInfGauche.Y + hauteur);
+            largeurZoneTexte = largeur;
+            hauteurZoneTexte = hauteur;
+            texte = " ";
+            couleurDeFond = Color.LightGray;
+            pinceau = new SolidBrush(Color.Blue);
+            position = new PointF(0.0f, 2.0f);
+            policeSansSerif = new Font(FontFamily.GenericSerif, 11);
+            policeSansSerifGras = new Font(this.policeSansSerif, FontStyle.Bold);
+            policeAffichage = policeSansSerif;
+            textureID = GL.GenTexture();
+            GL.BindTexture(TextureTarget.Texture2D, textureID);
+            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Linear);
+            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);
+            GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, largeur, hauteur, 0, PixelFormat.Rgba,
+                PixelType.UnsignedByte, IntPtr.Zero);
+        }
+        #endregion //constructeur
+
+        #region Methode
+        public void dessiner()
+        {
+            GL.BindTexture(TextureTarget.Texture2D, textureID);
+            GL.PushMatrix();
+            GL.Begin(PrimitiveType.Quads);
+            GL.TexCoord2(0.0, 1.0);
+            GL.Vertex2(pointA.X, pointA.Y);
+            GL.TexCoord2(1.0, 1.0);
+            GL.Vertex2(pointB.X, pointB.Y);
+            GL.TexCoord2(1.0, 0.0);
+            GL.Vertex2(pointC.X, pointC.Y);
+            GL.TexCoord2(0.0, 0.0);
+            GL.Vertex2(pointD.X, pointD.Y);
+            GL.End();
+            GL.PopMatrix();
+
+
+        }
+
+        private void chargerTexte()
+        {
+            //Créer une image BMP pour recevoir le texte converti par le graphique
+            Bitmap bmpTxt = new Bitmap(largeurZoneTexte, hauteurZoneTexte,
+                System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+
+            // Convertir le txte en graphique
+            Graphics graphique = Graphics.FromImage(bmpTxt);
+            graphique.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            graphique.Clear(couleurDeFond);
+            graphique.DrawString(texte, policeAffichage, pinceau, position);
+
+            // Extraire les données de l'image BMP
+            Rectangle zoneTexte = new Rectangle(0, 0, largeurZoneTexte, hauteurZoneTexte);
+            System.Drawing.Imaging.BitmapData dataTxt = bmpTxt.LockBits(zoneTexte,
+                System.Drawing.Imaging.ImageLockMode.ReadOnly, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+
+            // Appliquez les données de l'image BMP à la texture
+            GL.BindTexture(TextureTarget.Texture2D, textureID);
+            GL.TexSubImage2D(TextureTarget.Texture2D, 0, 0, 0, largeurZoneTexte, hauteurZoneTexte, PixelFormat.Bgra,
+                PixelType.UnsignedByte, dataTxt.Scan0);
+
+            //Libérer les données de l'image BMP
+            bmpTxt.UnlockBits(dataTxt);
+
+
+        }
+
+        public void setCouleurFond(Color couleur)
+        {
+            couleurDeFond = couleur;
+            chargerTexte();
+        }
+
+        public void setCouleurTexte(Color couleur)
+        {
+            pinceau.Color = couleur;
+            chargerTexte();
+        }
+
+        public void setPoliceNormal()
+        {
+            policeAffichage = policeSansSerif;
+            chargerTexte();
+        }
+
+        public void setPoliceGras()
+        {
+            policeAffichage = policeSansSerifGras;
+            chargerTexte();
+        }
+
+        public void setTexte(string txt)
+        {
+            texte = txt;
+            chargerTexte();
+
+        }
+
+        #endregion //Methode
     }
 }
