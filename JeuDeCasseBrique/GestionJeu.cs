@@ -458,6 +458,7 @@ namespace JeuDeCasseBrique
                         if (intersection(droiteBalle.Value, droiteBriques.Value))
                         {
                             siCollisionBalleBrique = true;
+                            balle.changerDirectionRaquette();
                             break;
                         }    
                     }    
