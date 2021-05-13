@@ -78,7 +78,7 @@ namespace JeuDeCasseBrique
         {
             audioContext = new AudioContext();
             fichierMusiquePricipale = new FichierWAV("./audio/musicAmbiance.wav");
-            fichierOuch = new FichierWAV("./audio/Ouch.wav");
+            fichierOuch = new FichierWAV("./audio/bound.wav");
             fichierPewPew = new FichierWAV("./audio/PewPew.wav");
             fichierSalsa = new FichierWAV("./audio/Salsa.wav");
             fichierSplash = new FichierWAV("./audio/Splash.wav");
