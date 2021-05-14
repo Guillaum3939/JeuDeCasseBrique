@@ -8,6 +8,7 @@ using OpenTK;
 using OpenTK.Graphics.OpenGL;
 using OpenTK.Input;
 
+
 namespace JeuDeCasseBrique
 {
     enum CoteObjets { NULL, NORD, SUD, EST, OUEST, NORD_EST, NORD_OUEST };
@@ -32,6 +33,7 @@ namespace JeuDeCasseBrique
         Texte cptrTableau;
         int nbTableau;
         string texteTableau;
+        int briquePv = 1;
         #endregion
 
         #region ConstructeurInitialisation
@@ -39,7 +41,7 @@ namespace JeuDeCasseBrique
         public GestionJeu(GameWindow window)
         {
             this.window = window;
-            nbBalle = 10;
+            nbBalle = 3;
             texteBalle = "Nombre de balle : ";
             textePoints = "Nombre de points : ";
             nbPoints = 0;
@@ -47,6 +49,8 @@ namespace JeuDeCasseBrique
             nbTableau = 1;
             start();
         }
+
+       
 
         private string getTxtCompletBalle(string texteBalle, int nbBalle)
         {
@@ -83,9 +87,7 @@ namespace JeuDeCasseBrique
             window.KeyDown += Window_KeyDown; // ultiliser pour la barre espace (lancement de la balle)
             window.Run(dureeAffichageCHaqueImage);
             // test 123
-           
         }
-
 
         private string GetTxtCompletBalle(string texteBalle, int nbBalle)
         {
@@ -144,48 +146,155 @@ namespace JeuDeCasseBrique
             string green = "./images/green.bmp";
             string blue = "./images/blue.bmp";
             string red = "./images/red.bmp";
-            string yellow = "./images/star.bmp";
+            string yellow = "./images/yellow.bmp";
             string pink= "./images/pink.bmp";
             string orange = "./images/orange.bmp";
+            string star = "./images/star.bmp";
+            string girl = "./images/girl.bmp";
+            string murmaid= "./images/murmaid.bmp";
+            string sun = "./images/sun.bmp";
+            string fee = "./images/fee.bmp";
 
-            string color = green;
+
+            string color = yellow;
 
             TableauDebrique.Add(new Brique(color, new Vector2(-300.0f, 180.0f), new Vector2(-300.0f, 200.0f), new Vector2(-250.0f, 200.0f), new Vector2(-250.0f, 180.0f)));
             for(int j = 0; j<6; j++)
             {
-               
                 for (int i = 0; i<10; i++)
                 { 
-               
                     TableauDebrique.Add(new Brique(color, new Vector2(x1, y1), new Vector2(x1, y2), new Vector2(x2, y2), new Vector2(x2,y1)));
                     x1 += x;
                     x2 += x;
-                    
-
                 }
+
                 x1 = -300f;
                 x2 = -250f;
 
                 y1 -= y;
                 y2 -= y;
 
-                switch (j+1)
+            //Tableau 1
+                if(nbTableau ==1)
+                { 
+                    switch (j+1)
+                    {
+                        case 1: color = sun;
+                            break;
+                        case 2:
+                            color = yellow;
+                            break;
+                        case 3:
+                            color = sun;
+                            break;
+                        case 4:
+                            color = yellow;
+                            break;
+                        case 5:
+                            color = sun;
+                            break;
+                    }
+
+                    foreach(Brique brique in TableauDebrique)
+                    {
+                        briquePv = 1;
+                    }
+               }
+
+            //Tableau 2
+                if (nbTableau ==2)
                 {
-                    case 1: color = blue;
-                        break;
-                    case 2:
-                        color = pink;
-                        break;
-                    case 3:
-                        color = red;
-                        break;
-                    case 4:
-                        color = orange;
-                        break;
-                    case 5:
-                        color = yellow;
-                        break;
+                    switch (j + 2)
+                    {
+                        case 3:
+                            color = orange;
+                            break;
+                        case 5:
+                            color = green;
+                            break;
+                    }
+
+                    foreach (Brique brique in TableauDebrique)
+                    {
+                        briquePv = 2;
+                    }
                 }
+
+             //Tableau 3
+                if(nbTableau ==3)
+                {
+                    switch (j + 1)
+                    {
+                        case 1:
+                            color = girl;
+                            break;
+                        case 2:
+                            color = blue;
+                            break;
+                        case 3:
+                            color = fee;
+                            break;
+                        case 4:
+                            color = pink;
+                            break;
+                        case 5:
+                            color = murmaid;
+                            break;
+                    }
+
+                    foreach (Brique brique in TableauDebrique)
+                    {
+                        briquePv = 3;
+                    }
+                }
+
+             //Tableau 4
+                if(nbTableau == 4)
+                {
+                    switch (j + 2)
+                    {
+                        case 3:
+                            color = orange;
+                            break;
+                        case 5:
+                            color = sun;
+                            break;
+                    }
+
+                    foreach (Brique brique in TableauDebrique)
+                    {
+                        briquePv = 4;
+                    }
+                }
+
+             // Tableau 5
+                if(nbTableau == 5)
+                {
+                    switch (j + 1)
+                    {
+                        case 1:
+                            color = orange;
+                            break;
+                        case 2:
+                            color = girl;
+                            break;
+                        case 3:
+                            color = yellow;
+                            break;
+                        case 4:
+                            color = orange;
+                            break;
+                        case 5:
+                            color = girl;
+                            break;
+                    }
+
+                    foreach (Brique brique in TableauDebrique)
+                    {
+                        briquePv = 5;
+                    }
+                }
+
             }
 
             //instanciation de la raquette
@@ -216,7 +325,7 @@ namespace JeuDeCasseBrique
             cptrBalle.setCouleurTexte(couleurTexte);
 
             // instanciation du texte pour le nombre de point acummuler
-            int largeurZoneTexte3 = 180;
+            int largeurZoneTexte3 = 200;
             int hauteurZoneTexte3 = 25;
             Vector2 coinInferieurGauche3 = new Vector2(-60.0f, 210.0f);
             cptrPoints = new Texte(coinInferieurGauche3, largeurZoneTexte3, hauteurZoneTexte3);
@@ -227,7 +336,7 @@ namespace JeuDeCasseBrique
             // intanciation texte pour le numéro de tableau en cours
             int largeurZoneTexte4 = 160;
             int hauteurZoneTexte4 = 25;
-            Vector2 coinInferieurGauche4 = new Vector2(130.0f, 210.0f);
+            Vector2 coinInferieurGauche4 = new Vector2(140.0f, 210.0f);
             cptrTableau = new Texte(coinInferieurGauche4, largeurZoneTexte4, hauteurZoneTexte4);
             cptrTableau.setTexte(getTxtCompletTableau(texteTableau, nbTableau));
             cptrTableau.setCouleurFond(couleurFond);
@@ -254,12 +363,9 @@ namespace JeuDeCasseBrique
 
         private void balleHorsEcran()
         {
-            
-            
-
-           
+            //nbBalle -= 1;
+            //cptrBalle.setTexte(getTxtCompletBalle(texteBalle, nbBalle));
         }
-
         #endregion //ConstructeurInitialisation
 
         #region GestionAffichage
@@ -331,10 +437,8 @@ namespace JeuDeCasseBrique
                     {
                         if (intersection(droiteRaquette.Value, droiteBalle.Value))
                         {
-
                             SiCollisionBalle = true;
-                            coteCollision = droiteBalle.Key;
-                            
+                            coteCollision = droiteBalle.Key; 
                         }
                     }
                 }
@@ -368,12 +472,41 @@ namespace JeuDeCasseBrique
                         }    
                     }    
                 }
+
                 if (siCollisionBalleBrique)
                 {
-                    TableauDebrique.Remove(brique);
-                    audio.jouerDestruct();
-                    balle.inverserDirection();
-                    break;
+
+                    //briquePv -= 1;
+
+                    //if (briquePv==0)
+                    //{
+                    //    TableauDebrique.Remove(brique);
+                    //    Console.WriteLine("nb brique : "+ TableauDebrique.Count);
+                    //    audio.jouerDestruct();
+                    //    nbPoints += 10;
+                    //    cptrPoints.setTexte(getTxtCompletPoints(textePoints, nbPoints));
+                    //    balle.inverserDirection();
+                    //    break;
+                    //}
+
+                    if (TableauDebrique.Count>0)
+                    {
+                        TableauDebrique.Remove(brique);
+                        Console.WriteLine("nb brique : " + TableauDebrique.Count);
+                        audio.jouerDestruct();
+                        nbPoints += 10;
+                        cptrPoints.setTexte(getTxtCompletPoints(textePoints, nbPoints));
+                        balle.inverserDirection();
+                        break;
+                    }
+
+                    if (TableauDebrique.Count <= 50)
+                    {
+                        Console.WriteLine("Il n'y a plus de brique passez au niveau suivant");
+                        nbTableau += 1;
+                        cptrTableau.setTexte(GetTxtCompletTableau(texteTableau, nbTableau));
+                    }
+                    
                 }
             }
         }
