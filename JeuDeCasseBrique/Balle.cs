@@ -82,8 +82,9 @@ namespace JeuDeCasseBrique
             incrementVertical *= -1.0f;
             if (direction && incrementHorizontal > 0)
             {
-                incrementHorizontal += 1.0f;
+                incrementHorizontal *= 1.0f;
             }
+            
             
             
 

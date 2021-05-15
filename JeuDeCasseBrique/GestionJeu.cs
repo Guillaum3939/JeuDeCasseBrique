@@ -34,6 +34,8 @@ namespace JeuDeCasseBrique
         int nbTableau;
         string texteTableau;
         int briquePv = 1;
+        Vector2 pointa, pointb, pointc, pointd;//balle
+        Vector2 pointE, pointF, pointG, pointH;//raquette
         #endregion
 
         #region ConstructeurInitialisation
@@ -78,6 +80,18 @@ namespace JeuDeCasseBrique
 
             double nbrIPS = 60.0;
             double dureeAffichageCHaqueImage = 1.0 / nbrIPS;
+
+            //position de balle
+            pointa = new Vector2(-20.0f, -210.0f);
+            pointb = new Vector2(-20.0f, -200.0f);
+            pointc = new Vector2(0.0f, -200.0f);
+            pointd = new Vector2(0.0f, -210.0f);
+
+            //position de raquette
+             pointE = new Vector2(-40.0f, -225.0f);
+             pointF = new Vector2(-40.0f, -215.0f);
+             pointG = new Vector2(32.0f, -215.0f);
+             pointH = new Vector2(32.0f, -225.0f);
 
             window.Load += chargement;
             window.Resize += redimensionner;
@@ -298,18 +312,14 @@ namespace JeuDeCasseBrique
             }
 
             //instanciation de la raquette
-            Vector2 pointE = new Vector2(-40.0f, -225.0f);
-            Vector2 pointF = new Vector2(-40.0f,-215.0f);
-            Vector2 pointG = new Vector2(32.0f, -215.0f);
-            Vector2 pointH = new Vector2(32.0f, -225.0f);
+            
             raquette = new Raquette(pointE, pointF, pointG, pointH);
-
+           
             //instanciation de la balle
-            Vector2 pointa = new Vector2(-20.0f, -210.0f);
-            Vector2 pointb = new Vector2(-20.0f, -200.0f);
-            Vector2 pointc = new Vector2(0.0f, -200.0f);
-            Vector2 pointd = new Vector2(0.0f, -210.0f);
+             
+
             balle = new Balle("./images/balle.bmp",pointa, pointb, pointc, pointd);
+            
 
             // instanciation du texte pour le nombre de balle restant
             int largeurZoneTexte2 = 200;
@@ -365,6 +375,8 @@ namespace JeuDeCasseBrique
         {
             //nbBalle -= 1;
             //cptrBalle.setTexte(getTxtCompletBalle(texteBalle, nbBalle));
+            raquette = new Raquette(pointE, pointF, pointG, pointH);
+            balle = new Balle("./images/balle.bmp", pointa, pointb, pointc, pointd);
         }
         #endregion //ConstructeurInitialisation
 
