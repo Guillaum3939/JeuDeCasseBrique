@@ -373,10 +373,14 @@ namespace JeuDeCasseBrique
 
         private void balleHorsEcran()
         {
-            //nbBalle -= 1;
-            //cptrBalle.setTexte(getTxtCompletBalle(texteBalle, nbBalle));
-            raquette = new Raquette(pointE, pointF, pointG, pointH);
-            balle = new Balle("./images/balle.bmp", pointa, pointb, pointc, pointd);
+            if (nbBalle > 0)// Si le compteur tombe a 0 alors plus de balle
+            {
+                nbBalle -= 1;
+                cptrBalle.setTexte(getTxtCompletBalle(texteBalle, nbBalle));
+                raquette = new Raquette(pointE, pointF, pointG, pointH);
+                balle = new Balle("./images/balle.bmp", pointa, pointb, pointc, pointd);
+            }
+            
         }
         #endregion //ConstructeurInitialisation
 
