@@ -137,6 +137,19 @@ namespace JeuDeCasseBrique
 
         private void chargement (object sender, EventArgs arg)
         {
+
+            //affichage pour le joueur
+            Console.WriteLine("===================================================================="); Console.WriteLine(" ");
+            Console.WriteLine(" Bienvenue dans le Jeu Casse-brique"); Console.WriteLine(" ");
+            Console.WriteLine(" Action | Touches ");
+            Console.WriteLine(" =======|======== ");
+            Console.WriteLine(" Droite | D ou  ->"); 
+            Console.WriteLine(" Gauche | A ou <- ");
+            Console.WriteLine(" Balle  | Espace "); Console.WriteLine(" ");
+            Console.WriteLine("===================================================================="); Console.WriteLine(" ");
+
+
+
             //Musique de fond
             audio = new GestionAudio();
             audio.demarrerMusiqueDeFond();
@@ -388,6 +401,8 @@ namespace JeuDeCasseBrique
         private void rendu(object sender, EventArgs arg)
         {
             GL.Clear(ClearBufferMask.ColorBufferBit);
+            
+
 
             raquette.dessiner();
             balle.dessiner();
@@ -412,7 +427,6 @@ namespace JeuDeCasseBrique
             if ((keyboardState.IsKeyDown(Key.A)) || (keyboardState.IsKeyDown(Key.Left)))  //? A est à gauche mais tu as écrit right // mon erreur 
             {
                 raquette.Direction = false;
-                Console.WriteLine(e.Key.ToString());
                 //raquetteEnMvmt = true;
             }
 
@@ -420,7 +434,6 @@ namespace JeuDeCasseBrique
             {
                 //raquetteEnMvmt = true;
                 raquette.Direction = true;
-                Console.WriteLine(e.Key.ToString());
             }
 
         }
@@ -430,7 +443,7 @@ namespace JeuDeCasseBrique
             if (keyboardState.IsKeyDown(Key.Space))
             {
                 balle.BalleLancee = true;
-                Console.WriteLine("TEste lance balle");
+                Console.WriteLine("La balle est partie");
                 //jeuLance = true;
             }
         }
@@ -461,7 +474,6 @@ namespace JeuDeCasseBrique
                 if (SiCollisionBalle)
                 {
                     audio.jouerSonOuch();
-                    Console.WriteLine(" Il y  a eu collision sur le cote : " + coteCollision.ToString());
                     balle.changerDirectionRaquette();
                     
                 }
