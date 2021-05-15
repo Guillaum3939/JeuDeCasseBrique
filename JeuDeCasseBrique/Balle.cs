@@ -70,14 +70,9 @@ namespace JeuDeCasseBrique
         {
 
 
-            //incrementHorizontal *= 1.0f;
-            incrementVertical *= -1.0f;
-
             incrementHorizontal *= 1.0f;
-            incrementVertical *= -1.0f;
-
-           
-
+            
+            deplacementHorizontal += incrementHorizontal;
 
         }
 
@@ -89,18 +84,8 @@ namespace JeuDeCasseBrique
             {
                 incrementHorizontal += 1.0f;
             }
-            else if (!direction && incrementHorizontal < 0)
-            {
-                incrementHorizontal -= 1.0f;
-            }
-            else if (direction && incrementHorizontal < 0)
-            {
-                incrementHorizontal -= 1.0f;
-            }
-            else if (!direction && incrementHorizontal > 0)
-            {
-                incrementHorizontal += 1.0f;
-            }
+            
+            
 
         }
 
