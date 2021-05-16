@@ -325,12 +325,9 @@ namespace JeuDeCasseBrique
             }
 
             //instanciation de la raquette
-            
             raquette = new Raquette(pointE, pointF, pointG, pointH);
            
             //instanciation de la balle
-             
-
             balle = new Balle("./images/balle.bmp",pointa, pointb, pointc, pointd);
             
 
