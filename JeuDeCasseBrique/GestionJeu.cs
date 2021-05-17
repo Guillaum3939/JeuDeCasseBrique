@@ -394,7 +394,8 @@ namespace JeuDeCasseBrique
             }
             if (nbBalle == 0)
             {
-                cptrBalle.setTexte(getTxtCompletBalle(texteBalle, nbBalle)); 
+                cptrBalle.setTexte(getTxtCompletBalle(texteBalle, nbBalle));
+                audio.jouerSonGameOver();
             }
 
 
