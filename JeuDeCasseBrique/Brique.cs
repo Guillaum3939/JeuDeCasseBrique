@@ -17,7 +17,7 @@ namespace JeuDeCasseBrique
 
         #region ConstructeurInitialisation
 
-        public Brique(string nomTexture, Vector2 a, Vector2 b, Vector2 c, Vector2 d) 
+        public Brique(int pv,string nomTexture, Vector2 a, Vector2 b, Vector2 c, Vector2 d) 
             : base(nomTexture, a, b, c, d)
         {
             

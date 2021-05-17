@@ -33,9 +33,12 @@ namespace JeuDeCasseBrique
         Texte cptrTableau;
         int nbTableau;
         string texteTableau;
-        int briquePv = 1;
         Vector2 pointa, pointb, pointc, pointd;//balle
         Vector2 pointE, pointF, pointG, pointH;//raquette
+        int pv1 = 1;
+        int pv2 = 2;
+        int pv3 = 3;
+        int pv = 0;
         #endregion
 
         #region ConstructeurInitialisation
@@ -182,15 +185,16 @@ namespace JeuDeCasseBrique
             string sun = "./images/sun.bmp";
             string fee = "./images/fee.bmp";
 
-
             string color = yellow;
 
-            TableauDebrique.Add(new Brique(color, new Vector2(-300.0f, 180.0f), new Vector2(-300.0f, 200.0f), new Vector2(-250.0f, 200.0f), new Vector2(-250.0f, 180.0f)));
+            pv = pv1;
+
+            TableauDebrique.Add(new Brique(pv,color, new Vector2(-300.0f, 180.0f), new Vector2(-300.0f, 200.0f), new Vector2(-250.0f, 200.0f), new Vector2(-250.0f, 180.0f)));
             for(int j = 0; j<6; j++)
             {
                 for (int i = 0; i<10; i++)
                 { 
-                    TableauDebrique.Add(new Brique(color, new Vector2(x1, y1), new Vector2(x1, y2), new Vector2(x2, y2), new Vector2(x2,y1)));
+                    TableauDebrique.Add(new Brique(pv,color, new Vector2(x1, y1), new Vector2(x1, y2), new Vector2(x2, y2), new Vector2(x2,y1)));
                     x1 += x;
                     x2 += x;
                 }
@@ -206,26 +210,29 @@ namespace JeuDeCasseBrique
                 { 
                     switch (j+1)
                     {
-                        case 1: color = sun;
+                        case 1:
+                            color = sun;
+                            pv= pv3;
                             break;
                         case 2:
                             color = yellow;
+                            pv = pv2;
                             break;
                         case 3:
                             color = sun;
+                            pv = pv1;
                             break;
                         case 4:
                             color = yellow;
+                            pv = pv2;
                             break;
                         case 5:
                             color = sun;
+                            pv = pv2;
                             break;
                     }
 
-                    foreach(Brique brique in TableauDebrique)
-                    {
-                        briquePv = 1;
-                    }
+                  
                }
 
             //Tableau 2
@@ -235,16 +242,15 @@ namespace JeuDeCasseBrique
                     {
                         case 3:
                             color = orange;
+                            pv = pv2;
                             break;
                         case 5:
                             color = green;
+                            pv = pv3;
                             break;
                     }
 
-                    foreach (Brique brique in TableauDebrique)
-                    {
-                        briquePv = 2;
-                    }
+                   
                 }
 
              //Tableau 3
@@ -254,25 +260,27 @@ namespace JeuDeCasseBrique
                     {
                         case 1:
                             color = girl;
+                            pv = pv2;
                             break;
                         case 2:
                             color = blue;
+                            pv = pv1;
                             break;
                         case 3:
                             color = fee;
+                            pv = pv3;
                             break;
                         case 4:
                             color = pink;
+                            pv = pv3;
                             break;
                         case 5:
                             color = murmaid;
+                            pv = pv1;
                             break;
                     }
 
-                    foreach (Brique brique in TableauDebrique)
-                    {
-                        briquePv = 3;
-                    }
+                   
                 }
 
              //Tableau 4
@@ -282,16 +290,14 @@ namespace JeuDeCasseBrique
                     {
                         case 3:
                             color = orange;
+                            pv = pv3;
                             break;
                         case 5:
                             color = sun;
+                            pv = pv2;
                             break;
                     }
 
-                    foreach (Brique brique in TableauDebrique)
-                    {
-                        briquePv = 4;
-                    }
                 }
 
              // Tableau 5
@@ -301,25 +307,26 @@ namespace JeuDeCasseBrique
                     {
                         case 1:
                             color = orange;
+                            pv = pv3;
                             break;
                         case 2:
                             color = girl;
+                            pv = pv2;
                             break;
                         case 3:
                             color = yellow;
+                            pv = pv2;
                             break;
                         case 4:
                             color = orange;
+                            pv = pv1;
                             break;
                         case 5:
                             color = girl;
+                            pv = pv3;
                             break;
                     }
 
-                    foreach (Brique brique in TableauDebrique)
-                    {
-                        briquePv = 5;
-                    }
                 }
 
             }
@@ -509,22 +516,11 @@ namespace JeuDeCasseBrique
 
                 if (siCollisionBalleBrique)
                 {
+                    pv -= 1;
 
-                    //briquePv -= 1;
-
-                    //if (briquePv==0)
-                    //{
-                    //    TableauDebrique.Remove(brique);
-                    //    Console.WriteLine("nb brique : "+ TableauDebrique.Count);
-                    //    audio.jouerDestruct();
-                    //    nbPoints += 10;
-                    //    cptrPoints.setTexte(getTxtCompletPoints(textePoints, nbPoints));
-                    //    balle.inverserDirection();
-                    //    break;
-                    //}
-
-                    if (TableauDebrique.Count>0)
+                    if (TableauDebrique.Count>0 /*&& pv==0*/)
                     {
+
                         TableauDebrique.Remove(brique);
                         Console.WriteLine("nb brique : " + TableauDebrique.Count);
                         audio.jouerDestruct();
