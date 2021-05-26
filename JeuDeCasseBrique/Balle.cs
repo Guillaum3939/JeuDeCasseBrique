@@ -50,7 +50,6 @@ namespace JeuDeCasseBrique
                 }
 
                 deplacementHorizontal += incrementHorizontal;
-                //deplacementVertical += incrementHorizontal;
 
                 if (deplacementVertical + incrementVertical <= -300.0f - listePoints[0].Y)
                 {
